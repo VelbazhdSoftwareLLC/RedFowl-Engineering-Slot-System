@@ -1,0 +1,7 @@
+#ifndef MANAGEMENT_VOUCHEROUTLOGWINDOW_H_
+#define MANAGEMENT_VOUCHEROUTLOGWINDOW_H_
+
+namespace management {
+}
+
+#endif

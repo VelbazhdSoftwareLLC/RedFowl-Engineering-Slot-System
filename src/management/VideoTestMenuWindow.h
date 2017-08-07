@@ -1,0 +1,7 @@
+#ifndef MANAGEMENT_VIDEOTESTMENUWINDOW_H_
+#define MANAGEMENT_VIDEOTESTMENUWINDOW_H_
+
+namespace management {
+}
+
+#endif

@@ -1,0 +1,7 @@
+#ifndef MANAGEMENT_VOUCHERACCOUNTINGWINDOW_H_
+#define MANAGEMENT_VOUCHERACCOUNTINGWINDOW_H_
+
+namespace management {
+}
+
+#endif

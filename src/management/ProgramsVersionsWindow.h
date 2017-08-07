@@ -1,0 +1,7 @@
+#ifndef MANAGEMENT_PROGRAMSVERSIONSWINDOW_H_
+#define MANAGEMENT_PROGRAMSVERSIONSWINDOW_H_
+
+namespace management {
+}
+
+#endif

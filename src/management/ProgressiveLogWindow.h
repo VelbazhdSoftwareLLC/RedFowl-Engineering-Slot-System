@@ -1,0 +1,7 @@
+#ifndef MANAGEMENT_PROGRESSIVELOGWINDOW_H_
+#define MANAGEMENT_PROGRESSIVELOGWINDOW_H_
+
+namespace management {
+}
+
+#endif

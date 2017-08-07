@@ -1,0 +1,7 @@
+#ifndef MANAGEMENT_BILLVALIDATORTESTWINDOW_H_
+#define MANAGEMENT_BILLVALIDATORTESTWINDOW_H_
+
+namespace management {
+}
+
+#endif

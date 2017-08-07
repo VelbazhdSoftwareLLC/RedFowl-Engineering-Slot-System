@@ -1,0 +1,7 @@
+#ifndef MANAGEMENT_BILLACCEPTEDLOGWINDOW_H_
+#define MANAGEMENT_BILLACCEPTEDLOGWINDOW_H_
+
+namespace management {
+}
+
+#endif

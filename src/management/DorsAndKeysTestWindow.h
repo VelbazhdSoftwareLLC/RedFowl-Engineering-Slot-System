@@ -1,0 +1,7 @@
+#ifndef MANAGEMENT_DORSANDKEYSTESTWINDOW_H_
+#define MANAGEMENT_DORSANDKEYSTESTWINDOW_H_
+
+namespace management {
+}
+
+#endif

@@ -1,0 +1,7 @@
+#ifndef MANAGEMENT_AUTHORIZATIONOWINDOW_H_
+#define MANAGEMENT_AUTHORIZATIONOWINDOW_H_
+
+namespace management {
+}
+
+#endif

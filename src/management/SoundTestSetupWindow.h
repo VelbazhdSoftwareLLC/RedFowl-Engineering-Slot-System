@@ -1,0 +1,7 @@
+#ifndef MANAGEMENT_SOUNDTESTSETUPWINDOW_H_
+#define MANAGEMENT_SOUNDTESTSETUPWINDOW_H_
+
+namespace management {
+}
+
+#endif

@@ -1,0 +1,7 @@
+#ifndef MANAGEMENT_BILLACCOUNTINGWINDOW_H_
+#define MANAGEMENT_BILLACCOUNTINGWINDOW_H_
+
+namespace management {
+}
+
+#endif

@@ -1,0 +1,7 @@
+#ifndef MANAGEMENT_ERRORACCOUNTINGWINDOW_H_
+#define MANAGEMENT_ERRORACCOUNTINGWINDOW_H_
+
+namespace management {
+}
+
+#endif
