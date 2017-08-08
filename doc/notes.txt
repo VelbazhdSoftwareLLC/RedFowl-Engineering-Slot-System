@@ -8,3 +8,12 @@
 
 -> За да се изгради проекта първо се прави Project->Clean, след това се генерират ODB класовете, след това се копират картинките в изходната директория и накрая се прави Project->BuildAll. 
 
+-> Настройване на развойната среда: 
+
+1. Oracle Java
+2. Eclipse CDT
+3. build-essential
+4. PostgreSQL / pgAdmin III
+5. SDL2 / SDL2 Image / SDL2 TTF / SDL2 Mixer
+6. ODB ORM
+
