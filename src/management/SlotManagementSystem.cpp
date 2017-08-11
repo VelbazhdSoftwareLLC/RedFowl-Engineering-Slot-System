@@ -19,7 +19,7 @@ static int onMove(EObjectType type, void *object, void *data, chtype input) {
 }
 
 int main1(int argc, char *argv[], unsigned long &session) {
-	CDKMENU *menu = newCDKMenu(screen, MenuLabels::VALUES, MenuLabels::WIDTH, MenuLabels::HEIGHT, MenuLabels::LOCATION, TOP, A_UNDERLINE, A_REVERSE);
+	CDKMENU *menu = newCDKMenu(screen, (char* (*)[98])(MenuLabels::VALUES), MenuLabels::WIDTH, MenuLabels::HEIGHT, MenuLabels::LOCATION, TOP, A_UNDERLINE, A_REVERSE);
 
 	/*
 	 * Create the post process function.

@@ -1,5 +1,14 @@
-#Build folder
-/Default/
+# Build folder
+Default/
+
+# ODB compiled files
+*.ixx
+*.cxx
+*.hxx
+database.sql
+
+# Eclipse Settings
+.settings/
 
 # Prerequisites
 *.d
