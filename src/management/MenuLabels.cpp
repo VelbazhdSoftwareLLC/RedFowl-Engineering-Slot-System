@@ -11,12 +11,14 @@ int MenuLabels::HEIGHT[] = { 9, 13, 2, 12, 3, 2 };
  */
 int MenuLabels::LOCATION[] = { LEFT, LEFT, LEFT, LEFT, LEFT, RIGHT, NONE };
 
-const char *MenuLabels::VALUES[MAX_MENU_ITEMS][MAX_SUB_ITEMS] = { { "Accounting",
+const char *MenuLabels::VALUES[MAX_MENU_ITEMS][MAX_SUB_ITEMS] = {
+	{ "Accounting",
 		"Machine Accounting", "Game Accounting",
 		"Total Denomination Accounting", "Game Denomination Accounting",
 		"Voucher Accounting", "Security Accounting", "Error Accounting",
 		"Bill Accounting", "", "", "", "", "", ""
-	}, { "Diagnostics",
+	},
+	{ "Diagnostics",
 		"Keyboard Test", "Doors and Keys Test", "Top Lights Test",
 		"Sound Test/Setup", "Video Test", "Printer Test", "Bill Validator Test",
 		"Touch Screen Calibration", "Temperature Monitor", "Coin Acceptor",
