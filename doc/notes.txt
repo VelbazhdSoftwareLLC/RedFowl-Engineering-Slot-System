@@ -15,5 +15,5 @@
 3. build-essential
 4. PostgreSQL / pgAdmin III
 5. SDL2 / SDL2 Image / SDL2 TTF / SDL2 Mixer
-6. ODB ORM
-
+6. ODB-ORM
+7. ncurses / CDK / 
