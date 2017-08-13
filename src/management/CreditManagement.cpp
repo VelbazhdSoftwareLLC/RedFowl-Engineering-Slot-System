@@ -313,7 +313,7 @@ int main2(int argc, char *argv[], unsigned long &session) {
 	sprintf(number, "CREDIT: %8.2lf %s", (credit * denomination),
 			currency.c_str());
 	setCDKEntryValue(indicator, number);
-	sprintf(number, "                           %11.2lf", 0);
+	sprintf(number, "                           %11.2lf", (double)0);
 	setCDKEntryValue(value, number);
 	drawCDKEntry(indicator, FALSE);
 	drawCDKEntry(value, TRUE);
