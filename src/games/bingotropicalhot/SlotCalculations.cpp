@@ -63,7 +63,8 @@ static int lineWin(int line[REELS_LENGTH], const int &index) {
 	 */
 	if (win > 0) {
 		gameWins.push_back(
-				BingoTropicalHotWinCombination(index, number, win, core::baseGameMode, false));
+				BingoTropicalHotWinCombination(index, number, win,
+						core::baseGameMode, false));
 	}
 #endif
 #endif
@@ -89,7 +90,7 @@ static int lineWin(int line[REELS_LENGTH], const int &index) {
  * @return Calculated win.
  */
 static int linesWin(std::vector<std::vector<int> > &view,
-			 const int lines[LINES_LENGTH][REELS_LENGTH], int numberOfBettingLines) {
+		const int lines[LINES_LENGTH][REELS_LENGTH], int numberOfBettingLines) {
 	/*
 	 * Static variables are not allocated into stack and it is faster to be used.
 	 */
@@ -138,17 +139,18 @@ int singleBaseGame() {
 	/*
 	 * Spin reels.
 	 */
-	core::spin(core::view, core::baseReels, core::reelsMinOffset, core::reelsMaxOffset);
+	core::spin(core::view, core::baseReels, core::reelsMinOffset,
+			core::reelsMaxOffset);
 
 	/*
 	 * Simulate bingo ball out on each reels spin.
 	 */
 	//TODO Some day lines and symbols can be connected with the bingo bonus.
-	core::bingoBallNumber = core::markBallOut(-1, -1);
+	core::bingoBallNumber = core::BingoBonus::markBallOut(-1, -1);
 
 	static int win2;
-	if (core::checkForBingoLine() == true) {
-		win2 = core::bingoLineWin();
+	if (core::BingoBonus::checkForBingoLine() == true) {
+		win2 = core::BingoBonus::bingoLineWin();
 		core::bingoLineBonusWin = win2;
 #ifdef SIMULATION
 		experiment->lineBonusMoney += win2;
@@ -163,8 +165,8 @@ int singleBaseGame() {
 	}
 
 	static int win3;
-	if (core::checkForBingo() == true) {
-		win3 = core::bingoWin();
+	if (core::BingoBonus::checkForBingo() == true) {
+		win3 = core::BingoBonus::bingoWin();
 		core::bingoBonusWin = win3;
 #ifdef SIMULATION
 		experiment->bingoBonusMoney += win3;
@@ -183,7 +185,7 @@ int singleBaseGame() {
 	 */
 	static int win1;
 	win1 = linesWin(core::view, (const int (*)[REELS_LENGTH]) lines,
-					core::numberOfBettingLines);
+			core::numberOfBettingLines);
 #ifdef SIMULATION
 	experiment->baseGameMoney += win1;
 
@@ -200,7 +202,8 @@ void runBaseGame(int &totalWin) {
 
 #ifndef SIMULATION
 #ifndef OPTIMIZATION
-	unsigned long idBet = core::persistBet(core::totalBet, core::credit, core::title);
+	unsigned long idBet = core::persistBet(core::totalBet, core::credit,
+			core::title);
 	gameWins.clear();
 	core::credit -= core::totalBet;
 	core::persistSession(core::credit, core::sessionId);
@@ -210,11 +213,13 @@ void runBaseGame(int &totalWin) {
 #ifndef SIMULATION
 #ifndef OPTIMIZATION
 	core::credit += totalWin;
-	unsigned long idWin = core::persistWin(totalWin, core::credit, persistence::BASE_GAME,
-			core::title);
-	unsigned long idConfig = core::persistConfig(core::rtp, core::numberOfBettingLines, core::singleLineBet,
+	unsigned long idWin = core::persistWin(totalWin, core::credit,
+			persistence::BASE_GAME, core::title);
+	unsigned long idConfig = core::persistConfig(core::rtp,
+			core::numberOfBettingLines, core::singleLineBet,
 			core::denomination);
-	core::persistHistory(idBet, idWin, idConfig, core::view, symbolsNames, core::title);
+	core::persistHistory(idBet, idWin, idConfig, core::view, symbolsNames,
+			core::title);
 	core::persistSession(core::credit, core::sessionId);
 #endif
 #endif

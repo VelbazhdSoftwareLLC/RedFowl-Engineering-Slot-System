@@ -236,7 +236,7 @@ public:
 public:
 
 	static SDL_Surface* extractImage(SDL_Surface *fontImage,
-									 SDL_Surface *buffer, int left, int top, int width, int height);
+			SDL_Surface *buffer, int left, int top, int width, int height);
 
 	static void load(const char *file);
 };

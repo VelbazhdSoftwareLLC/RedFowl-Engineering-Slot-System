@@ -23,7 +23,8 @@ private:
 	friend class odb::access;
 
 public:
-	GameConfiguration(int rtp, int activeLines, int singleBet, double denomination) {
+	GameConfiguration(int rtp, int activeLines, int singleBet,
+			double denomination) {
 		this->rtp = rtp;
 		this->activeLines = activeLines;
 		this->singleBet = singleBet;

@@ -52,10 +52,11 @@ int main11(int argc, char *argv[], unsigned long &session) {
 	/*
 	 * Create canvas.
 	 */
-	if (!(core::window = SDL_CreateWindow("Slot Reels Animation", 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, 0))) {
+	if (!(core::window = SDL_CreateWindow("Slot Reels Animation", 0, 0,
+			CANVAS_WIDTH, CANVAS_HEIGHT, 0))) {
 		SDL_Quit();
 	}
-    core::canvas = SDL_GetWindowSurface(core::window);
+	core::canvas = SDL_GetWindowSurface(core::window);
 
 	/*
 	 * Reset finite state machine.

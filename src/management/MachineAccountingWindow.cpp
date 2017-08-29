@@ -22,7 +22,7 @@ namespace management {
 void machineAccountingMenuOption() {
 	int argc = 0;
 	std::auto_ptr<odb::core::database> connection(
-		new odb::pgsql::database(argc, NULL));
+			new odb::pgsql::database(argc, NULL));
 	std::auto_ptr<odb::core::database> db = connection;
 
 	long bet = 0;
@@ -59,7 +59,7 @@ void machineAccountingMenuOption() {
 		odb::result<persistence::Account> r(db->query<persistence::Account>());
 		for (odb::result<persistence::Account>::iterator i(r.begin());
 				i != r.end(); ++i) {
-			if(i->getType() == persistence::ATTENDANT_DEBIT) {
+			if (i->getType() == persistence::ATTENDANT_DEBIT) {
 				debit += i->getValue();
 			}
 		}
@@ -74,7 +74,7 @@ void machineAccountingMenuOption() {
 		odb::result<persistence::Account> r(db->query<persistence::Account>());
 		for (odb::result<persistence::Account>::iterator i(r.begin());
 				i != r.end(); ++i) {
-			if(i->getType() == persistence::ATTENDANT_CREDIT) {
+			if (i->getType() == persistence::ATTENDANT_CREDIT) {
 				credit += i->getValue();
 			}
 		}
@@ -88,9 +88,9 @@ void machineAccountingMenuOption() {
 	 */{
 		odb::transaction t(db->begin());
 		odb::result<persistence::MachineConfiguration> r(
-			db->query<persistence::MachineConfiguration>());
+				db->query<persistence::MachineConfiguration>());
 		for (odb::result<persistence::MachineConfiguration>::iterator i(
-					r.begin()); i != r.end(); ++i) {
+				r.begin()); i != r.end(); ++i) {
 			denomination = i->getDenomination();
 			currency = i->getCurrency();
 			break;
@@ -99,7 +99,7 @@ void machineAccountingMenuOption() {
 	}
 
 	CDKSWINDOW *scroll = newCDKSwindow(screen, CENTER, 1, LINES - 3, COLS,
-									   "Machine Accounting", 1000, TRUE, FALSE);
+			"Machine Accounting", 1000, TRUE, FALSE);
 
 	/* Total bet. */{
 		char message[100];
@@ -126,8 +126,8 @@ void machineAccountingMenuOption() {
 
 	/* Cashless in. */{
 		char message[100];
-		sprintf(message, "  Cashless In:\t\t\t\t%8.2lf %s", (debit * denomination),
-				currency.c_str());
+		sprintf(message, "  Cashless In:\t\t\t\t%8.2lf %s",
+				(debit * denomination), currency.c_str());
 		addCDKSwindow(scroll, "", BOTTOM);
 		addCDKSwindow(scroll, message, BOTTOM);
 	}

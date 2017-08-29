@@ -25,7 +25,8 @@ private:
 
 public:
 
-	MachineConfiguration(double denomination, std::string currency, double attendantLimit) {
+	MachineConfiguration(double denomination, std::string currency,
+			double attendantLimit) {
 		this->denomination = denomination;
 		this->currency = currency;
 		this->attendantLimit = attendantLimit;

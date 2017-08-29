@@ -319,8 +319,7 @@ int singleBonusGame(int index) {
 	core::bonusOptions[0] = core::bonusOptions[index];
 	core::bonusOptions[index] = swap;
 
-
-	return( core::bonusWin );
+	return (core::bonusWin);
 }
 
 /**
@@ -356,7 +355,7 @@ int singleFreeGame() {
 	experiment->freeScatterMoney += win2;
 #endif
 
-	return(win1+win2);
+	return (win1 + win2);
 }
 
 /**
@@ -413,10 +412,10 @@ static unsigned long idBet = 0;
 void runBonusGame(int &totalWin, int index) {
 	core::reelBonusIndex = index;
 
-    /*
-     * User will select one of the bonus options.
-     */
-    totalWin = singleBonusGame(index-1);
+	/*
+	 * User will select one of the bonus options.
+	 */
+	totalWin = singleBonusGame(index - 1);
 #ifndef SIMULATION
 #ifndef OPTIMIZATION
 	core::credit += totalWin;
@@ -438,7 +437,7 @@ void runFreeGame(int &totalWin) {
 #endif
 #endif
 
-    if(core::freeGamesNumber <= 0) {
+	if (core::freeGamesNumber <= 0) {
 		return;
 	}
 
@@ -466,15 +465,15 @@ void runFreeGame(int &totalWin) {
 	}
 #endif
 #ifdef OPTIMIZATION
-    experiment->wonMoney += totalWin;
+	experiment->wonMoney += totalWin;
 #endif
 
-    /*
-     * If this is the last free game switch off free games mode.
-     */
-    if(core::freeGamesNumber == 0) {
-        core::freeGamesMode = false;
-    }
+	/*
+	 * If this is the last free game switch off free games mode.
+	 */
+	if (core::freeGamesNumber == 0) {
+		core::freeGamesMode = false;
+	}
 }
 
 void runBaseGame(int &totalWin) {
@@ -485,8 +484,7 @@ void runBaseGame(int &totalWin) {
 #ifndef SIMULATION
 
 #ifndef OPTIMIZATION
-	idBet = core::persistBet(core::totalBet, core::credit,
-			core::title);
+	idBet = core::persistBet(core::totalBet, core::credit, core::title);
 	gameWins.clear();
 	core::credit -= core::totalBet;
 	core::persistSession(core::credit, core::sessionId);

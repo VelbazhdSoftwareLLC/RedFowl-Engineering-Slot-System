@@ -20,7 +20,7 @@ namespace management {
 void totalDenominationAccountingMenuOption() {
 	int argc = 0;
 	std::auto_ptr<odb::core::database> connection(
-		new odb::pgsql::database(argc, NULL));
+			new odb::pgsql::database(argc, NULL));
 	std::auto_ptr<odb::core::database> db = connection;
 
 	double denomination = 0.0;
@@ -30,9 +30,9 @@ void totalDenominationAccountingMenuOption() {
 	 */{
 		odb::transaction t(db->begin());
 		odb::result<persistence::MachineConfiguration> r(
-			db->query<persistence::MachineConfiguration>());
+				db->query<persistence::MachineConfiguration>());
 		for (odb::result<persistence::MachineConfiguration>::iterator i(
-					r.begin()); i != r.end(); ++i) {
+				r.begin()); i != r.end(); ++i) {
 			denomination = i->getDenomination();
 			currency = i->getCurrency();
 			break;
@@ -51,7 +51,7 @@ void totalDenominationAccountingMenuOption() {
 		for (odb::result<persistence::Bet>::iterator i(r.begin()); i != r.end();
 				++i) {
 			bet += i->getValue();
-			if(i->getValue() > 0) {
+			if (i->getValue() > 0) {
 				totalGamesPlayed++;
 			}
 		}
@@ -70,7 +70,7 @@ void totalDenominationAccountingMenuOption() {
 		for (odb::result<persistence::Win>::iterator i(r.begin()); i != r.end();
 				++i) {
 			win += i->getValue();
-			if(i->getValue() > 0) {
+			if (i->getValue() > 0) {
 				totalGamesWon++;
 			} else {
 				totalGamesLost++;
@@ -80,7 +80,7 @@ void totalDenominationAccountingMenuOption() {
 	}
 
 	CDKSWINDOW *scroll = newCDKSwindow(screen, CENTER, 1, LINES - 3, COLS,
-									   "Total Denomination Accounting", 1000, TRUE, FALSE);
+			"Total Denomination Accounting", 1000, TRUE, FALSE);
 
 	/* Total bet. */{
 		char message[100];

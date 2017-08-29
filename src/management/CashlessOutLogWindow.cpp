@@ -47,7 +47,8 @@ void cashOutLogMenuOption() {
 
 	/* Head row. */{
 		static char message[100];
-		sprintf(message, "%-8s %20s %20s %20s", "#", "Data & Time", "Description", "Data");
+		sprintf(message, "%-8s %20s %20s %20s", "#", "Data & Time",
+				"Description", "Data");
 		addCDKSwindow(scroll, message, BOTTOM);
 		addCDKSwindow(scroll, "\n", BOTTOM);
 	}

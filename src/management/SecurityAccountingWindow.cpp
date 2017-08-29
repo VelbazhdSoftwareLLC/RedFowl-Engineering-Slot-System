@@ -48,11 +48,13 @@ static void readStackerInfo(time_t &remove, time_t &insert, long &count) {
 			db->query<persistence::BillStackerAccess>());
 	for (odb::result<persistence::BillStackerAccess>::iterator i(r.begin());
 			i != r.end(); ++i) {
-		if (i->getAction() == persistence::REMOVE && remove < i->getTimestamp()) {
+		if (i->getAction() == persistence::REMOVE
+				&& remove < i->getTimestamp()) {
 			remove = i->getTimestamp();
 			count++;
 		}
-		if (i->getAction() == persistence::INSERT && insert < i->getTimestamp()) {
+		if (i->getAction() == persistence::INSERT
+				&& insert < i->getTimestamp()) {
 			insert = i->getTimestamp();
 		}
 	}
@@ -116,9 +118,11 @@ static void showDoorInfo(CDKSWINDOW *scroll, const char title[],
 	sprintf(message, "%s", title);
 	addCDKSwindow(scroll, message, BOTTOM);
 
-	sprintf(message, " -Last open:\t\t\t%20s", readbleDataTime(time, info.lastOpen));
+	sprintf(message, " -Last open:\t\t\t%20s",
+			readbleDataTime(time, info.lastOpen));
 	addCDKSwindow(scroll, message, BOTTOM);
-	sprintf(message, " -Last close:\t\t\t%20s", readbleDataTime(time, info.lastClose));
+	sprintf(message, " -Last close:\t\t\t%20s",
+			readbleDataTime(time, info.lastClose));
 	addCDKSwindow(scroll, message, BOTTOM);
 	sprintf(message, " -Open count:\t\t\t%20ld", info.count);
 	addCDKSwindow(scroll, message, BOTTOM);
@@ -219,35 +223,41 @@ void securityAccountingMenuOption() {
 	addCDKSwindow(scroll, "\n", BOTTOM);
 	showDoorInfo(scroll, "Ext Door", extDoor);
 
-	/* Bill stacker access information. */ {
+	/* Bill stacker access information. */{
 		char time[100];
 		char message[100];
 
 		addCDKSwindow(scroll, "\n", BOTTOM);
 		addCDKSwindow(scroll, "Bill Stacker Access", BOTTOM);
 
-		sprintf(message, " -Last remove:\t\t\t%20s", readbleDataTime(time, stackerLastRemove));
+		sprintf(message, " -Last remove:\t\t\t%20s",
+				readbleDataTime(time, stackerLastRemove));
 		addCDKSwindow(scroll, message, BOTTOM);
-		sprintf(message, " -Last insert:\t\t\t%20s", readbleDataTime(time, stackerLastInsert));
+		sprintf(message, " -Last insert:\t\t\t%20s",
+				readbleDataTime(time, stackerLastInsert));
 		addCDKSwindow(scroll, message, BOTTOM);
 		sprintf(message, " -Remove count:\t\t\t%20ld", stackerCount);
 		addCDKSwindow(scroll, message, BOTTOM);
 	}
 
-	/* Power information. */ {
+	/* Power information. */{
 		char time[100];
 		char message[100];
 
 		addCDKSwindow(scroll, "\n", BOTTOM);
 		addCDKSwindow(scroll, "Power Information", BOTTOM);
 
-		sprintf(message, " -Last power off:\t\t%20s", readbleDataTime(time, lastPowerOff));
+		sprintf(message, " -Last power off:\t\t%20s",
+				readbleDataTime(time, lastPowerOff));
 		addCDKSwindow(scroll, message, BOTTOM);
-		sprintf(message, " -Last power on:\t\t%20s", readbleDataTime(time, lastPowerOn));
+		sprintf(message, " -Last power on:\t\t%20s",
+				readbleDataTime(time, lastPowerOn));
 		addCDKSwindow(scroll, message, BOTTOM);
-		sprintf(message, " -Power off duration:\t\t%20s", readbleTimeDifference(time, lastPowerOff, lastPowerOn));
+		sprintf(message, " -Power off duration:\t\t%20s",
+				readbleTimeDifference(time, lastPowerOff, lastPowerOn));
 		addCDKSwindow(scroll, message, BOTTOM);
-		sprintf(message, " -Games after power off:\t%20ld", gamesAfterLastPowerOff);
+		sprintf(message, " -Games after power off:\t%20ld",
+				gamesAfterLastPowerOff);
 		addCDKSwindow(scroll, message, BOTTOM);
 	}
 

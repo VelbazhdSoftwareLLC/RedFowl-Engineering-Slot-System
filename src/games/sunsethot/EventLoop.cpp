@@ -268,7 +268,7 @@ void loop() {
 				if (core::freeGamesMode == false) {
 					core::baseGameMode = true;
 					core::activeScreen = core::MAIN_GAME_SCREEN;
-				} else if(core::freeGamesMode == true) {
+				} else if (core::freeGamesMode == true) {
 					core::activeScreen = core::FREE_GAME_SCREEN;
 				}
 			}

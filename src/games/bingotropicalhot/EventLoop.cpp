@@ -68,10 +68,10 @@ void loop() {
 	}
 
 	//TODO Find better place to initialize decorative initial view.
-	core::generatDecorative (core::baseReels);
+	core::generatDecorative(core::baseReels);
 
 	//TODO Find better place to initialize bingo cards.
-	core::generateRandomBingoCard();
+	core::BingoBonus::generateRandomBingoCard();
 	core::bingoLineBonusWin = 0;
 	core::bingoBonusWin = 0;
 
@@ -183,9 +183,9 @@ void loop() {
 						break;
 					}
 
-					if (core::bingoLineIndex != -1
-							&& core::bingoCardIndex != -1) {
-						core::generateRandomBingoCard();
+					if (core::BingoBonus::bingoLineIndex != -1
+							&& core::BingoBonus::bingoCardIndex != -1) {
+						core::BingoBonus::generateRandomBingoCard();
 						core::bingoLineBonusWin = 0;
 						core::bingoBonusWin = 0;
 					}

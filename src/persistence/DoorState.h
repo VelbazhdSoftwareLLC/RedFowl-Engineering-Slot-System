@@ -21,7 +21,9 @@ private:
 #pragma db id auto
 	unsigned long id;
 
-	DoorState() {};
+	DoorState() {
+	}
+	;
 
 	friend class odb::access;
 
@@ -31,7 +33,8 @@ public:
 		this->type = type;
 		this->action = action;
 		this->timestamp = timestamp;
-	};
+	}
+	;
 
 	virtual ~DoorState() {
 	}

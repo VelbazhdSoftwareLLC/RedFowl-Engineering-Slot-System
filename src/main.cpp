@@ -42,12 +42,10 @@ int main(int argc, char *argv[]) {
 	 * Accounting system entry point.
 	 */
 	//main1(argc, argv, session);
-
 	/*
 	 * Credit management entry point.
 	 */
 	//main2(argc, argv, session);
-
 	/*
 	 * Game entry point.
 	 */
@@ -55,7 +53,6 @@ int main(int argc, char *argv[]) {
 	//main11(argc, argv, session);
 	//main12(argc, argv, session);
 	//main13(argc, argv, session);
-
 	destroyCDKScreen(management::screen);
 	delwin(management::window);
 	endCDK();

@@ -110,7 +110,8 @@ static void onExit(SButton *object) {
 	return;
 }
 
-static int onButtonsClick(EObjectType type, void *object, void *data, chtype input) {
+static int onButtonsClick(EObjectType type, void *object, void *data,
+		chtype input) {
 	if (input == KEY_ENTER) {
 		if (getCDKButtonboxCurrentButton(buttons) == 11) {
 			entry1 = 0;
@@ -184,14 +185,14 @@ static int onButtonsClick(EObjectType type, void *object, void *data, chtype inp
 static void loadCredit(unsigned long &id) {
 	int count = 0;
 	std::auto_ptr<odb::core::database> connection(
-		new odb::pgsql::database(count, NULL));
+			new odb::pgsql::database(count, NULL));
 
 	bool found = false;
 
 	odb::transaction t(connection->begin());
 	odb::result<persistence::Session> r(
-		connection->query<persistence::Session>(
-			odb::query<persistence::Session>::id == id));
+			connection->query<persistence::Session>(
+					odb::query<persistence::Session>::id == id));
 	for (odb::result<persistence::Session>::iterator i(r.begin()); i != r.end();
 			++i) {
 		persistence::Session &session(*i);
@@ -216,10 +217,10 @@ static void loadCredit(unsigned long &id) {
 static void loadDenomination() {
 	int count = 0;
 	std::auto_ptr<odb::core::database> connection(
-		new odb::pgsql::database(count, NULL));
+			new odb::pgsql::database(count, NULL));
 	odb::transaction t(connection->begin());
 	odb::result<persistence::MachineConfiguration> r(
-		connection->query<persistence::MachineConfiguration>());
+			connection->query<persistence::MachineConfiguration>());
 	for (odb::result<persistence::MachineConfiguration>::iterator i(r.begin());
 			i != r.end(); ++i) {
 		persistence::MachineConfiguration &configuration(*i);
@@ -233,18 +234,18 @@ static void loadDenomination() {
 static void storeAccountTransaction(unsigned long &id) {
 	int count = 0;
 	std::auto_ptr<odb::core::database> connection(
-		new odb::pgsql::database(count, NULL));
+			new odb::pgsql::database(count, NULL));
 
 	/* Store account transaction. */{
 		odb::transaction t(connection->begin());
 		if (oldCredit < credit) {
 			persistence::Account account((credit - oldCredit),
-										 persistence::ATTENDANT_DEBIT, time(NULL));
+					persistence::ATTENDANT_DEBIT, time(NULL));
 			connection->persist(account);
 			t.commit();
 		} else if (oldCredit > credit) {
 			persistence::Account account((oldCredit - credit),
-										 persistence::ATTENDANT_CREDIT, time(NULL));
+					persistence::ATTENDANT_CREDIT, time(NULL));
 			connection->persist(account);
 			t.commit();
 		}
@@ -254,12 +255,12 @@ static void storeAccountTransaction(unsigned long &id) {
 static void storeCredit(unsigned long &id) {
 	int count = 0;
 	std::auto_ptr<odb::core::database> connection(
-		new odb::pgsql::database(count, NULL));
+			new odb::pgsql::database(count, NULL));
 
 	odb::transaction t(connection->begin());
 	odb::result<persistence::Session> r(
-		connection->query<persistence::Session>(
-			odb::query<persistence::Session>::id == id));
+			connection->query<persistence::Session>(
+					odb::query<persistence::Session>::id == id));
 	for (odb::result<persistence::Session>::iterator i(r.begin()); i != r.end();
 			++i) {
 		persistence::Session &session(*i);
@@ -275,45 +276,44 @@ int main2(int argc, char *argv[], unsigned long &session) {
 	loadCredit(session);
 
 	indicator = newCDKEntry(screen, LEFT, TOP, "", "", A_NORMAL, ' ', vINT, 39,
-							0, 20,
-							FALSE, FALSE);
+			0, 20,
+			FALSE, FALSE);
 
 	value = newCDKEntry(screen, LEFT, 1, "", "", A_NORMAL, ' ', vINT, 39, 0, 38,
-						TRUE, FALSE);
+	TRUE, FALSE);
 
 	char *labels[12] = { " 1 ", " 4 ", " 7 ", " . ", " 2 ", " 5 ", " 8 ", " 0 ",
-						 " 3 ", " 6 ", " 9 ", "CLR"
-					   };
+			" 3 ", " 6 ", " 9 ", "CLR" };
 	buttons = newCDKButtonbox(screen, LEFT, 4, 4, 40, NULL, 4, 3, labels, 12,
-							  A_REVERSE, TRUE,
-							  FALSE);
+	A_REVERSE, TRUE,
+	FALSE);
 	setCDKButtonboxPreProcess(buttons, onButtonsClick, NULL);
 
 	CDKBUTTON *add = newCDKButton(screen, 0, 13, "       Add       ", onAdd,
-								  TRUE,
-								  FALSE);
+	TRUE,
+	FALSE);
 	CDKBUTTON *subtract = newCDKButton(screen, 22, 13, "    Subtract     ",
-									   onSubtract,
-									   TRUE,
-									   FALSE);
+			onSubtract,
+			TRUE,
+			FALSE);
 	CDKBUTTON *save = newCDKButton(screen, 0, 16, "      Save       ", onSave,
-								   TRUE,
-								   FALSE);
+	TRUE,
+	FALSE);
 	CDKBUTTON *cancel = newCDKButton(screen, 22, 16, "     Cancel      ",
-									 onCancel,
-									 TRUE,
-									 FALSE);
+			onCancel,
+			TRUE,
+			FALSE);
 	CDKBUTTON *exit = newCDKButton(screen, 0, 19,
-								   "                 Exit                  ", onExit,
-								   TRUE,
-								   FALSE);
+			"                 Exit                  ", onExit,
+			TRUE,
+			FALSE);
 
 	char number[100] = "";
 	//TODO Load currency from the database.
 	sprintf(number, "CREDIT: %8.2lf %s", (credit * denomination),
 			currency.c_str());
 	setCDKEntryValue(indicator, number);
-	sprintf(number, "                           %11.2lf", (double)0);
+	sprintf(number, "                           %11.2lf", (double) 0);
 	setCDKEntryValue(value, number);
 	drawCDKEntry(indicator, FALSE);
 	drawCDKEntry(value, TRUE);

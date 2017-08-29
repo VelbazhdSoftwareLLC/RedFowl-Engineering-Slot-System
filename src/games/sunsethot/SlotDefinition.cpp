@@ -52,8 +52,7 @@ const int MAX_SINGLE_LINE_BET = 10;
 /**
  * List of symbols names.
  */
-std::string symbolsNames[SYMBOLS_LENGTH] = {
-		"          ", "WILD      ",
+std::string symbolsNames[SYMBOLS_LENGTH] = { "          ", "WILD      ",
 		"          ", "ORANGE    ", "LEMON     ", "KIWI      ", "SEVEN     ",
 		"TEN STAR  ", "GRAPE     ", "CERRY     ", "RED ORANGE", "BELL      ",
 		"          ", "          ", "          ", "BONUS     ", "SCATTER   ", };

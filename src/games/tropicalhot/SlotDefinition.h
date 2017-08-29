@@ -35,7 +35,7 @@ extern std::string symbolsNames[SYMBOLS_LENGTH];
 extern std::string symbolsTypes[SYMBOLS_LENGTH];
 
 const int REELS_LENGTH = 5;
-const int COMBINATION_LENGTH = (REELS_LENGTH+1);
+const int COMBINATION_LENGTH = (REELS_LENGTH + 1);
 extern int paytable[COMBINATION_LENGTH][SYMBOLS_LENGTH];
 
 const int LINES_LENGTH = 9;

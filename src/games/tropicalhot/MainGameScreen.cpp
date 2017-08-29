@@ -46,60 +46,57 @@ static const SDL_Surface *logoSurface = IMG_Load(
 static const SDL_Surface *messageBarSurface = IMG_Load(
 		"./tropicalhot/images/MessageBar.png");
 
-static const SDL_Surface *marksSurface[MARKS_LENGTH] = {
-		IMG_Load("./tropicalhot/images/LeftMark01.png"),
-		IMG_Load("./tropicalhot/images/LeftMark02.png"),
-		IMG_Load("./tropicalhot/images/LeftMark03.png"),
-		IMG_Load("./tropicalhot/images/LeftMark04.png"),
-		IMG_Load("./tropicalhot/images/LeftMark05.png"),
-		IMG_Load("./tropicalhot/images/RightMark01.png"),
-		IMG_Load("./tropicalhot/images/RightMark02.png"),
-		IMG_Load("./tropicalhot/images/RightMark03.png"),
-		IMG_Load("./tropicalhot/images/RightMark04.png"),
-		IMG_Load("./tropicalhot/images/RightMark05.png"), };
+static const SDL_Surface *marksSurface[MARKS_LENGTH] = { IMG_Load(
+		"./tropicalhot/images/LeftMark01.png"), IMG_Load(
+		"./tropicalhot/images/LeftMark02.png"), IMG_Load(
+		"./tropicalhot/images/LeftMark03.png"), IMG_Load(
+		"./tropicalhot/images/LeftMark04.png"), IMG_Load(
+		"./tropicalhot/images/LeftMark05.png"), IMG_Load(
+		"./tropicalhot/images/RightMark01.png"), IMG_Load(
+		"./tropicalhot/images/RightMark02.png"), IMG_Load(
+		"./tropicalhot/images/RightMark03.png"), IMG_Load(
+		"./tropicalhot/images/RightMark04.png"), IMG_Load(
+		"./tropicalhot/images/RightMark05.png"), };
 
 static const SDL_Surface *symbolsSurface[] = {
 NULL, IMG_Load("./tropicalhot/images/Symbol01.png"),
-NULL, IMG_Load("./tropicalhot/images/Symbol03.png"),
-		IMG_Load("./tropicalhot/images/Symbol04.png"),
-		IMG_Load("./tropicalhot/images/Symbol05.png"),
-		IMG_Load("./tropicalhot/images/Symbol06.png"),
-		IMG_Load("./tropicalhot/images/Symbol07.png"),
-		IMG_Load("./tropicalhot/images/Symbol08.png"),
-		IMG_Load("./tropicalhot/images/Symbol09.png"),
-		IMG_Load("./tropicalhot/images/Symbol10.png"),
-		IMG_Load("./tropicalhot/images/Symbol11.png"),
-		NULL,
-		NULL,
-		NULL, IMG_Load("./tropicalhot/images/Symbol15.png"),
-		IMG_Load("./tropicalhot/images/Symbol16.png"), };
+NULL, IMG_Load("./tropicalhot/images/Symbol03.png"), IMG_Load(
+		"./tropicalhot/images/Symbol04.png"), IMG_Load(
+		"./tropicalhot/images/Symbol05.png"), IMG_Load(
+		"./tropicalhot/images/Symbol06.png"), IMG_Load(
+		"./tropicalhot/images/Symbol07.png"), IMG_Load(
+		"./tropicalhot/images/Symbol08.png"), IMG_Load(
+		"./tropicalhot/images/Symbol09.png"), IMG_Load(
+		"./tropicalhot/images/Symbol10.png"), IMG_Load(
+		"./tropicalhot/images/Symbol11.png"),
+NULL,
+NULL,
+NULL, IMG_Load("./tropicalhot/images/Symbol15.png"), IMG_Load(
+		"./tropicalhot/images/Symbol16.png"), };
 
-static const SDL_Surface *linesSurface[LINES_LENGTH] = {
-		IMG_Load("./tropicalhot/images/Line01.png"),
-		IMG_Load("./tropicalhot/images/Line02.png"),
-		IMG_Load("./tropicalhot/images/Line03.png"),
-		IMG_Load("./tropicalhot/images/Line04.png"),
-		IMG_Load("./tropicalhot/images/Line05.png"), };
-
+static const SDL_Surface *linesSurface[LINES_LENGTH] = { IMG_Load(
+		"./tropicalhot/images/Line01.png"), IMG_Load(
+		"./tropicalhot/images/Line02.png"), IMG_Load(
+		"./tropicalhot/images/Line03.png"), IMG_Load(
+		"./tropicalhot/images/Line04.png"), IMG_Load(
+		"./tropicalhot/images/Line05.png"), };
 
 static const SDL_Surface *linesMarksBarsSurface[] = { IMG_Load(
-		"./tropicalhot/images/RightBar.png"),
-		IMG_Load(
-				"./tropicalhot/images/LeftBar.png"), };
+		"./tropicalhot/images/RightBar.png"), IMG_Load(
+		"./tropicalhot/images/LeftBar.png"), };
 
 static const SDL_Surface *buttonsSurface[] = {
-		NULL,//IMG_Load("./tropicalhot/images/SwapButton.png"),
-		IMG_Load("./tropicalhot/images/PayoutButton.png"),
-		IMG_Load("./tropicalhot/images/SpinButton.png"),
-		IMG_Load("./tropicalhot/images/MaxBetButton.png"),
-		IMG_Load("./tropicalhot/images/BetButton.png"),
-		IMG_Load("./tropicalhot/images/CoinsButton.png"),
-		IMG_Load("./tropicalhot/images/LinesButton.png"),
-		IMG_Load("./tropicalhot/images/AutoPlayButton.png"),
-		IMG_Load("./tropicalhot/images/WinBar.png"),
-		IMG_Load("./tropicalhot/images/SpinsBar.png"),
-		IMG_Load("./tropicalhot/images/CreditBar.png"),
-};
+NULL, //IMG_Load("./tropicalhot/images/SwapButton.png"),
+		IMG_Load("./tropicalhot/images/PayoutButton.png"), IMG_Load(
+				"./tropicalhot/images/SpinButton.png"), IMG_Load(
+				"./tropicalhot/images/MaxBetButton.png"), IMG_Load(
+				"./tropicalhot/images/BetButton.png"), IMG_Load(
+				"./tropicalhot/images/CoinsButton.png"), IMG_Load(
+				"./tropicalhot/images/LinesButton.png"), IMG_Load(
+				"./tropicalhot/images/AutoPlayButton.png"), IMG_Load(
+				"./tropicalhot/images/WinBar.png"), IMG_Load(
+				"./tropicalhot/images/SpinsBar.png"), IMG_Load(
+				"./tropicalhot/images/CreditBar.png"), };
 
 static SDL_Rect backgroundCoordinates = { OFFSET_X + 0, OFFSET_Y + 0, 0, 0 };
 
@@ -113,9 +110,12 @@ static SDL_Rect linesMarksBarsCoordinates[] = { {
 OFFSET_X + 1197, OFFSET_Y + 130, 0, 0 }, {
 OFFSET_X + 106, OFFSET_Y + 130, 0, 0 }, };
 
-static SDL_Rect linesCoordinates[] = { { OFFSET_X + 204, OFFSET_Y + 394, 0, 0 }, {
-OFFSET_X + 204, OFFSET_Y + 228, 0, 0 }, { OFFSET_X + 204, OFFSET_Y + 553, 0, 0 }, {
-OFFSET_X + 180, OFFSET_Y + 163, 0, 0 }, { OFFSET_X + 180, OFFSET_Y + 227, 0, 0 }, };
+static SDL_Rect linesCoordinates[] = { { OFFSET_X + 204, OFFSET_Y + 394, 0, 0 },
+		{
+		OFFSET_X + 204, OFFSET_Y + 228, 0, 0 }, { OFFSET_X + 204, OFFSET_Y
+				+ 553, 0, 0 }, {
+		OFFSET_X + 180, OFFSET_Y + 163, 0, 0 }, { OFFSET_X + 180, OFFSET_Y
+				+ 227, 0, 0 }, };
 
 static SDL_Rect marksCoordinates[] = { {
 OFFSET_X + 150, OFFSET_Y + 382 }, {
@@ -142,26 +142,24 @@ OFFSET_X + 734, OFFSET_Y + 760 }, {
 OFFSET_X + 222, OFFSET_Y + 760 }, {
 OFFSET_X + 96, OFFSET_Y + 760 }, };
 
-static SDL_Rect symbolsCoordinates[][3] = { {
-{ OFFSET_X + 260, OFFSET_Y + 154, 0, 0 },
-{ OFFSET_X + 260, OFFSET_Y + 331, 0, 0 },
-{ OFFSET_X + 260, OFFSET_Y + 507, 0, 0 } }, {
+static SDL_Rect symbolsCoordinates[][3] = { { { OFFSET_X + 260, OFFSET_Y + 154,
+		0, 0 }, { OFFSET_X + 260, OFFSET_Y + 331, 0, 0 }, { OFFSET_X + 260,
+		OFFSET_Y + 507, 0, 0 } }, {
 
 { OFFSET_X + 450, OFFSET_Y + 154, 0, 0 },
-{ OFFSET_X + 450, OFFSET_Y + 331, 0, 0 },
-{ OFFSET_X + 450, OFFSET_Y + 507, 0, 0 } }, {
+		{ OFFSET_X + 450, OFFSET_Y + 331, 0, 0 }, { OFFSET_X + 450, OFFSET_Y
+				+ 507, 0, 0 } }, {
 
 { OFFSET_X + 638, OFFSET_Y + 154, 0, 0 },
-{ OFFSET_X + 638, OFFSET_Y + 331, 0, 0 },
-{ OFFSET_X + 638, OFFSET_Y + 507, 0, 0 } }, {
+		{ OFFSET_X + 638, OFFSET_Y + 331, 0, 0 }, { OFFSET_X + 638, OFFSET_Y
+				+ 507, 0, 0 } }, {
 
 { OFFSET_X + 826, OFFSET_Y + 154, 0, 0 },
-{ OFFSET_X + 826, OFFSET_Y + 331, 0, 0 },
-{ OFFSET_X + 826, OFFSET_Y + 507, 0, 0 } }, {
+		{ OFFSET_X + 826, OFFSET_Y + 331, 0, 0 }, { OFFSET_X + 826, OFFSET_Y
+				+ 507, 0, 0 } }, {
 
-{ OFFSET_X + 1018, OFFSET_Y + 154, 0, 0 },
-{ OFFSET_X + 1018, OFFSET_Y + 331, 0, 0 },
-{ OFFSET_X + 1018, OFFSET_Y + 507, 0, 0 } }, };
+{ OFFSET_X + 1018, OFFSET_Y + 154, 0, 0 }, { OFFSET_X + 1018, OFFSET_Y + 331, 0,
+		0 }, { OFFSET_X + 1018, OFFSET_Y + 507, 0, 0 } }, };
 
 static void drawText(int x, int y, const char *text) {
 	for (int i = 0; i < strlen(text); i++) {
@@ -223,7 +221,8 @@ void drawBonusGame() {
 	/*
 	 * Draw logo image.
 	 */{
-		SDL_BlitSurface((SDL_Surface*) logoSurface, NULL, core::canvas, &logoCoordinates);
+		SDL_BlitSurface((SDL_Surface*) logoSurface, NULL, core::canvas,
+				&logoCoordinates);
 	}
 
 	/*
@@ -237,8 +236,8 @@ void drawBonusGame() {
 	 * Draw lines marks bars.
 	 */
 	for (int i = 0; i < 2; i++) {
-		SDL_BlitSurface((SDL_Surface*) linesMarksBarsSurface[i], NULL, core::canvas,
-				&linesMarksBarsCoordinates[i]);
+		SDL_BlitSurface((SDL_Surface*) linesMarksBarsSurface[i], NULL,
+				core::canvas, &linesMarksBarsCoordinates[i]);
 	}
 
 	/*
@@ -312,7 +311,8 @@ void drawFreeGame() {
 	/*
 	 * Draw logo image.
 	 */{
-		SDL_BlitSurface((SDL_Surface*) logoSurface, NULL, core::canvas, &logoCoordinates);
+		SDL_BlitSurface((SDL_Surface*) logoSurface, NULL, core::canvas,
+				&logoCoordinates);
 	}
 
 	/*
@@ -340,15 +340,15 @@ void drawFreeGame() {
 	 */
 	for (int i = 0; i < gameWins.size(); i++) {
 		SDL_BlitSurface((SDL_Surface*) linesSurface[gameWins[i].lineIndex],
-				NULL, core::canvas, &linesCoordinates[gameWins[i].lineIndex]);
+		NULL, core::canvas, &linesCoordinates[gameWins[i].lineIndex]);
 	}
 
 	/*
 	 * Draw lines marks bars.
 	 */
 	for (int i = 0; i < 2; i++) {
-		SDL_BlitSurface((SDL_Surface*) linesMarksBarsSurface[i], NULL, core::canvas,
-				&linesMarksBarsCoordinates[i]);
+		SDL_BlitSurface((SDL_Surface*) linesMarksBarsSurface[i], NULL,
+				core::canvas, &linesMarksBarsCoordinates[i]);
 	}
 
 	/*
@@ -495,7 +495,8 @@ void drawMainGame() {
 	/*
 	 * Draw logo image.
 	 */{
-		SDL_BlitSurface((SDL_Surface*) logoSurface, NULL, core::canvas, &logoCoordinates);
+		SDL_BlitSurface((SDL_Surface*) logoSurface, NULL, core::canvas,
+				&logoCoordinates);
 	}
 
 	/*
@@ -510,15 +511,15 @@ void drawMainGame() {
 	 */
 	for (int i = 0; i < gameWins.size(); i++) {
 		SDL_BlitSurface((SDL_Surface*) linesSurface[gameWins[i].lineIndex],
-				NULL, core::canvas, &linesCoordinates[gameWins[i].lineIndex]);
+		NULL, core::canvas, &linesCoordinates[gameWins[i].lineIndex]);
 	}
 
 	/*
 	 * Draw lines marks bars.
 	 */
 	for (int i = 0; i < 2; i++) {
-		SDL_BlitSurface((SDL_Surface*) linesMarksBarsSurface[i], NULL, core::canvas,
-				&linesMarksBarsCoordinates[i]);
+		SDL_BlitSurface((SDL_Surface*) linesMarksBarsSurface[i], NULL,
+				core::canvas, &linesMarksBarsCoordinates[i]);
 	}
 
 	/*

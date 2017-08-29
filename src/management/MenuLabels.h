@@ -35,7 +35,7 @@ struct MenuLabels {
 	 * First row is full with menus and all other rows are menu items. If there
 	 * is empty string it means that there is no menu or menu item.
 	 */
-	 static const char *VALUES[MAX_MENU_ITEMS][MAX_SUB_ITEMS];
+	static const char *VALUES[MAX_MENU_ITEMS][MAX_SUB_ITEMS];
 
 	/*
 	 * Each menu lable can call a particular function by function pointer.

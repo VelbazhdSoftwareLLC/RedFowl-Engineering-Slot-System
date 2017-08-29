@@ -15,8 +15,8 @@ public:
 	bool freeGameWin;
 	bool bonusGameWin;
 
-	TropicalHotWinCombination(int lineIndex, int numberOfSymbols,
-			int lineWin, bool baseGameWin, bool bingGameWin) {
+	TropicalHotWinCombination(int lineIndex, int numberOfSymbols, int lineWin,
+			bool baseGameWin, bool bingGameWin) {
 		this->lineIndex = lineIndex;
 		this->numberOfSymbols = numberOfSymbols;
 		this->lineWin = lineWin;

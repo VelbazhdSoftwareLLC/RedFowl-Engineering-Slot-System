@@ -37,40 +37,40 @@ static SDL_TimerID spinAnimationCounterUpdateTimer = NULL;
 static const SDL_Surface *backgroundSurface = IMG_Load(
 		"./sunsethot/images/Background.png");
 
-static const SDL_Surface *marksSurface[MARKS_LENGTH] = {
-		IMG_Load("./sunsethot/images/LeftMark01.png"),
-		IMG_Load("./sunsethot/images/LeftMark02.png"),
-		IMG_Load("./sunsethot/images/LeftMark03.png"),
-		IMG_Load("./sunsethot/images/LeftMark04.png"),
-		IMG_Load("./sunsethot/images/LeftMark05.png"),
-		IMG_Load("./sunsethot/images/RightMark01.png"),
-		IMG_Load("./sunsethot/images/RightMark02.png"),
-		IMG_Load("./sunsethot/images/RightMark03.png"),
-		IMG_Load("./sunsethot/images/RightMark04.png"),
-		IMG_Load("./sunsethot/images/RightMark05.png"), };
+static const SDL_Surface *marksSurface[MARKS_LENGTH] = { IMG_Load(
+		"./sunsethot/images/LeftMark01.png"), IMG_Load(
+		"./sunsethot/images/LeftMark02.png"), IMG_Load(
+		"./sunsethot/images/LeftMark03.png"), IMG_Load(
+		"./sunsethot/images/LeftMark04.png"), IMG_Load(
+		"./sunsethot/images/LeftMark05.png"), IMG_Load(
+		"./sunsethot/images/RightMark01.png"), IMG_Load(
+		"./sunsethot/images/RightMark02.png"), IMG_Load(
+		"./sunsethot/images/RightMark03.png"), IMG_Load(
+		"./sunsethot/images/RightMark04.png"), IMG_Load(
+		"./sunsethot/images/RightMark05.png"), };
 
 static const SDL_Surface *symbolsSurface[] = {
 NULL, IMG_Load("./sunsethot/images/Symbol01.png"),
-NULL, IMG_Load("./sunsethot/images/Symbol03.png"),
-		IMG_Load("./sunsethot/images/Symbol04.png"),
-		IMG_Load("./sunsethot/images/Symbol05.png"),
-		IMG_Load("./sunsethot/images/Symbol06.png"),
-		IMG_Load("./sunsethot/images/Symbol07.png"),
-		IMG_Load("./sunsethot/images/Symbol08.png"),
-		IMG_Load("./sunsethot/images/Symbol09.png"),
-		IMG_Load("./sunsethot/images/Symbol10.png"),
-		IMG_Load("./sunsethot/images/Symbol11.png"),
-		NULL,
-		NULL,
-		NULL, IMG_Load("./sunsethot/images/Symbol15.png"),
-		IMG_Load("./sunsethot/images/Symbol16.png"), };
+NULL, IMG_Load("./sunsethot/images/Symbol03.png"), IMG_Load(
+		"./sunsethot/images/Symbol04.png"), IMG_Load(
+		"./sunsethot/images/Symbol05.png"), IMG_Load(
+		"./sunsethot/images/Symbol06.png"), IMG_Load(
+		"./sunsethot/images/Symbol07.png"), IMG_Load(
+		"./sunsethot/images/Symbol08.png"), IMG_Load(
+		"./sunsethot/images/Symbol09.png"), IMG_Load(
+		"./sunsethot/images/Symbol10.png"), IMG_Load(
+		"./sunsethot/images/Symbol11.png"),
+NULL,
+NULL,
+NULL, IMG_Load("./sunsethot/images/Symbol15.png"), IMG_Load(
+		"./sunsethot/images/Symbol16.png"), };
 
-static const SDL_Surface *linesSurface[LINES_LENGTH] = {
-		IMG_Load("./sunsethot/images/Line01.png"),
-		IMG_Load("./sunsethot/images/Line02.png"),
-		IMG_Load("./sunsethot/images/Line03.png"),
-		IMG_Load("./sunsethot/images/Line04.png"),
-		IMG_Load("./sunsethot/images/Line05.png"), };
+static const SDL_Surface *linesSurface[LINES_LENGTH] = { IMG_Load(
+		"./sunsethot/images/Line01.png"), IMG_Load(
+		"./sunsethot/images/Line02.png"), IMG_Load(
+		"./sunsethot/images/Line03.png"), IMG_Load(
+		"./sunsethot/images/Line04.png"), IMG_Load(
+		"./sunsethot/images/Line05.png"), };
 
 static const SDL_Surface *buttonsSurface[] = { IMG_Load(
 		"./sunsethot/images/PayoutButton.png"), IMG_Load(
@@ -78,9 +78,9 @@ static const SDL_Surface *buttonsSurface[] = { IMG_Load(
 		"./sunsethot/images/MaxBetButton.png"), NULL, IMG_Load(
 		"./sunsethot/images/CoinsButton.png"), IMG_Load(
 		"./sunsethot/images/LinesButton.png"), IMG_Load(
-		"./sunsethot/images/AutoPlayButton.png"), NULL,
-		IMG_Load("./sunsethot/images/SwapButton.png"), NULL,
-		NULL, };
+		"./sunsethot/images/AutoPlayButton.png"), NULL, IMG_Load(
+		"./sunsethot/images/SwapButton.png"), NULL,
+NULL, };
 
 static SDL_Rect backgroundCoordinates = { OFFSET_X + 0, OFFSET_Y + 0, 0, 0 };
 
@@ -261,7 +261,7 @@ void drawFreeGame() {
 	 */
 	for (int i = 0; i < gameWins.size(); i++) {
 		SDL_BlitSurface((SDL_Surface*) linesSurface[gameWins[i].lineIndex],
-				NULL, core::canvas, &linesCoordinates[gameWins[i].lineIndex]);
+		NULL, core::canvas, &linesCoordinates[gameWins[i].lineIndex]);
 	}
 
 	/*
@@ -403,7 +403,7 @@ void drawMainGame() {
 	 */
 	for (int i = 0; i < gameWins.size(); i++) {
 		SDL_BlitSurface((SDL_Surface*) linesSurface[gameWins[i].lineIndex],
-				NULL, core::canvas, &linesCoordinates[gameWins[i].lineIndex]);
+		NULL, core::canvas, &linesCoordinates[gameWins[i].lineIndex]);
 	}
 
 	/*

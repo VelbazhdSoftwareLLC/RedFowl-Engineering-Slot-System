@@ -5,8 +5,11 @@ namespace core {
 
 class WinCombination {
 public:
-	WinCombination(){};
-	virtual ~WinCombination() {}
+	WinCombination() {
+	}
+	;
+	virtual ~WinCombination() {
+	}
 };
 
 }

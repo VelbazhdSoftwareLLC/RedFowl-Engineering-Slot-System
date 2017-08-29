@@ -57,125 +57,125 @@ static const SDL_Surface *logoSurface = IMG_Load(
 static const SDL_Surface *messageBarSurface = IMG_Load(
 		"./bingosteamhot/images/MessageBar.png");
 
-static const SDL_Surface *talonsSurface[BINGO_CARDS_TALONS] = {
-		IMG_Load("./bingosteamhot/images/BingoCard01.png"),
-		IMG_Load("./bingosteamhot/images/BingoCard02.png"),
-		IMG_Load("./bingosteamhot/images/BingoCard04.png"),
-		IMG_Load("./bingosteamhot/images/BingoCard03.png"),
-		IMG_Load("./bingosteamhot/images/BingoCard05.png"),
-		IMG_Load("./bingosteamhot/images/BingoCard06.png"), };
+static const SDL_Surface *talonsSurface[core::BingoBonus::BINGO_CARDS_TALONS] =
+		{ IMG_Load("./bingosteamhot/images/BingoCard01.png"), IMG_Load(
+				"./bingosteamhot/images/BingoCard02.png"), IMG_Load(
+				"./bingosteamhot/images/BingoCard04.png"), IMG_Load(
+				"./bingosteamhot/images/BingoCard03.png"), IMG_Load(
+				"./bingosteamhot/images/BingoCard05.png"), IMG_Load(
+				"./bingosteamhot/images/BingoCard06.png"), };
 
-static const SDL_Surface *marksSurface[MARKS_LENGTH] = {
-		IMG_Load("./bingosteamhot/images/LeftMark01.png"),
-		IMG_Load("./bingosteamhot/images/LeftMark02.png"),
-		IMG_Load("./bingosteamhot/images/LeftMark03.png"),
-		IMG_Load("./bingosteamhot/images/LeftMark04.png"),
-		IMG_Load("./bingosteamhot/images/LeftMark05.png"),
-		IMG_Load("./bingosteamhot/images/LeftMark06.png"),
-		IMG_Load("./bingosteamhot/images/LeftMark07.png"),
-		IMG_Load("./bingosteamhot/images/LeftMark08.png"),
-		IMG_Load("./bingosteamhot/images/LeftMark09.png"),
-		IMG_Load("./bingosteamhot/images/RightMark01.png"),
-		IMG_Load("./bingosteamhot/images/RightMark02.png"),
-		IMG_Load("./bingosteamhot/images/RightMark03.png"),
-		IMG_Load("./bingosteamhot/images/RightMark04.png"),
-		IMG_Load("./bingosteamhot/images/RightMark05.png"),
-		IMG_Load("./bingosteamhot/images/RightMark06.png"),
-		IMG_Load("./bingosteamhot/images/RightMark07.png"),
-		IMG_Load("./bingosteamhot/images/RightMark08.png"),
-		IMG_Load("./bingosteamhot/images/RightMark09.png"), };
+static const SDL_Surface *marksSurface[MARKS_LENGTH] = { IMG_Load(
+		"./bingosteamhot/images/LeftMark01.png"), IMG_Load(
+		"./bingosteamhot/images/LeftMark02.png"), IMG_Load(
+		"./bingosteamhot/images/LeftMark03.png"), IMG_Load(
+		"./bingosteamhot/images/LeftMark04.png"), IMG_Load(
+		"./bingosteamhot/images/LeftMark05.png"), IMG_Load(
+		"./bingosteamhot/images/LeftMark06.png"), IMG_Load(
+		"./bingosteamhot/images/LeftMark07.png"), IMG_Load(
+		"./bingosteamhot/images/LeftMark08.png"), IMG_Load(
+		"./bingosteamhot/images/LeftMark09.png"), IMG_Load(
+		"./bingosteamhot/images/RightMark01.png"), IMG_Load(
+		"./bingosteamhot/images/RightMark02.png"), IMG_Load(
+		"./bingosteamhot/images/RightMark03.png"), IMG_Load(
+		"./bingosteamhot/images/RightMark04.png"), IMG_Load(
+		"./bingosteamhot/images/RightMark05.png"), IMG_Load(
+		"./bingosteamhot/images/RightMark06.png"), IMG_Load(
+		"./bingosteamhot/images/RightMark07.png"), IMG_Load(
+		"./bingosteamhot/images/RightMark08.png"), IMG_Load(
+		"./bingosteamhot/images/RightMark09.png"), };
 
-static const SDL_Surface *bingoBallsSurface[BINGO_BALLS_LENGTH] = {
-		IMG_Load("./bingosteamhot/images/BingoBall01.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall02.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall03.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall04.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall05.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall06.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall07.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall08.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall09.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall10.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall11.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall12.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall13.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall14.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall15.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall16.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall17.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall18.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall19.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall20.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall21.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall22.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall23.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall24.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall25.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall26.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall27.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall28.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall29.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall30.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall31.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall32.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall33.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall34.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall35.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall36.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall37.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall38.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall39.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall40.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall41.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall42.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall43.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall44.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall45.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall46.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall47.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall48.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall49.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall50.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall51.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall52.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall53.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall54.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall55.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall56.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall57.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall58.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall59.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall60.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall61.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall62.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall63.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall64.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall65.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall66.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall67.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall68.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall69.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall70.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall71.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall72.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall73.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall74.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall75.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall76.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall77.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall78.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall79.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall80.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall81.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall82.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall83.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall84.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall85.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall86.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall87.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall88.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall89.png"),
-		IMG_Load("./bingosteamhot/images/BingoBall90.png"), };
+static const SDL_Surface *bingoBallsSurface[BINGO_BALLS_LENGTH] = { IMG_Load(
+		"./bingosteamhot/images/BingoBall01.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall02.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall03.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall04.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall05.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall06.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall07.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall08.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall09.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall10.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall11.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall12.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall13.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall14.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall15.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall16.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall17.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall18.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall19.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall20.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall21.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall22.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall23.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall24.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall25.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall26.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall27.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall28.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall29.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall30.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall31.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall32.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall33.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall34.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall35.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall36.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall37.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall38.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall39.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall40.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall41.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall42.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall43.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall44.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall45.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall46.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall47.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall48.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall49.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall50.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall51.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall52.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall53.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall54.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall55.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall56.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall57.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall58.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall59.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall60.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall61.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall62.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall63.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall64.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall65.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall66.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall67.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall68.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall69.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall70.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall71.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall72.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall73.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall74.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall75.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall76.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall77.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall78.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall79.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall80.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall81.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall82.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall83.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall84.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall85.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall86.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall87.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall88.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall89.png"), IMG_Load(
+		"./bingosteamhot/images/BingoBall90.png"), };
 
 static const SDL_Surface *ballBarSurface = IMG_Load(
 		"./bingosteamhot/images/BallBar.png");
@@ -183,37 +183,35 @@ static const SDL_Surface *ballBarSurface = IMG_Load(
 static const SDL_Surface *symbolsSurface[] = {
 NULL,
 NULL,
-NULL, IMG_Load("./bingosteamhot/images/Symbol03.png"),
-		IMG_Load("./bingosteamhot/images/Symbol04.png"),
-		IMG_Load("./bingosteamhot/images/Symbol05.png"),
-		IMG_Load("./bingosteamhot/images/Symbol06.png"),
-		IMG_Load("./bingosteamhot/images/Symbol07.png"),
-		IMG_Load("./bingosteamhot/images/Symbol08.png"),
-		IMG_Load("./bingosteamhot/images/Symbol09.png"),
-		IMG_Load("./bingosteamhot/images/Symbol10.png"),
-		IMG_Load("./bingosteamhot/images/Symbol11.png"),
-		IMG_Load("./bingosteamhot/images/Symbol12.png"),
-		NULL,
-		NULL,
-		NULL,
-		NULL, };
+NULL, IMG_Load("./bingosteamhot/images/Symbol03.png"), IMG_Load(
+		"./bingosteamhot/images/Symbol04.png"), IMG_Load(
+		"./bingosteamhot/images/Symbol05.png"), IMG_Load(
+		"./bingosteamhot/images/Symbol06.png"), IMG_Load(
+		"./bingosteamhot/images/Symbol07.png"), IMG_Load(
+		"./bingosteamhot/images/Symbol08.png"), IMG_Load(
+		"./bingosteamhot/images/Symbol09.png"), IMG_Load(
+		"./bingosteamhot/images/Symbol10.png"), IMG_Load(
+		"./bingosteamhot/images/Symbol11.png"), IMG_Load(
+		"./bingosteamhot/images/Symbol12.png"),
+NULL,
+NULL,
+NULL,
+NULL, };
 
-static const SDL_Surface *linesSurface[LINES_LENGTH] = {
-		IMG_Load("./bingosteamhot/images/Line01.png"),
-		IMG_Load("./bingosteamhot/images/Line02.png"),
-		IMG_Load("./bingosteamhot/images/Line03.png"),
-		IMG_Load("./bingosteamhot/images/Line04.png"),
-		IMG_Load("./bingosteamhot/images/Line05.png"),
-		IMG_Load("./bingosteamhot/images/Line06.png"),
-		IMG_Load("./bingosteamhot/images/Line07.png"),
-		IMG_Load("./bingosteamhot/images/Line08.png"),
-		IMG_Load("./bingosteamhot/images/Line09.png"), };
+static const SDL_Surface *linesSurface[LINES_LENGTH] = { IMG_Load(
+		"./bingosteamhot/images/Line01.png"), IMG_Load(
+		"./bingosteamhot/images/Line02.png"), IMG_Load(
+		"./bingosteamhot/images/Line03.png"), IMG_Load(
+		"./bingosteamhot/images/Line04.png"), IMG_Load(
+		"./bingosteamhot/images/Line05.png"), IMG_Load(
+		"./bingosteamhot/images/Line06.png"), IMG_Load(
+		"./bingosteamhot/images/Line07.png"), IMG_Load(
+		"./bingosteamhot/images/Line08.png"), IMG_Load(
+		"./bingosteamhot/images/Line09.png"), };
 
-static const SDL_Surface *linesMarksBarsSurface[] =
-		{ IMG_Load(
-				"./bingosteamhot/images/LineMarkBarRight.png"),
-				IMG_Load(
-						"./bingosteamhot/images/LineMarkBarLeft.png"), };
+static const SDL_Surface *linesMarksBarsSurface[] = { IMG_Load(
+		"./bingosteamhot/images/LineMarkBarRight.png"), IMG_Load(
+		"./bingosteamhot/images/LineMarkBarLeft.png"), };
 
 static const SDL_Surface *buttonsSurface[] = { IMG_Load(
 		"./bingosteamhot/images/PayoutButton.png"), IMG_Load(
@@ -328,16 +326,21 @@ static void drawBingoNumbers() {
 	char number[100] = "";
 	SDL_Color color = { 0, 0, 0 };
 
-	for (int t = 0, csx = 0, csy = 0; t < BINGO_CARDS_TALONS; t++) {
-		for (int i = 0, j = 0; i < BINGO_CARDS_WIDTH; i++) {
-			for (int z = 0; z < (BINGO_CARDS_LENGTH / BINGO_CARDS_TALONS);
+	for (int t = 0, csx = 0, csy = 0; t < core::BingoBonus::BINGO_CARDS_TALONS;
+			t++) {
+		for (int i = 0, j = 0; i < core::BingoBonus::BINGO_CARDS_WIDTH; i++) {
+			for (int z = 0;
+					z
+							< (core::BingoBonus::BINGO_CARDS_LENGTH
+									/ core::BingoBonus::BINGO_CARDS_TALONS);
 					z++) {
-				j = t * BINGO_CARDS_LENGTH / BINGO_CARDS_TALONS + z;
-				if (core::bingoCards[i][j] == 0) {
+				j = t * core::BingoBonus::BINGO_CARDS_LENGTH
+						/ core::BingoBonus::BINGO_CARDS_TALONS + z;
+				if (core::BingoBonus::bingoCards[i][j] == 0) {
 					continue;
 				}
 
-				sprintf(number, "%2d", core::bingoCards[i][j]);
+				sprintf(number, "%2d", core::BingoBonus::bingoCards[i][j]);
 
 				/*Draw shadows for all numbers .*/{
 					color = NUMBERS_SHADOW_COLOR;
@@ -350,9 +353,9 @@ static void drawBingoNumbers() {
 					SDL_FreeSurface(text);
 				}
 
-				if (core::bingoNumbersOut[i][j] == true) {
-					if (core::bingoCardIndex == t) {
-						if (core::bingoLineIndex == j) {
+				if (core::BingoBonus::bingoNumbersOut[i][j] == true) {
+					if (core::BingoBonus::bingoCardIndex == t) {
+						if (core::BingoBonus::bingoLineIndex == j) {
 							/*
 							 * Bingo line bonus numbers color.
 							 */
@@ -363,7 +366,7 @@ static void drawBingoNumbers() {
 							 */
 							color = BINGO_BONUS_NUMBERS_COLOR;
 						}
-					} else if (core::bingoLineIndex == j) {
+					} else if (core::BingoBonus::bingoLineIndex == j) {
 						/*
 						 * Bingo line bonus numbers color.
 						 */
@@ -557,7 +560,7 @@ void drawMainGame() {
 	/*
 	 * Draw bingo talons images.
 	 */
-	for (int i = 0; i < BINGO_CARDS_TALONS; i++) {
+	for (int i = 0; i < core::BingoBonus::BINGO_CARDS_TALONS; i++) {
 		SDL_BlitSurface((SDL_Surface*) talonsSurface[i], NULL, core::canvas,
 				&bingoCardsCoordinates[i]);
 	}
