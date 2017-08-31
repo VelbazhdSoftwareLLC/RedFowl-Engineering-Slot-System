@@ -50,10 +50,10 @@ void loop() {
 	 * Initialize reels stops.
 	 */
 	core::reelsStops.resize(REELS_LENGTH);
-	core::reelsSpinFlag.resize(REELS_LENGTH);
+	core::FiniteStateMachine::reelsSpinFlag.resize(REELS_LENGTH);
 	for (int i = 0; i < REELS_LENGTH; i++) {
 		core::reelsStops[i] = 0;
-		core::reelsSpinFlag[i] = false;
+		core::FiniteStateMachine::reelsSpinFlag[i] = false;
 	}
 
 	/*
@@ -190,9 +190,9 @@ void loop() {
 						core::bingoBonusWin = 0;
 					}
 
-					core::spinAllReels();
+					core::FiniteStateMachine::spinAllReels();
 					runBaseGame(core::totalWin);
-					core::lastSpinTick = SDL_GetTicks();
+					core::FiniteStateMachine::lastSpinTick = SDL_GetTicks();
 					memset(offsets, 0, REELS_LENGTH * sizeof(int));
 
 					break;

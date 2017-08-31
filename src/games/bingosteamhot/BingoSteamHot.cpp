@@ -63,7 +63,7 @@ int main12(int argc, char *argv[], unsigned long &session) {
 	/*
 	 * Reset finite state machine.
 	 */
-	core::reset();
+	core::FiniteStateMachine::reset();
 
 	/*
 	 * Game loop.

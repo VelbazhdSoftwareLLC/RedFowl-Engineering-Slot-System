@@ -11,6 +11,9 @@ namespace core {
 
 using namespace std;
 
+/**
+ * Class for common calculations.
+ */
 class Calculations {
 
 public:
