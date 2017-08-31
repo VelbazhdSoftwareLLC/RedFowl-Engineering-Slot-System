@@ -336,7 +336,7 @@ int singleFreeGame() {
 	 * Spin reels.
 	 * In retriggered games from FS1 to FS2 and from FS2 to FS3. FS3 can not rettriger FS.
 	 */
-	core::spin(core::view, core::freeReels, core::reelsMinOffset,
+	core::Calculations::spin(core::view, core::freeReels, core::reelsMinOffset,
 			core::reelsMaxOffset);
 
 	/*
@@ -371,7 +371,7 @@ int singleBaseGame() {
 	/*
 	 * Spin reels.
 	 */
-	core::spin(core::view, core::baseReels, core::reelsMinOffset,
+	core::Calculations::spin(core::view, core::baseReels, core::reelsMinOffset,
 			core::reelsMaxOffset);
 
 	/*

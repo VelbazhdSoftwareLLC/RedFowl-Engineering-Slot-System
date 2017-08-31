@@ -67,7 +67,7 @@ void loop() {
 	}
 
 	//TODO Find better place to initialize decorative initial view.
-	core::generatDecorative(core::baseReels);
+	core::Calculations::generatDecorative(core::baseReels);
 
 	initMainGame();
 

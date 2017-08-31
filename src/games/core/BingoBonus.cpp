@@ -1,7 +1,5 @@
 #include "BingoBonus.h"
 
-#include <cstdlib>
-
 namespace core {
 
 const int BingoBonus::bingoLineBonusDistribution[BingoBonus::BINGO_BONUS_DISTRIBUTION_LENGTH] =

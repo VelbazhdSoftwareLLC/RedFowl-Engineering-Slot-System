@@ -139,7 +139,7 @@ int singleBaseGame() {
 	/*
 	 * Spin reels.
 	 */
-	core::spin(core::view, core::baseReels, core::reelsMinOffset,
+	core::Calculations::spin(core::view, core::baseReels, core::reelsMinOffset,
 			core::reelsMaxOffset);
 
 	/*
