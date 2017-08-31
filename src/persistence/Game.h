@@ -7,12 +7,14 @@
 
 namespace persistence {
 
+using namespace std;
+
 #pragma db object
 class Game {
 
 private:
 
-	std::string title;
+	string title;
 	int rtp;
 
 #pragma db id auto
@@ -25,7 +27,7 @@ private:
 
 public:
 
-	Game(const std::string &title, int rtp) {
+	Game(const string &title, int rtp) {
 		this->title = title;
 		this->rtp = rtp;
 	}
@@ -37,11 +39,11 @@ public:
 		return id;
 	}
 
-	const std::string& getTitle() const {
+	const string& getTitle() const {
 		return title;
 	}
 
-	void setTitle(const std::string& title) {
+	void setTitle(const string& title) {
 		this->title = title;
 	}
 

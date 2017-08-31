@@ -7,7 +7,9 @@
 
 namespace sunsethot {
 
-extern std::vector<SunsetHotWinCombination> gameWins;
+using namespace std;
+
+extern vector<SunsetHotWinCombination> gameWins;
 
 }
 

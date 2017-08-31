@@ -484,11 +484,11 @@ void runOptimization() {
 
 		for (int p = 0; p < GA_POPULATION_SIZE; p++) {
 			if (clock() - lastPrintTime > 10) {
-				std::cerr
+				cerr
 						<< (int) ((double) (e * GA_POPULATION_SIZE + p) * 10000
 								/ (double) (GA_NUMBER_OF_EPOCHS
 										* GA_POPULATION_SIZE)) / 100.0 << "%"
-						<< std::endl;
+						<< endl;
 				lastPrintTime = clock();
 			}
 
@@ -509,21 +509,21 @@ void runOptimization() {
 			symbolsBalance(population[childIndex]);
 #endif
 
-			fitness[childIndex] = std::abs(
+			fitness[childIndex] = abs(
 					optimalPercent - evaluate(population[childIndex]));
 			keepTrackOfBestAndWorst(childIndex);
 #ifdef EVALUATE_IN_EACH_GENERATION
-			fitness[firstParentIndex] = std::abs(
+			fitness[firstParentIndex] = abs(
 					optimalPercent - evaluate(population[firstParentIndex]));
 			keepTrackOfBestAndWorst(firstParentIndex);
-			fitness[secondParentIndex] = std::abs(
+			fitness[secondParentIndex] = abs(
 					optimalPercent - evaluate(population[secondParentIndex]));
 			keepTrackOfBestAndWorst(secondParentIndex);
 #endif
 		}
 
-		std::cerr << "Epoch: " << e << std::endl;
-		printOptimalResults(std::cerr);
+		cerr << "Epoch: " << e << endl;
+		printOptimalResults(cerr);
 	}
 }
 
@@ -532,7 +532,7 @@ void runOptimization() {
  *
  * @param out Output stream.
  */
-void printOptimalResults(std::ostream &out) {
+void printOptimalResults(ostream &out) {
 	int *current = population[bestFitnessIndex];
 
 	/*
@@ -541,7 +541,7 @@ void printOptimalResults(std::ostream &out) {
 	out << "\t";
 	out << "/*Base game \tTarget percent: " << optimalPercent
 			<< "%\tFitness value: " << fitness[bestFitnessIndex] << "%*/{";
-	out << std::endl;
+	out << endl;
 	for (int i = 0; i < REELS_LENGTH; i++) {
 		out << "\t\t";
 		out << "{";
@@ -549,11 +549,11 @@ void printOptimalResults(std::ostream &out) {
 			out << (*current) << ", ";
 			current++;
 		}
-		out << "}," << std::endl;
+		out << "}," << endl;
 	}
 	out << "\t";
 	out << "},";
-	out << std::endl;
+	out << endl;
 
 	//TODO It is done in order to optimize only base game reels.
 	return;

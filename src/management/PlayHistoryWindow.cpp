@@ -21,7 +21,9 @@
 
 namespace management {
 
-static std::string currency = "";
+using namespace std;
+
+static string currency = "";
 
 static void showPlayHistoryInfo(CDKSWINDOW *scroll,
 		const persistence::GameHistoryInfo &info, const int currnet,
@@ -34,9 +36,9 @@ static void showPlayHistoryInfo(CDKSWINDOW *scroll,
 	addCDKSwindow(scroll, message, BOTTOM);
 	addCDKSwindow(scroll, "\n", BOTTOM);
 
-	std::istringstream in(info.screen.c_str());
-	std::string line;
-	while (std::getline(in, line, '\n')) {
+	istringstream in(info.screen.c_str());
+	string line;
+	while (getline(in, line, '\n')) {
 		sprintf(message, "%s", line.c_str());
 		addCDKSwindow(scroll, message, BOTTOM);
 	}
@@ -72,9 +74,9 @@ void displayMenuOption() {
 	addCDKSwindow(scroll, "\n", BOTTOM);
 
 	int argc = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(argc, NULL));
-	std::auto_ptr<odb::core::database> db = connection;
+	auto_ptr<odb::core::database> db = connection;
 
 	/*
 	 * Machine cunrrency.

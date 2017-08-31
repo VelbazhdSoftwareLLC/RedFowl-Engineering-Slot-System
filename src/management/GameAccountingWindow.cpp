@@ -21,11 +21,13 @@
 
 namespace management {
 
-void gameAccountingWindow(std::string title) {
+using namespace std;
+
+void gameAccountingWindow(string title) {
 	int argc = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(argc, NULL));
-	std::auto_ptr<odb::core::database> db = connection;
+	auto_ptr<odb::core::database> db = connection;
 
 	int id = 0;
 	bool found = false;
@@ -52,7 +54,7 @@ void gameAccountingWindow(std::string title) {
 		odb::result<persistence::Bet> r(
 				db->query<persistence::Bet>(
 						odb::query<persistence::Bet>::game == id));
-		std::vector<std::string> titles;
+		vector<string> titles;
 		for (odb::result<persistence::Bet>::iterator i(r.begin()); i != r.end();
 				++i) {
 			bet += i->getValue();
@@ -67,7 +69,7 @@ void gameAccountingWindow(std::string title) {
 		odb::result<persistence::Win> r(
 				db->query<persistence::Win>(
 						odb::query<persistence::Win>::game == id));
-		std::vector<std::string> titles;
+		vector<string> titles;
 		for (odb::result<persistence::Win>::iterator i(r.begin()); i != r.end();
 				++i) {
 			win += i->getValue();
@@ -76,14 +78,14 @@ void gameAccountingWindow(std::string title) {
 	}
 
 	double denomination = 0.0;
-	std::string currency = "";
+	string currency = "";
 	/*
 	 * Denomination.
 	 */{
 		odb::transaction t(db->begin());
 		odb::result<persistence::MachineConfiguration> r(
 				db->query<persistence::MachineConfiguration>());
-		std::vector<std::string> titles;
+		vector<string> titles;
 		for (odb::result<persistence::MachineConfiguration>::iterator i(
 				r.begin()); i != r.end(); ++i) {
 			denomination = i->getDenomination();
@@ -126,11 +128,11 @@ void gameAccountingWindow(std::string title) {
 
 void gameAccountingMenuOption() {
 	int argc = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(argc, NULL));
-	std::auto_ptr<odb::core::database> db = connection;
+	auto_ptr<odb::core::database> db = connection;
 
-	std::vector<std::string> titles;
+	vector<string> titles;
 	odb::transaction t(db->begin());
 	odb::result<persistence::Game> r(db->query<persistence::Game>());
 	for (odb::result<persistence::Game>::iterator i(r.begin()); i != r.end();

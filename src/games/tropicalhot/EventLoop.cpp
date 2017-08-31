@@ -13,6 +13,8 @@
 
 namespace tropicalhot {
 
+using namespace std;
+
 void loop() {
 	/*
 	 * Initialize bet parameters.
@@ -195,13 +197,13 @@ void loop() {
 
 					if (core::totalBet <= 0) {
 						//TODO Report no credit.
-						//std::cerr << "Total bet is empty ..." << std::endl;
+						//cerr << "Total bet is empty ..." << endl;
 						break;
 					}
 
 					if (core::credit < core::totalBet) {
 						//TODO Report no credit.
-						//std::cerr << "No enough credit ..." << std::endl;
+						//cerr << "No enough credit ..." << endl;
 						break;
 					}
 

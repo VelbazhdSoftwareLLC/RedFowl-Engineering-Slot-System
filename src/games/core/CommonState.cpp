@@ -10,7 +10,7 @@ int rtp = 90;
 /**
  * Game title as it is used into databese.
  */
-std::string title;
+string title;
 
 /**
  * Find better place for session id.
@@ -110,31 +110,31 @@ int scatterMultiplier = 1;
 /**
  * Reference to active base game reels.
  */
-std::vector<std::vector<int> > baseReels;
+vector<vector<int> > baseReels;
 
 /**
  * Reference to active base game reels.
  */
-std::vector<std::vector<int> > freeReels;
+vector<vector<int> > freeReels;
 
 /**
  * Slot view.
  */
-std::vector<std::vector<int> > view;
+vector<vector<int> > view;
 
 /**
  * Each reel minimal offset after spin action.
  */
-std::vector<int> reelsMinOffset;
+vector<int> reelsMinOffset;
 
 /**
  * Each reel maximum offset after spin action.
  */
-std::vector<int> reelsMaxOffset;
+vector<int> reelsMaxOffset;
 
 /**
  * Reels stops. Indices of the first row after spin.
  */
-std::vector<int> reelsStops;
+vector<int> reelsStops;
 
 }

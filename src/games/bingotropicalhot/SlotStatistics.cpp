@@ -106,106 +106,106 @@ void calculateAverage() {
  * Print results.
  */
 void printSimulationResults() {
-	std::cout << "Total RTP\t";
-	std::cout
+	cout << "Total RTP\t";
+	cout
 			<< (int) ((double) experiment->wonMoney * 10000
 					/ (double) experiment->lostMoney) / 100.0 << "%"
-			<< std::endl;
+			<< endl;
 
-	std::cout << "Won Money\t";
-	std::cout << experiment->wonMoney << std::endl;
+	cout << "Won Money\t";
+	cout << experiment->wonMoney << endl;
 
-	std::cout << "Lost Money\t";
-	std::cout << experiment->lostMoney << std::endl;
+	cout << "Lost Money\t";
+	cout << experiment->lostMoney << endl;
 
-	std::cout << "Base Game RTP\t";
-	std::cout
+	cout << "Base Game RTP\t";
+	cout
 			<< (int) ((double) (experiment->baseGameMoney) * 10000
 					/ (double) experiment->lostMoney) / 100.0 << "%\t";
-	std::cout << std::endl;
+	cout << endl;
 
-	std::cout << "Bonus Game RTP\t";
-	std::cout
+	cout << "Bonus Game RTP\t";
+	cout
 			<< (int) ((double) (experiment->lineBonusMoney
 					+ experiment->bingoBonusMoney) * 10000
 					/ (double) experiment->lostMoney) / 100.0 << "%\t";
-	std::cout
+	cout
 			<< (int) ((double) (experiment->lineBonusMoney) * 10000
 					/ (double) experiment->lostMoney) / 100.0 << "%\t";
-	std::cout
+	cout
 			<< (int) ((double) (experiment->bingoBonusMoney) * 10000
 					/ (double) experiment->lostMoney) / 100.0 << "%\t";
-	std::cout << std::endl;
+	cout << endl;
 
-	std::cout << "Total Number of Base Games\t";
-	std::cout << experiment->totalNumberOfBaseGames << std::endl;
+	cout << "Total Number of Base Games\t";
+	cout << experiment->totalNumberOfBaseGames << endl;
 
-	std::cout << "Total Number of Line Bonus\t";
-	std::cout << experiment->totalNumberOfLineBonus << std::endl;
+	cout << "Total Number of Line Bonus\t";
+	cout << experiment->totalNumberOfLineBonus << endl;
 
-	std::cout << "Total Number of Bingo Bonus\t";
-	std::cout << experiment->totalNumberOfBingoBonus << std::endl;
+	cout << "Total Number of Bingo Bonus\t";
+	cout << experiment->totalNumberOfBingoBonus << endl;
 
-	std::cout << "Base Game Hit Rate\t";
-	std::cout
+	cout << "Base Game Hit Rate\t";
+	cout
 			<< (int) ((double) experiment->baseGameHitRate * 10000
 					/ (double) experiment->totalNumberOfBaseGames) / 100.0
-			<< "%" << std::endl;
+			<< "%" << endl;
 
-	std::cout << "Bonus Game Hit Rate\t";
-	std::cout
+	cout << "Bonus Game Hit Rate\t";
+	cout
 			<< (int) ((double) experiment->bonusGameHitRate * 10000
 					/ (double) experiment->totalNumberOfBaseGames) / 100.0
-			<< "%" << std::endl;
+			<< "%" << endl;
 
-	std::cout << std::endl;
-	std::cout << "Paytable\t" << std::endl;
+	cout << endl;
+	cout << "Paytable\t" << endl;
 	for (int j = 0; j < SYMBOLS_LENGTH; j++) {
-		std::cout << symbolsNames[j] << " (" << j << ")" << "\t";
+		cout << symbolsNames[j] << " (" << j << ")" << "\t";
 		for (int i = 0; i < COMBINATION_LENGTH; i++) {
-			std::cout << paytable[i][j] << "\t";
+			cout << paytable[i][j] << "\t";
 		}
-		std::cout << std::endl;
+		cout << endl;
 	}
 
-	std::cout << std::endl;
-	std::cout << "Won Money by Symbol in Base Game\t" << std::endl;
+	cout << endl;
+	cout << "Won Money by Symbol in Base Game\t" << endl;
 	for (int j = 0; j < SYMBOLS_LENGTH; j++) {
-		std::cout << symbolsNames[j] << " (" << j << ")" << "\t";
+		cout << symbolsNames[j] << " (" << j << ")" << "\t";
 		for (int i = 0; i < COMBINATION_LENGTH; i++) {
-			std::cout << experiment->baseSymbolMoney[i][j] << "\t";
+			cout << experiment->baseSymbolMoney[i][j] << "\t";
 		}
-		std::cout << "\t";
+		cout << "\t";
 		for (int i = 0; i < COMBINATION_LENGTH; i++) {
-			std::cout
+			cout
 					<< (int) ((double) experiment->baseSymbolMoney[i][j] * 10000
 							/ (double) experiment->wonMoney) / 100.0 << "\t";
 		}
-		std::cout << std::endl;
+		cout << endl;
 	}
 
-	std::cout << std::endl;
-	std::cout << "Hit Rate by Symbol in Base Game\t" << std::endl;
+	cout << endl;
+	cout << "Hit Rate by Symbol in Base Game\t" << endl;
 	for (int j = 0; j < SYMBOLS_LENGTH; j++) {
-		std::cout << symbolsNames[j] << " (" << j << ")" << "\t";
+		cout << symbolsNames[j] << " (" << j << ")" << "\t";
 		for (int i = 0; i < COMBINATION_LENGTH; i++) {
-			std::cout << experiment->baseGameSymbolsHitRate[i][j] << "\t";
+			cout << experiment->baseGameSymbolsHitRate[i][j] << "\t";
 		}
-		std::cout << "\t";
+		cout << "\t";
 		for (int i = 0; i < COMBINATION_LENGTH; i++) {
-			std::cout
+			cout
 					<< (int) ((double) experiment->baseGameSymbolsHitRate[i][j]
 							* 10000
 							/ (double) experiment->totalNumberOfBaseGames)
 							/ 100.0 << "\t";
 		}
-		std::cout << std::endl;
+		cout << endl;
 	}
 
 	for (int p = core::rtp - 90; p <= core::rtp - 90; p++) {
-		std::cout << std::endl;
-		std::cout << "Base Game Reels " << (90 + p) << "% Symbols Count\t"
-				<< std::endl;
+		cout << endl;
+		cout << "Base Game Reels " << (90 + p) << "% Symbols Count\t"
+				<< endl;
 		/* Count symbols in reels. */
 		{
 			int counters[REELS_LENGTH][SYMBOLS_LENGTH] = { { 0, 0, 0, 0, 0, 0,
@@ -220,42 +220,42 @@ void printSimulationResults() {
 				}
 			}
 			for (int j = 0; j < SYMBOLS_LENGTH; j++) {
-				std::cout << symbolsNames[j] << " (" << j << ")" << "\t";
+				cout << symbolsNames[j] << " (" << j << ")" << "\t";
 				for (int i = 0; i < REELS_LENGTH; i++) {
-					std::cout << counters[i][j] << "\t";
+					cout << counters[i][j] << "\t";
 				}
-				std::cout << std::endl;
+				cout << endl;
 			}
-			std::cout << "---------------------------------------------"
-					<< std::endl;
-			std::cout << "Total:\t";
+			cout << "---------------------------------------------"
+					<< endl;
+			cout << "Total:\t";
 			unsigned long combinations = 1L;
 			for (int i = 0; i < REELS_LENGTH; i++) {
 				int sum = 0;
 				for (int j = 0; j < SYMBOLS_LENGTH; j++) {
 					sum += counters[i][j];
 				}
-				std::cout << sum << "\t";
+				cout << sum << "\t";
 				if (sum != 0) {
 					combinations *= sum;
 				}
 			}
-			std::cout << std::endl;
-			std::cout << "---------------------------------------------"
-					<< std::endl;
-			std::cout << "Combinations:\t" << combinations;
-			std::cout << std::endl;
+			cout << endl;
+			cout << "---------------------------------------------"
+					<< endl;
+			cout << "Combinations:\t" << combinations;
+			cout << endl;
 		}
 	}
 
 	for (int p = core::rtp - 90; p <= core::rtp - 90; p++) {
-		std::cout << std::endl;
-		std::cout << "Base Game Reels " << (90 + p) << "%\t" << std::endl;
+		cout << endl;
+		cout << "Base Game Reels " << (90 + p) << "%\t" << endl;
 		for (int j = 0; j < REEL_LENGTH; j++) {
 			for (int i = 0; i < REELS_LENGTH; i++) {
-				std::cout << symbolsNames[baseGameReels[p][i][j]] << "\t";
+				cout << symbolsNames[baseGameReels[p][i][j]] << "\t";
 			}
-			std::cout << std::endl;
+			cout << endl;
 		}
 	}
 }

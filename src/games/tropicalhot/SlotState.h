@@ -7,7 +7,9 @@
 
 namespace tropicalhot {
 
-extern std::vector<TropicalHotWinCombination> gameWins;
+using namespace std;
+
+extern vector<TropicalHotWinCombination> gameWins;
 
 }
 

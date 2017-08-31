@@ -8,13 +8,15 @@
 
 namespace persistence {
 
+using namespace std;
+
 #pragma db object
 class Event {
 private:
 
 	time_t timestamp;
-	std::string description;
-	std::string data;
+	string description;
+	string data;
 
 #pragma db id auto
 	unsigned long id;
@@ -33,19 +35,19 @@ public:
 		return id;
 	}
 
-	const std::string& getData() const {
+	const string& getData() const {
 		return data;
 	}
 
-	void setData(const std::string& data) {
+	void setData(const string& data) {
 		this->data = data;
 	}
 
-	const std::string& getDescription() const {
+	const string& getDescription() const {
 		return description;
 	}
 
-	void setDescription(const std::string& description) {
+	void setDescription(const string& description) {
 		this->description = description;
 	}
 

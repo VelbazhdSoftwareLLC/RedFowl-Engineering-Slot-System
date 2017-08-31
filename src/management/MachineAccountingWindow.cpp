@@ -19,11 +19,13 @@
 
 namespace management {
 
+using namespace std;
+
 void machineAccountingMenuOption() {
 	int argc = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(argc, NULL));
-	std::auto_ptr<odb::core::database> db = connection;
+	auto_ptr<odb::core::database> db = connection;
 
 	long bet = 0;
 	/*
@@ -82,7 +84,7 @@ void machineAccountingMenuOption() {
 	}
 
 	double denomination = 0.0;
-	std::string currency = "";
+	string currency = "";
 	/*
 	 * Denomination.
 	 */{

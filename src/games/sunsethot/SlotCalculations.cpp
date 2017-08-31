@@ -131,7 +131,7 @@ static int lineWin(int line[REELS_LENGTH], const int &index) {
  *
  * @return Calculated win.
  */
-static int linesWin(std::vector<std::vector<int> > &view,
+static int linesWin(vector<vector<int> > &view,
 		const int lines[LINES_LENGTH][REELS_LENGTH], int numberOfBettingLines) {
 	/*
 	 * Static variables are not allocated into stack and it is faster to be used.
@@ -237,7 +237,7 @@ static void bonusGameSetup() {
 		}
 #endif
 	} else if (nubmerOfBonuses > 5) {
-		std::cerr << "More than 5 bonus symbols ..." << std::endl;
+		cerr << "More than 5 bonus symbols ..." << endl;
 	}
 }
 
@@ -300,7 +300,7 @@ static void freeGamesSetup() {
 				freeScatterDistritution[FREE_GAMES_SCATTER_INDEX][rand()
 						% (FREE_SCATTER_DISTRIBUTION_LENGTH)];
 	} else if (numberOfScatters > 5) {
-		std::cerr << "More than 5 scatter symbols ..." << std::endl;
+		cerr << "More than 5 scatter symbols ..." << endl;
 	}
 }
 

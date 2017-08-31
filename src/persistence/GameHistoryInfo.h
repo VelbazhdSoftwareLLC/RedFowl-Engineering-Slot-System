@@ -13,6 +13,8 @@
 
 namespace persistence {
 
+using namespace std;
+
 #define NUMBER_OF_GAMES_IN_HISTORY 50
 
 #pragma db view object(PlayHistory) object(Bet:PlayHistory::bet) object(Win:PlayHistory::win) object(GameConfiguration:PlayHistory::configuration) object(Game=g1:PlayHistory::game) object(Game=g2:Bet::game) object(Game=g3:Win::game) query ("order by" + PlayHistory::timestamp + "desc limit 50")
@@ -20,10 +22,10 @@ class GameHistoryInfo {
 public:
 
 #pragma db column(g1::title)
-	std::string title;
+	string title;
 
 #pragma db column(PlayHistory::view)
-	std::string screen;
+	string screen;
 
 #pragma db column(PlayHistory::timestamp)
 	time_t moment;
@@ -56,10 +58,10 @@ public:
 //class GameHistoryInfo {
 //public:
 //#pragma db type("text")
-//	std::string title;
+//	string title;
 //
 //#pragma db type("text")
-//	std::string screen;
+//	string screen;
 //
 //#pragma db type("bigint")
 //	time_t moment;

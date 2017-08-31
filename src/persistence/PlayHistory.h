@@ -10,6 +10,8 @@
 
 namespace persistence {
 
+using namespace std;
+
 #pragma db object
 class PlayHistory {
 private:
@@ -18,7 +20,7 @@ private:
 	const Bet *bet;
 	const Win *win;
 	const GameConfiguration *configuration;
-	std::string view;
+	string view;
 	time_t timestamp;
 
 #pragma db id auto
@@ -32,7 +34,7 @@ private:
 public:
 
 	PlayHistory(const Game *game, const Bet *bet, const Win *win,
-			const GameConfiguration *configuration, std::string view,
+			const GameConfiguration *configuration, string view,
 			time_t timestamp) {
 		this->game = game;
 		this->bet = bet;
@@ -85,11 +87,11 @@ public:
 		this->win = win;
 	}
 
-	const std::string& getView() const {
+	const string& getView() const {
 		return view;
 	}
 
-	void setView(const std::string& view) {
+	void setView(const string& view) {
 		this->view = view;
 	}
 };

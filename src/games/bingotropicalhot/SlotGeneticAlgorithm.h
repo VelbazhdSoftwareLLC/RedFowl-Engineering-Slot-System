@@ -11,7 +11,7 @@ extern int baseSymbolsWinSum[SYMBOLS_LENGTH];
 extern int freeSymbolsWinSum[SYMBOLS_LENGTH];
 
 extern void runOptimization();
-extern void printOptimalResults(std::ostream &out);
+extern void printOptimalResults(ostream &out);
 
 }
 

@@ -89,7 +89,7 @@ static int lineWin(int line[REELS_LENGTH], const int &index) {
  *
  * @return Calculated win.
  */
-static int linesWin(std::vector<std::vector<int> > &view,
+static int linesWin(vector<vector<int> > &view,
 		const int lines[LINES_LENGTH][REELS_LENGTH], int numberOfBettingLines) {
 	/*
 	 * Static variables are not allocated into stack and it is faster to be used.

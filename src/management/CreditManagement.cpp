@@ -20,6 +20,8 @@
 
 namespace management {
 
+using namespace std;
+
 static CDKBUTTONBOX *buttons = NULL;
 
 static CDKENTRY *value = NULL;
@@ -38,7 +40,7 @@ static bool decimal = false;
 
 static double denomination = 0.0;
 
-static std::string currency = "";
+static string currency = "";
 
 static bool okSave = false;
 
@@ -184,7 +186,7 @@ static int onButtonsClick(EObjectType type, void *object, void *data,
 
 static void loadCredit(unsigned long &id) {
 	int count = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(count, NULL));
 
 	bool found = false;
@@ -216,7 +218,7 @@ static void loadCredit(unsigned long &id) {
 
 static void loadDenomination() {
 	int count = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(count, NULL));
 	odb::transaction t(connection->begin());
 	odb::result<persistence::MachineConfiguration> r(
@@ -233,7 +235,7 @@ static void loadDenomination() {
 
 static void storeAccountTransaction(unsigned long &id) {
 	int count = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(count, NULL));
 
 	/* Store account transaction. */{
@@ -254,7 +256,7 @@ static void storeAccountTransaction(unsigned long &id) {
 
 static void storeCredit(unsigned long &id) {
 	int count = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(count, NULL));
 
 	odb::transaction t(connection->begin());

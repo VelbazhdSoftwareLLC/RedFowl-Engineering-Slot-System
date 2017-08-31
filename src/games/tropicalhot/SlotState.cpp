@@ -9,6 +9,6 @@ namespace tropicalhot {
 /**
  * List of base game wins in single spin.
  */
-std::vector<TropicalHotWinCombination> gameWins;
+vector<TropicalHotWinCombination> gameWins;
 
 }

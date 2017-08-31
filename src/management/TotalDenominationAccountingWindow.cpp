@@ -17,14 +17,16 @@
 
 namespace management {
 
+using namespace std;
+
 void totalDenominationAccountingMenuOption() {
 	int argc = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(argc, NULL));
-	std::auto_ptr<odb::core::database> db = connection;
+	auto_ptr<odb::core::database> db = connection;
 
 	double denomination = 0.0;
-	std::string currency = "";
+	string currency = "";
 	/*
 	 * Denomination.
 	 */{
@@ -47,7 +49,7 @@ void totalDenominationAccountingMenuOption() {
 	 */{
 		odb::transaction t(db->begin());
 		odb::result<persistence::Bet> r(db->query<persistence::Bet>());
-		std::vector<std::string> titles;
+		vector<string> titles;
 		for (odb::result<persistence::Bet>::iterator i(r.begin()); i != r.end();
 				++i) {
 			bet += i->getValue();
@@ -66,7 +68,7 @@ void totalDenominationAccountingMenuOption() {
 	 */{
 		odb::transaction t(db->begin());
 		odb::result<persistence::Win> r(db->query<persistence::Win>());
-		std::vector<std::string> titles;
+		vector<string> titles;
 		for (odb::result<persistence::Win>::iterator i(r.begin()); i != r.end();
 				++i) {
 			win += i->getValue();

@@ -23,6 +23,8 @@
 
 namespace management {
 
+using namespace std;
+
 class DoorInfo {
 public:
 	time_t lastOpen;
@@ -39,9 +41,9 @@ public:
 
 static void readStackerInfo(time_t &remove, time_t &insert, long &count) {
 	int argc = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(argc, NULL));
-	std::auto_ptr<odb::core::database> db = connection;
+	auto_ptr<odb::core::database> db = connection;
 
 	odb::transaction t(db->begin());
 	odb::result<persistence::BillStackerAccess> r(
@@ -70,9 +72,9 @@ static void numberOfGamesAflterLastPowerOff(long &games, const time_t &on) {
 	games = 0;
 
 	int argc = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(argc, NULL));
-	std::auto_ptr<odb::core::database> db = connection;
+	auto_ptr<odb::core::database> db = connection;
 
 	odb::transaction t(db->begin());
 	odb::result<persistence::PlayHistory> r(
@@ -90,9 +92,9 @@ static void readPowerInfo(time_t &off, time_t &on, long &count) {
 	off = 0;
 
 	int argc = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(argc, NULL));
-	std::auto_ptr<odb::core::database> db = connection;
+	auto_ptr<odb::core::database> db = connection;
 
 	odb::transaction t(db->begin());
 	odb::result<persistence::PowerState> r(
@@ -132,9 +134,9 @@ static void showDoorInfo(CDKSWINDOW *scroll, const char title[],
 
 static void readDoorInfo(DoorInfo &info, const persistence::DoorType &type) {
 	int argc = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(argc, NULL));
-	std::auto_ptr<odb::core::database> db = connection;
+	auto_ptr<odb::core::database> db = connection;
 
 	/*
 	 * Door report.

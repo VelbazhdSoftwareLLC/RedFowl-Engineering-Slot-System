@@ -6,8 +6,10 @@
 
 namespace core {
 
+using namespace std;
+
 extern int rtp;
-extern std::string title;
+extern string title;
 extern unsigned long sessionId;
 extern bool autoPlayMode;
 extern bool baseGameMode;
@@ -27,13 +29,13 @@ extern int singleLineBet;
 extern int freeGamesNumber;
 extern int freeGamesMultiplier;
 extern int scatterMultiplier;
-extern std::vector<std::vector<int> > reels;
-extern std::vector<std::vector<int> > baseReels;
-extern std::vector<std::vector<int> > freeReels;
-extern std::vector<std::vector<int> > view;
-extern std::vector<int> reelsMinOffset;
-extern std::vector<int> reelsMaxOffset;
-extern std::vector<int> reelsStops;
+extern vector<vector<int> > reels;
+extern vector<vector<int> > baseReels;
+extern vector<vector<int> > freeReels;
+extern vector<vector<int> > view;
+extern vector<int> reelsMinOffset;
+extern vector<int> reelsMaxOffset;
+extern vector<int> reelsStops;
 
 }
 

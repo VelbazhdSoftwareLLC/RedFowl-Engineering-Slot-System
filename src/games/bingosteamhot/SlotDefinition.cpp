@@ -42,7 +42,7 @@ const int MAX_SINGLE_LINE_BET = 10;
 /**
  * List of symbols names.
  */
-std::string symbolsNames[SYMBOLS_LENGTH] = { "SYMBOL01  ", "SYMBOL02  ",
+string symbolsNames[SYMBOLS_LENGTH] = { "SYMBOL01  ", "SYMBOL02  ",
 		"SYMBOL03  ", "SYMBOL04  ", "SYMBOL05  ", "SYMBOL06  ", "SYMBOL07  ",
 		"SYMBOL08  ", "SYMBOL09  ", "SYMBOL10  ", "SYMBOL11  ", "SYMBOL12  ",
 		"SYMBOL13  ", "SYMBOL14  ", "SYMBOL15  ", "SYMBOL16  ", "SYMBOL17  ", };
@@ -50,7 +50,7 @@ std::string symbolsNames[SYMBOLS_LENGTH] = { "SYMBOL01  ", "SYMBOL02  ",
 /**
  * List of symbols types.
  */
-std::string symbolsTypes[SYMBOLS_LENGTH] = { "REGULAR", "REGULAR", "REGULAR",
+string symbolsTypes[SYMBOLS_LENGTH] = { "REGULAR", "REGULAR", "REGULAR",
 		"REGULAR", "REGULAR", "REGULAR", "REGULAR", "REGULAR", "REGULAR",
 		"REGULAR", "REGULAR", "REGULAR", "REGULAR", "REGULAR", "REGULAR",
 		"REGULAR", "REGULAR", };

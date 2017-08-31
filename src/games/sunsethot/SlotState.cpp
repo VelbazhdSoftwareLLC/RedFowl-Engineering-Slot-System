@@ -9,6 +9,6 @@ namespace sunsethot {
 /**
  * List of base game wins in single spin.
  */
-std::vector<SunsetHotWinCombination> gameWins;
+vector<SunsetHotWinCombination> gameWins;
 
 }

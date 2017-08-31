@@ -9,6 +9,6 @@ namespace bingosteamhot {
 /**
  * List of base game wins in single spin.
  */
-std::vector<BingoSteamHotWinCombination> gameWins;
+vector<BingoSteamHotWinCombination> gameWins;
 
 }

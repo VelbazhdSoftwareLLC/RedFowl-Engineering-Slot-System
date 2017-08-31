@@ -8,7 +8,7 @@
 
 namespace bingosteamhot {
 
-extern std::vector<BingoSteamHotWinCombination> gameWins;
+extern vector<BingoSteamHotWinCombination> gameWins;
 
 }
 

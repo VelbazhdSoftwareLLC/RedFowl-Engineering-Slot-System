@@ -7,12 +7,14 @@
 
 namespace persistence {
 
+using namespace std;
+
 #pragma db object
 class MachineConfiguration {
 
 private:
 	double denomination;
-	std::string currency;
+	string currency;
 	double attendantLimit;
 
 #pragma db id auto
@@ -25,7 +27,7 @@ private:
 
 public:
 
-	MachineConfiguration(double denomination, std::string currency,
+	MachineConfiguration(double denomination, string currency,
 			double attendantLimit) {
 		this->denomination = denomination;
 		this->currency = currency;
@@ -43,11 +45,11 @@ public:
 		this->denomination = denomination;
 	}
 
-	const std::string& getCurrency() const {
+	const string& getCurrency() const {
 		return currency;
 	}
 
-	void setCurrency(const std::string& currency) {
+	void setCurrency(const string& currency) {
 		this->currency = currency;
 	}
 

@@ -16,6 +16,8 @@
 
 namespace management {
 
+using namespace std;
+
 void cashOutLogMenuOption() {
 	CDKSWINDOW *scroll = newCDKSwindow(screen, CENTER, 1, LINES - 3, COLS,
 			"Credit Out Log", 1000, TRUE, FALSE);
@@ -23,15 +25,15 @@ void cashOutLogMenuOption() {
 	addCDKSwindow(scroll, "\n", BOTTOM);
 
 	int argc = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(argc, NULL));
-	std::auto_ptr<odb::core::database> db = connection;
+	auto_ptr<odb::core::database> db = connection;
 
 	/*
 	 * Machine cunrrency.
 	 */
 	static double denomination = 0;
-	static std::string currency = "";
+	static string currency = "";
 	{
 		odb::transaction t(db->begin());
 		odb::result<persistence::MachineConfiguration> r(

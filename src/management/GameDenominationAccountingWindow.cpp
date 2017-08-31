@@ -19,11 +19,13 @@
 
 namespace management {
 
-void gameDenominationWindow(std::string title) {
+using namespace std;
+
+void gameDenominationWindow(string title) {
 	int argc = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(argc, NULL));
-	std::auto_ptr<odb::core::database> db = connection;
+	auto_ptr<odb::core::database> db = connection;
 
 	int id = 0;
 	bool found = false;
@@ -44,7 +46,7 @@ void gameDenominationWindow(std::string title) {
 	t.commit();
 
 	double denomination = 0.0;
-	std::string currency = "";
+	string currency = "";
 	/*
 	 * Denomination.
 	 */{
@@ -67,7 +69,7 @@ void gameDenominationWindow(std::string title) {
 		odb::result<persistence::Bet> r(
 				db->query<persistence::Bet>(
 						odb::query<persistence::Bet>::game == id));
-		std::vector<std::string> titles;
+		vector<string> titles;
 		for (odb::result<persistence::Bet>::iterator i(r.begin()); i != r.end();
 				++i) {
 			bet += i->getValue();
@@ -86,7 +88,7 @@ void gameDenominationWindow(std::string title) {
 		odb::result<persistence::Win> r(
 				db->query<persistence::Win>(
 						odb::query<persistence::Win>::game == id));
-		std::vector<std::string> titles;
+		vector<string> titles;
 		for (odb::result<persistence::Win>::iterator i(r.begin()); i != r.end();
 				++i) {
 			win += i->getValue();
@@ -157,13 +159,13 @@ void gameDenominationWindow(std::string title) {
 
 void gameDenominationAccountingMenuOption() {
 	int argc = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(argc, NULL));
-	std::auto_ptr<odb::core::database> db = connection;
+	auto_ptr<odb::core::database> db = connection;
 
 	odb::transaction t(db->begin());
 	odb::result<persistence::Game> r(db->query<persistence::Game>());
-	std::vector<std::string> titles;
+	vector<string> titles;
 	for (odb::result<persistence::Game>::iterator i(r.begin()); i != r.end();
 			++i) {
 		titles.push_back(i->getTitle());

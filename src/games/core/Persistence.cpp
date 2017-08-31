@@ -21,10 +21,10 @@
 
 namespace core {
 
-static std::auto_ptr<odb::core::database> db;
+static auto_ptr<odb::core::database> db;
 
 void connectDb(int argc, char *argv[]) {
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(argc, argv));
 	db = connection;
 }
@@ -33,7 +33,7 @@ void disconnectDb() {
 	//TODO Check for database connection close.
 }
 
-void registerGame(const std::string &title, int &rtp) {
+void registerGame(const string &title, int &rtp) {
 	bool found = false;
 
 	odb::transaction t(db->begin());
@@ -137,7 +137,7 @@ unsigned long persistConfig(int rtp, int numberOfBettingLines,
 	return (id);
 }
 
-unsigned long persistBet(int bet, int credit, const std::string &title) {
+unsigned long persistBet(int bet, int credit, const string &title) {
 	unsigned long id;
 
 	odb::transaction t(db->begin());
@@ -166,7 +166,7 @@ unsigned long persistBet(int bet, int credit, const std::string &title) {
 }
 
 unsigned long persistWin(int win, int credit, persistence::WinType type,
-		const std::string &title) {
+		const string &title) {
 	unsigned long id;
 
 	odb::transaction t(db->begin());
@@ -194,8 +194,8 @@ unsigned long persistWin(int win, int credit, persistence::WinType type,
 }
 
 void persistHistory(unsigned long idBet, unsigned long idWin,
-		unsigned long idConfig, const std::vector<std::vector<int> > &view,
-		const std::string symbolsNames[], const std::string &title) {
+		unsigned long idConfig, const vector<vector<int> > &view,
+		const string symbolsNames[], const string &title) {
 	odb::transaction t(db->begin());
 	odb::result<persistence::Game> r(
 			db->query<persistence::Game>(
@@ -237,7 +237,7 @@ void persistHistory(unsigned long idBet, unsigned long idWin,
 					persistence::GameConfiguration &config(*i);
 					t.commit();
 
-					std::string text = "";
+					string text = "";
 					for (int j = 0; j < view[0].size(); j++) {
 						for (int i = 0; i < view.size(); i++) {
 							text += symbolsNames[view[i][j]];

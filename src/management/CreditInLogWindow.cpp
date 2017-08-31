@@ -16,6 +16,8 @@
 
 namespace management {
 
+using namespace std;
+
 void creditInLogMenuOption() {
 	CDKSWINDOW *scroll = newCDKSwindow(screen, CENTER, 1, LINES - 3, COLS,
 			"Credit In Log", 1000, TRUE, FALSE);
@@ -23,15 +25,15 @@ void creditInLogMenuOption() {
 	addCDKSwindow(scroll, "\n", BOTTOM);
 
 	int argc = 0;
-	std::auto_ptr<odb::core::database> connection(
+	auto_ptr<odb::core::database> connection(
 			new odb::pgsql::database(argc, NULL));
-	std::auto_ptr<odb::core::database> db = connection;
+	auto_ptr<odb::core::database> db = connection;
 
 	/*
 	 * Machine cunrrency.
 	 */
 	static double denomination = 0;
-	static std::string currency = "";
+	static string currency = "";
 	{
 		odb::transaction t(db->begin());
 		odb::result<persistence::MachineConfiguration> r(

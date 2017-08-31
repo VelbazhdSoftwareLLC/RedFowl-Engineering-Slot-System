@@ -5,6 +5,8 @@
 
 namespace tropicalhot {
 
+using namespace std;
+
 #define EMPTY -1
 #define SYM03 3
 #define SYM04 4
@@ -31,8 +33,8 @@ extern const int MAX_SINGLE_LINE_BET;
 const int ROWS_LENGTH = 3;
 
 const int SYMBOLS_LENGTH = 17;
-extern std::string symbolsNames[SYMBOLS_LENGTH];
-extern std::string symbolsTypes[SYMBOLS_LENGTH];
+extern string symbolsNames[SYMBOLS_LENGTH];
+extern string symbolsTypes[SYMBOLS_LENGTH];
 
 const int REELS_LENGTH = 5;
 const int COMBINATION_LENGTH = (REELS_LENGTH + 1);
