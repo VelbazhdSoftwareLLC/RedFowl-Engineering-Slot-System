@@ -402,11 +402,11 @@ void initMainGame() {
 			index = s;
 			for (int j = 0; j < ROWS_LENGTH; j++) {
 				for (int i = 0; i < REELS_LENGTH; i++) {
-					if (core::view[i][j] == EMPTY) {
+					if (core::CommonState::view[i][j] == EMPTY) {
 						continue;
 					}
 					SDL_BlitSurface(
-							(SDL_Surface*) symbolsSurface[core::view[i][j]],
+							(SDL_Surface*) symbolsSurface[core::CommonState::view[i][j]],
 							NULL, core::canvas, &symbolsCoordinates[i][j]);
 				}
 			}
@@ -525,10 +525,10 @@ void drawMainGame() {
 //	}
 	for (int j = 0; j < ROWS_LENGTH; j++) {
 		for (int i = 0; i < REELS_LENGTH; i++) {
-			if (core::view[i][j] == EMPTY) {
+			if (core::CommonState::view[i][j] == EMPTY) {
 				continue;
 			}
-			SDL_BlitSurface((SDL_Surface*) symbolsSurface[core::view[i][j]],
+			SDL_BlitSurface((SDL_Surface*) symbolsSurface[core::CommonState::view[i][j]],
 					NULL, core::canvas, &symbolsCoordinates[i][j]);
 		}
 	}
@@ -606,26 +606,26 @@ void drawMainGame() {
 	/*
 	 * Draw bingo ball images.
 	 */
-	if (1 <= core::bingoBallNumber && core::bingoBallNumber <= 90) {
+	if (1 <= core::CommonState::bingoBallNumber && core::CommonState::bingoBallNumber <= 90) {
 		SDL_BlitSurface(
-				(SDL_Surface*) bingoBallsSurface[core::bingoBallNumber - 1],
+				(SDL_Surface*) bingoBallsSurface[core::CommonState::bingoBallNumber - 1],
 				NULL, core::canvas, &bingoBallsCoordinates);
 	}
 
-	drawText(100, 795, core::credit);
-	drawText(350, 795, core::numberOfBettingLines);
-	drawText(455, 795, core::singleLineBet);
-	drawText(565, 795, core::totalBet);
-	drawText(675, 795, core::totalWin);
+	drawText(100, 795, core::CommonState::credit);
+	drawText(350, 795, core::CommonState::numberOfBettingLines);
+	drawText(455, 795, core::CommonState::singleLineBet);
+	drawText(565, 795, core::CommonState::totalBet);
+	drawText(675, 795, core::CommonState::totalWin);
 
-	if (core::bingoLineBonusWin > 0) {
+	if (core::CommonState::bingoLineBonusWin > 0) {
 		static char text[100] = "";
-		sprintf(text, "Line Bonus %d", core::bingoLineBonusWin);
+		sprintf(text, "Line Bonus %d", core::CommonState::bingoLineBonusWin);
 		drawText(610, 572, text);
 	}
-	if (core::bingoBonusWin > 0) {
+	if (core::CommonState::bingoBonusWin > 0) {
 		static char text[100] = "";
-		sprintf(text, "Bingo Bonus %d", core::bingoBonusWin);
+		sprintf(text, "Bingo Bonus %d", core::CommonState::bingoBonusWin);
 		drawText(610, 572, text);
 	}
 

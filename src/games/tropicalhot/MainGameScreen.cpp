@@ -185,11 +185,11 @@ void initMainGame() {
 			index = s;
 			for (int j = 0; j < ROWS_LENGTH; j++) {
 				for (int i = 0; i < REELS_LENGTH; i++) {
-					if (core::view[i][j] == EMPTY) {
+					if (core::CommonState::view[i][j] == EMPTY) {
 						continue;
 					}
 					SDL_BlitSurface(
-							(SDL_Surface*) symbolsSurface[core::view[i][j]],
+							(SDL_Surface*) symbolsSurface[core::CommonState::view[i][j]],
 							NULL, core::canvas, &symbolsCoordinates[i][j]);
 				}
 			}
@@ -263,14 +263,14 @@ void drawBonusGame() {
 				&foregroundCoordinates);
 	}
 
-	drawText(96, 784, core::credit);
-	drawText(246, 784, core::freeGamesNumber);
-	drawText(370, 784, core::numberOfBettingLines);
-	drawText(500, 784, core::singleLineBet);
-	drawText(626, 784, core::totalBet);
-	drawText(754, 784, core::totalWin);
+	drawText(96, 784, core::CommonState::credit);
+	drawText(246, 784, core::CommonState::freeGamesNumber);
+	drawText(370, 784, core::CommonState::numberOfBettingLines);
+	drawText(500, 784, core::CommonState::singleLineBet);
+	drawText(626, 784, core::CommonState::totalBet);
+	drawText(754, 784, core::CommonState::totalWin);
 
-	if (core::bonusSelected == false) {
+	if (core::CommonState::bonusSelected == false) {
 		for (int i = 1; i <= 3; i++) {
 			//TODO Do not use magic numbers.
 			SDL_BlitSurface((SDL_Surface*) symbolsSurface[15], NULL,
@@ -278,7 +278,7 @@ void drawBonusGame() {
 		}
 
 		drawText(640, 695, "Select One");
-	} else if (core::bonusSelected == true) {
+	} else if (core::CommonState::bonusSelected == true) {
 		for (int i = 1; i <= 3; i++) {
 			if (i != core::reelBonusIndex) {
 				continue;
@@ -327,10 +327,10 @@ void drawFreeGame() {
 	 */
 	for (int j = 0; j < ROWS_LENGTH; j++) {
 		for (int i = 0; i < REELS_LENGTH; i++) {
-			if (core::view[i][j] == EMPTY) {
+			if (core::CommonState::view[i][j] == EMPTY) {
 				continue;
 			}
-			SDL_BlitSurface((SDL_Surface*) symbolsSurface[core::view[i][j]],
+			SDL_BlitSurface((SDL_Surface*) symbolsSurface[core::CommonState::view[i][j]],
 			NULL, core::canvas, &symbolsCoordinates[i][j]);
 		}
 	}
@@ -374,12 +374,12 @@ void drawFreeGame() {
 				&foregroundCoordinates);
 	}
 
-	drawText(96, 784, core::credit);
-	drawText(246, 784, core::freeGamesNumber);
-	drawText(370, 784, core::numberOfBettingLines);
-	drawText(500, 784, core::singleLineBet);
-	drawText(626, 784, core::totalBet);
-	drawText(754, 784, core::totalWin);
+	drawText(96, 784, core::CommonState::credit);
+	drawText(246, 784, core::CommonState::freeGamesNumber);
+	drawText(370, 784, core::CommonState::numberOfBettingLines);
+	drawText(500, 784, core::CommonState::singleLineBet);
+	drawText(626, 784, core::CommonState::totalBet);
+	drawText(754, 784, core::CommonState::totalWin);
 
 	/*
 	 * Double buffer animation.
@@ -484,10 +484,10 @@ void drawMainGame() {
 //	}
 	for (int j = 0; j < ROWS_LENGTH; j++) {
 		for (int i = 0; i < REELS_LENGTH; i++) {
-			if (core::view[i][j] == EMPTY) {
+			if (core::CommonState::view[i][j] == EMPTY) {
 				continue;
 			}
-			SDL_BlitSurface((SDL_Surface*) symbolsSurface[core::view[i][j]],
+			SDL_BlitSurface((SDL_Surface*) symbolsSurface[core::CommonState::view[i][j]],
 			NULL, core::canvas, &symbolsCoordinates[i][j]);
 		}
 	}
@@ -545,12 +545,12 @@ void drawMainGame() {
 				&foregroundCoordinates);
 	}
 
-	drawText(96, 784, core::credit);
-	drawText(246, 784, core::freeGamesNumber);
-	drawText(370, 784, core::numberOfBettingLines);
-	drawText(500, 784, core::singleLineBet);
-	drawText(626, 784, core::totalBet);
-	drawText(754, 784, core::totalWin);
+	drawText(96, 784, core::CommonState::credit);
+	drawText(246, 784, core::CommonState::freeGamesNumber);
+	drawText(370, 784, core::CommonState::numberOfBettingLines);
+	drawText(500, 784, core::CommonState::singleLineBet);
+	drawText(626, 784, core::CommonState::totalBet);
+	drawText(754, 784, core::CommonState::totalWin);
 
 	/*
 	 * Double buffer animation.

@@ -24,16 +24,16 @@ int main11(int argc, char *argv[], unsigned long &session) {
 	/*
 	 * Obtain game title.
 	 */
-	core::title = TITLE;
+	core::CommonState::title = TITLE;
 	core::connectDb(argc, argv);
 
 	/*
 	 * Register into the database.
 	 */
-	core::registerGame(core::title, core::rtp);
-	core::registerSession(session, core::credit);
-	core::sessionId = session;
-	core::adjustDenomination(core::denomination);
+	core::registerGame(core::CommonState::title, core::CommonState::rtp);
+	core::registerSession(session, core::CommonState::credit);
+	core::CommonState::sessionId = session;
+	core::adjustDenomination(core::CommonState::denomination);
 
 	/*
 	 * Open graphic mode.

@@ -21,59 +21,59 @@ void loop() {
 	/*
 	 * Initialize bet parameters.
 	 */
-	core::singleLineBet = MIN_SINGLE_LINE_BET;
-	core::numberOfBettingLines = MAX_SELECTED_LINES;
-	core::totalBet = core::numberOfBettingLines * core::singleLineBet;
+	core::CommonState::singleLineBet = MIN_SINGLE_LINE_BET;
+	core::CommonState::numberOfBettingLines = MAX_SELECTED_LINES;
+	core::CommonState::totalBet = core::CommonState::numberOfBettingLines * core::CommonState::singleLineBet;
 
 	/*
 	 * Initialize symbols view.
 	 */
-	core::view.resize(REELS_LENGTH);
+	core::CommonState::view.resize(REELS_LENGTH);
 	for (int i = 0; i < REELS_LENGTH; i++) {
-		core::view[i].resize(ROWS_LENGTH);
+		core::CommonState::view[i].resize(ROWS_LENGTH);
 		for (int j = 0; j < ROWS_LENGTH; j++) {
-			core::view[i][j] = EMPTY;
+			core::CommonState::view[i][j] = EMPTY;
 		}
 	}
 
 	/*
 	 * Initialize reels stops offsets.
 	 */
-	core::reelsMinOffset.resize(REELS_LENGTH);
-	core::reelsMaxOffset.resize(REELS_LENGTH);
+	core::CommonState::reelsMinOffset.resize(REELS_LENGTH);
+	core::CommonState::reelsMaxOffset.resize(REELS_LENGTH);
 	for (int i = 0; i < REELS_LENGTH; i++) {
-		core::reelsMinOffset[i] = reelsMinOffset[i];
-		core::reelsMaxOffset[i] = reelsMaxOffset[i];
+		core::CommonState::reelsMinOffset[i] = reelsMinOffset[i];
+		core::CommonState::reelsMaxOffset[i] = reelsMaxOffset[i];
 	}
 
 	/*
 	 * Initialize reels stops.
 	 */
-	core::reelsStops.resize(REELS_LENGTH);
+	core::CommonState::reelsStops.resize(REELS_LENGTH);
 	core::FiniteStateMachine::reelsSpinFlag.resize(REELS_LENGTH);
 	for (int i = 0; i < REELS_LENGTH; i++) {
-		core::reelsStops[i] = 0;
+		core::CommonState::reelsStops[i] = 0;
 		core::FiniteStateMachine::reelsSpinFlag[i] = false;
 	}
 
 	/*
 	 * RTP should be loaded from database.
 	 */
-	core::baseReels.resize(REELS_LENGTH);
+	core::CommonState::baseReels.resize(REELS_LENGTH);
 	for (int i = 0; i < REELS_LENGTH; i++) {
-		core::baseReels[i].resize(REEL_LENGTH);
+		core::CommonState::baseReels[i].resize(REEL_LENGTH);
 		for (int j = 0; j < REEL_LENGTH; j++) {
-			core::baseReels[i][j] = baseGameReels[core::rtp - 90][i][j];
+			core::CommonState::baseReels[i][j] = baseGameReels[core::CommonState::rtp - 90][i][j];
 		}
 	}
 
 	//TODO Find better place to initialize decorative initial view.
-	core::Calculations::generatDecorative(core::baseReels);
+	core::Calculations::generatDecorative(core::CommonState::baseReels);
 
 	//TODO Find better place to initialize bingo cards.
 	core::BingoBonus::generateRandomBingoCard();
-	core::bingoLineBonusWin = 0;
-	core::bingoBonusWin = 0;
+	core::CommonState::bingoLineBonusWin = 0;
+	core::CommonState::bingoBonusWin = 0;
 
 	initMainGame();
 
@@ -109,47 +109,47 @@ void loop() {
 					 * Number of lines changed by user.
 					 */
 				case SDLK_l:
-					core::numberOfBettingLines++;
+					core::CommonState::numberOfBettingLines++;
 
-					if (core::numberOfBettingLines > MAX_SELECTED_LINES) {
-						core::numberOfBettingLines = MIN_SELECTED_LINES;
+					if (core::CommonState::numberOfBettingLines > MAX_SELECTED_LINES) {
+						core::CommonState::numberOfBettingLines = MIN_SELECTED_LINES;
 					}
 
-					core::totalBet = core::numberOfBettingLines
-							* core::singleLineBet;
+					core::CommonState::totalBet = core::CommonState::numberOfBettingLines
+							* core::CommonState::singleLineBet;
 					break;
 
 					/*
 					 * Bet changed by user.
 					 */
 				case SDLK_b:
-					core::singleLineBet++;
+					core::CommonState::singleLineBet++;
 
-					if (core::singleLineBet > MAX_SINGLE_LINE_BET) {
-						core::singleLineBet = MIN_SINGLE_LINE_BET;
+					if (core::CommonState::singleLineBet > MAX_SINGLE_LINE_BET) {
+						core::CommonState::singleLineBet = MIN_SINGLE_LINE_BET;
 					}
 
-					core::totalBet = core::numberOfBettingLines
-							* core::singleLineBet;
+					core::CommonState::totalBet = core::CommonState::numberOfBettingLines
+							* core::CommonState::singleLineBet;
 					break;
 
 					/*
 					 * Max bet changed by user.
 					 */
 				case SDLK_m:
-					core::singleLineBet = MAX_SINGLE_LINE_BET;
-					core::numberOfBettingLines = MAX_SELECTED_LINES;
+					core::CommonState::singleLineBet = MAX_SINGLE_LINE_BET;
+					core::CommonState::numberOfBettingLines = MAX_SELECTED_LINES;
 
-					core::totalBet = core::numberOfBettingLines
-							* core::singleLineBet;
+					core::CommonState::totalBet = core::CommonState::numberOfBettingLines
+							* core::CommonState::singleLineBet;
 					break;
 
 					/*
 					 * Credit changed by user.
 					 */
 				case SDLK_c:
-					if (core::credit + CREDIT_INCREMENT <= MAX_CREDIT) {
-						core::credit += CREDIT_INCREMENT;
+					if (core::CommonState::credit + CREDIT_INCREMENT <= MAX_CREDIT) {
+						core::CommonState::credit += CREDIT_INCREMENT;
 					}
 					break;
 
@@ -167,17 +167,17 @@ void loop() {
 					/*
 					 * Switch off auto play if spin button is used.
 					 */
-					if (core::autoPlayMode == true) {
-						core::autoPlayMode = false;
+					if (core::CommonState::autoPlayMode == true) {
+						core::CommonState::autoPlayMode = false;
 					}
 
-					if (core::totalBet <= 0) {
+					if (core::CommonState::totalBet <= 0) {
 						//TODO Report no credit.
 						//cerr << "Total bet is empty ..." << endl;
 						break;
 					}
 
-					if (core::credit < core::totalBet) {
+					if (core::CommonState::credit < core::CommonState::totalBet) {
 						//TODO Report no credit.
 						//cerr << "No enough credit ..." << endl;
 						break;
@@ -186,12 +186,12 @@ void loop() {
 					if (core::BingoBonus::bingoLineIndex != -1
 							&& core::BingoBonus::bingoCardIndex != -1) {
 						core::BingoBonus::generateRandomBingoCard();
-						core::bingoLineBonusWin = 0;
-						core::bingoBonusWin = 0;
+						core::CommonState::bingoLineBonusWin = 0;
+						core::CommonState::bingoBonusWin = 0;
 					}
 
 					core::FiniteStateMachine::spinAllReels();
-					runBaseGame(core::totalWin);
+					runBaseGame(core::CommonState::totalWin);
 					core::FiniteStateMachine::lastSpinTick = SDL_GetTicks();
 					memset(offsets, 0, REELS_LENGTH * sizeof(int));
 

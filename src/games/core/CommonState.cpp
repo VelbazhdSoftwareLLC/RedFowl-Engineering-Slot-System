@@ -2,139 +2,62 @@
 
 namespace core {
 
-/**
- * RTP used for the reels.
- */
-int rtp = 90;
+int CommonState::rtp = 90;
 
-/**
- * Game title as it is used into databese.
- */
-string title;
+string CommonState::title;
 
-/**
- * Find better place for session id.
- */
-unsigned long sessionId = 0;
+//TODO Find better place for session id.
+unsigned long CommonState::sessionId = 0;
 
-/**
- * Auto play mode flag.
- */
-bool autoPlayMode = false;
+bool CommonState::autoPlayMode = false;
 
-/**
- * Base game mode flag.
- */
-bool baseGameMode = false;
+bool CommonState::baseGameMode = false;
 
-/**
- * Base game mode flag.
- */
-bool freeGamesMode = false;
+bool CommonState::freeGamesMode = false;
 
-/**
- * Base game mode flag.
- */
-bool bonusGameMode = false;
+bool CommonState::bonusGameMode = false;
 
-/**
- * If the player did bonus selection.
- */
-bool bonusSelected = false;
+bool CommonState::bonusSelected = false;
 
-/**
- * Denomination of coins to real money.
- */
-double denomination = 0.0;
+double CommonState::denomination = 0.0;
 
-/**
- * Player credit.
- */
-int credit = 0;
+int CommonState::credit = 0;
 
-/**
- * Total bet is calculated by number of lines and single bet.
- */
-int totalBet = 0;
+int CommonState::totalBet = 0;
 
-/**
- * Total win in single game.
- */
-int totalWin = 0;
+int CommonState::totalWin = 0;
 
-/**
- * Bonus win in single game.
- */
-int bonusWin = 0;
+int CommonState::bonusWin = 0;
 
-/**
- * Keep track of bingo line bonus.
- */
-int bingoLineBonusWin = 0;
+int CommonState::bingoLineBonusWin = 0;
 
-/**
- * Keep track of bingo bonus.
- */
-int bingoBonusWin = 0;
+int CommonState::bingoBonusWin = 0;
 
-/**
- * Keep track of last bingo ball out.
- */
-int bingoBallNumber;
+int CommonState::bingoBallNumber;
 
-/**
- * Number of lines in which player bet.
- */
-int numberOfBettingLines = 0;
+int CommonState::numberOfBettingLines = 0;
 
-/**
- * Amоunt of the bet on a single line.
- */
-int singleLineBet = 0;
+int CommonState::singleLineBet = 0;
 
-/**
- * Amount of free games to be played.
- */
-int freeGamesNumber = 0;
+int CommonState::freeGamesNumber = 0;
 
-/**
- * Multiply free games win.
- */
-int freeGamesMultiplier = 1;
+int CommonState::freeGamesMultiplier = 1;
 
-/**
- * Multiply total bet in scatter win.
- */
-int scatterMultiplier = 1;
+int CommonState::scatterMultiplier = 1;
 
-/**
- * Reference to active base game reels.
- */
-vector<vector<int> > baseReels;
+//TODO It should be a pointer and it will point base reels or free reels.
+vector<vector<int> > CommonState::reels;
 
-/**
- * Reference to active base game reels.
- */
-vector<vector<int> > freeReels;
+vector<vector<int> > CommonState::baseReels;
 
-/**
- * Slot view.
- */
-vector<vector<int> > view;
+vector<vector<int> > CommonState::freeReels;
 
-/**
- * Each reel minimal offset after spin action.
- */
-vector<int> reelsMinOffset;
+vector<vector<int> > CommonState::view;
 
-/**
- * Each reel maximum offset after spin action.
- */
-vector<int> reelsMaxOffset;
+vector<int> CommonState::reelsMinOffset;
 
-/**
- * Reels stops. Indices of the first row after spin.
- */
-vector<int> reelsStops;
+vector<int> CommonState::reelsMaxOffset;
+
+vector<int> CommonState::reelsStops;
 
 }

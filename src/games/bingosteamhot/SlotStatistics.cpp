@@ -54,12 +54,12 @@ void initSimulation() {
 void runSimulation() {
 	int win = 0;
 	for (unsigned long g = 0L; g < NUMBER_OF_SIMULATIONS; g++) {
-		core::baseGameMode = true;
+		core::CommonState::baseGameMode = true;
 
 		if (core::BingoBonus::bingoLineIndex != -1 && core::BingoBonus::bingoCardIndex != -1) {
 			core::BingoBonus::generateRandomBingoCard();
-			core::bingoLineBonusWin = 0;
-			core::bingoBonusWin = 0;
+			core::CommonState::bingoLineBonusWin = 0;
+			core::CommonState::bingoBonusWin = 0;
 		}
 
 		runBaseGame(win);
@@ -202,7 +202,7 @@ void printSimulationResults() {
 		cout << endl;
 	}
 
-	for (int p = core::rtp - 90; p <= core::rtp - 90; p++) {
+	for (int p = core::CommonState::rtp - 90; p <= core::CommonState::rtp - 90; p++) {
 		cout << endl;
 		cout << "Base Game Reels " << (90 + p) << "% Symbols Count\t"
 				<< endl;
@@ -248,7 +248,7 @@ void printSimulationResults() {
 		}
 	}
 
-	for (int p = core::rtp - 90; p <= core::rtp - 90; p++) {
+	for (int p = core::CommonState::rtp - 90; p <= core::CommonState::rtp - 90; p++) {
 		cout << endl;
 		cout << "Base Game Reels " << (90 + p) << "%\t" << endl;
 		for (int j = 0; j < REEL_LENGTH; j++) {

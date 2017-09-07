@@ -146,7 +146,7 @@ void storeCurrentValues(int chromosome[]) {
 	 */
 	for (int i = 0; i < REELS_LENGTH; i++) {
 		for (int j = 0; j < REEL_LENGTH; j++) {
-			core::baseReels[i][j] = current[j];
+			core::CommonState::baseReels[i][j] = current[j];
 		}
 		current += REEL_LENGTH;
 	}
@@ -169,7 +169,7 @@ void loadCurrentValues(int chromosome[]) {
 	 */
 	for (int i = 0; i < REELS_LENGTH; i++) {
 		for (int j = 0; j < REEL_LENGTH; j++) {
-			current[j] = core::baseReels[i][j];
+			current[j] = core::CommonState::baseReels[i][j];
 		}
 		current += REEL_LENGTH;
 	}
@@ -466,11 +466,11 @@ void keepTrackOfBestAndWorst(int index) {
  * Run single optimization cycle.
  */
 void runOptimization() {
-	core::baseReels.resize(REELS_LENGTH);
+	core::CommonState::baseReels.resize(REELS_LENGTH);
 	for (int i = 0; i < REELS_LENGTH; i++) {
-		core::baseReels[i].resize(REEL_LENGTH);
+		core::CommonState::baseReels[i].resize(REEL_LENGTH);
 		for (int j = 0; j < REEL_LENGTH; j++) {
-			core::baseReels[i][j] = baseGameReels[core::rtp - 90][i][j];
+			core::CommonState::baseReels[i][j] = baseGameReels[core::CommonState::rtp - 90][i][j];
 		}
 	}
 

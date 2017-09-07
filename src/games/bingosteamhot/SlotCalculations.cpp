@@ -54,7 +54,7 @@ static int lineWin(int line[REELS_LENGTH], const int &index) {
 	}
 
 	static int win;
-	win = paytable[number][symbol] * core::singleLineBet;
+	win = paytable[number][symbol] * core::CommonState::singleLineBet;
 
 #ifndef SIMULATION
 #ifndef OPTIMIZATION
@@ -64,7 +64,7 @@ static int lineWin(int line[REELS_LENGTH], const int &index) {
 	if (win > 0) {
 		gameWins.push_back(
 				BingoSteamHotWinCombination(index, number, win,
-						core::baseGameMode, false));
+						core::CommonState::baseGameMode, false));
 	}
 #endif
 #endif
@@ -139,19 +139,19 @@ int singleBaseGame() {
 	/*
 	 * Spin reels.
 	 */
-	core::Calculations::spin(core::view, core::baseReels, core::reelsMinOffset,
-			core::reelsMaxOffset);
+	core::Calculations::spin(core::CommonState::view, core::CommonState::baseReels, core::CommonState::reelsMinOffset,
+			core::CommonState::reelsMaxOffset);
 
 	/*
 	 * Simulate bingo ball out on each reels spin.
 	 */
 	//TODO Some day lines and symbols can be connected with the bingo bonus.
-	core::bingoBallNumber = core::BingoBonus::markBallOut(-1, -1);
+	core::CommonState::bingoBallNumber = core::BingoBonus::markBallOut(-1, -1);
 
 	static int win2;
 	if (core::BingoBonus::checkForBingoLine() == true) {
 		win2 = core::BingoBonus::bingoLineWin();
-		core::bingoLineBonusWin = win2;
+		core::CommonState::bingoLineBonusWin = win2;
 #ifdef SIMULATION
 		experiment->lineBonusMoney += win2;
 		experiment->totalNumberOfLineBonus++;
@@ -161,13 +161,13 @@ int singleBaseGame() {
 		experiment->lineBonusMoney += win2;
 #endif
 	} else {
-		core::bingoLineBonusWin = 0;
+		core::CommonState::bingoLineBonusWin = 0;
 	}
 
 	static int win3;
 	if (core::BingoBonus::checkForBingo() == true) {
 		win3 = core::BingoBonus::bingoWin();
-		core::bingoBonusWin = win3;
+		core::CommonState::bingoBonusWin = win3;
 #ifdef SIMULATION
 		experiment->bingoBonusMoney += win3;
 		experiment->totalNumberOfBingoBonus++;
@@ -177,15 +177,15 @@ int singleBaseGame() {
 		experiment->bingoBonusMoney += win3;
 #endif
 	} else {
-		core::bingoBonusWin = 0;
+		core::CommonState::bingoBonusWin = 0;
 	}
 
 	/*
 	 * Win accumulated by lines and scatters.
 	 */
 	static int win1;
-	win1 = linesWin(core::view, (const int (*)[REELS_LENGTH]) lines,
-			core::numberOfBettingLines);
+	win1 = linesWin(core::CommonState::view, (const int (*)[REELS_LENGTH]) lines,
+			core::CommonState::numberOfBettingLines);
 #ifdef SIMULATION
 	experiment->baseGameMoney += win1;
 
@@ -194,33 +194,33 @@ int singleBaseGame() {
 	}
 #endif
 
-	return (win1 + core::bingoLineBonusWin + core::bingoBonusWin);
+	return (win1 + core::CommonState::bingoLineBonusWin + core::CommonState::bingoBonusWin);
 }
 
 void runBaseGame(int &totalWin) {
-	core::baseGameMode = true;
+	core::CommonState::baseGameMode = true;
 
 #ifndef SIMULATION
 #ifndef OPTIMIZATION
-	unsigned long idBet = core::persistBet(core::totalBet, core::credit,
-			core::title);
+	unsigned long idBet = core::persistBet(core::CommonState::totalBet, core::CommonState::credit,
+			core::CommonState::title);
 	gameWins.clear();
-	core::credit -= core::totalBet;
-	core::persistSession(core::credit, core::sessionId);
+	core::CommonState::credit -= core::CommonState::totalBet;
+	core::persistSession(core::CommonState::credit, core::CommonState::sessionId);
 #endif
 #endif
 	totalWin = singleBaseGame();
 #ifndef SIMULATION
 #ifndef OPTIMIZATION
-	core::credit += totalWin;
-	unsigned long idWin = core::persistWin(totalWin, core::credit,
-			persistence::BASE_GAME, core::title);
-	unsigned long idConfig = core::persistConfig(core::rtp,
-			core::numberOfBettingLines, core::singleLineBet,
-			core::denomination);
-	core::persistHistory(idBet, idWin, idConfig, core::view, symbolsNames,
-			core::title);
-	core::persistSession(core::credit, core::sessionId);
+	core::CommonState::credit += totalWin;
+	unsigned long idWin = core::persistWin(totalWin, core::CommonState::credit,
+			persistence::BASE_GAME, core::CommonState::title);
+	unsigned long idConfig = core::persistConfig(core::CommonState::rtp,
+			core::CommonState::numberOfBettingLines, core::CommonState::singleLineBet,
+			core::CommonState::denomination);
+	core::persistHistory(idBet, idWin, idConfig, core::CommonState::view, symbolsNames,
+			core::CommonState::title);
+	core::persistSession(core::CommonState::credit, core::CommonState::sessionId);
 #endif
 #endif
 

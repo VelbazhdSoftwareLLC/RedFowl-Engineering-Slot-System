@@ -23,10 +23,10 @@ public:
 	 */
 	static void generatDecorative(const vector<vector<int> > &reels) {
 		static int index = 0;
-		for (int i = 0; i < view.size(); i++) {
-			for (int j = view[i].size() - 1; j >= 0; j--) {
-				index = (reelsStops[i] + j) % reels[i].size();
-				view[i][j] = reels[i][index];
+		for (int i = 0; i < CommonState::view.size(); i++) {
+			for (int j = CommonState::view[i].size() - 1; j >= 0; j--) {
+				index = (CommonState::reelsStops[i] + j) % CommonState::reels[i].size();
+				CommonState::view[i][j] = reels[i][index];
 			}
 		}
 	}
@@ -45,10 +45,10 @@ public:
 		static int index;
 		for (int i = 0; i < view.size(); i++) {
 			for (int j = view[i].size() - 1; j >= 0; j--) {
-				reelsStops[i] += reelsMinOffset[i]
+				CommonState::reelsStops[i] += reelsMinOffset[i]
 						+ rand() % (reelsMaxOffset[i] - reelsMinOffset[i] + 1);
 
-				index = (reelsStops[i] + j) % reels[i].size();
+				index = (CommonState::reelsStops[i] + j) % reels[i].size();
 				view[i][j] = reels[i][index];
 			}
 		}

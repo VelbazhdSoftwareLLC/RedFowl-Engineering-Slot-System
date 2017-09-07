@@ -85,7 +85,7 @@ static int lineWin(int line[REELS_LENGTH], const int &index) {
 		line[i] = EMPTY;
 	}
 
-	int win = paytable[number][symbol] * core::singleLineBet;
+	int win = paytable[number][symbol] * core::CommonState::singleLineBet;
 
 #ifndef SIMULATION
 #ifndef OPTIMIZATION
@@ -95,7 +95,7 @@ static int lineWin(int line[REELS_LENGTH], const int &index) {
 	if (win > 0) {
 		gameWins.push_back(
 				TropicalHotWinCombination(index, number, win,
-						core::baseGameMode, core::freeGamesMode));
+						core::CommonState::baseGameMode, core::CommonState::freeGamesMode));
 	}
 #endif
 #endif
@@ -103,8 +103,8 @@ static int lineWin(int line[REELS_LENGTH], const int &index) {
 	/*
 	 * There is multiplier in free games mode.
 	 */
-	if (core::freeGamesMode == true) {
-		win *= core::freeGamesMultiplier;
+	if (core::CommonState::freeGamesMode == true) {
+		win *= core::CommonState::freeGamesMultiplier;
 	}
 
 #ifdef SIMULATION
@@ -175,7 +175,7 @@ static void bonusGameSetup() {
 	/*
 	 * In free games there is no bonus game.
 	 */
-	if (core::freeGamesMode == true) {
+	if (core::CommonState::freeGamesMode == true) {
 		return;
 	}
 
@@ -185,7 +185,7 @@ static void bonusGameSetup() {
 	int nubmerOfBonuses = 0;
 	for (int i = 0; i < REELS_LENGTH; i++) {
 		for (int j = 0; j < ROWS_LENGTH; j++) {
-			if (core::view[i][j] == 15) {
+			if (core::CommonState::view[i][j] == 15) {
 				nubmerOfBonuses++;
 			}
 		}
@@ -202,7 +202,7 @@ static void bonusGameSetup() {
 	if (nubmerOfBonuses < 3) {
 		return;
 	} else if (3 <= nubmerOfBonuses && nubmerOfBonuses <= 5) {
-		core::bonusGameMode = true;
+		core::CommonState::bonusGameMode = true;
 		for (int i = 0; i < core::BONUS_SELECT_NUBMER; i++) {
 			core::bonusOptions[i] =
 					baseScatterDistritution[BONUS_SCATTER_INDEX][rand()
@@ -226,8 +226,8 @@ static void bonusGameSetup() {
 			}
 		}
 		core::reelBonusIndex = -1;
-		core::bonusSelected = false;
-		core::bonusWin = core::bonusOptions[0];
+		core::CommonState::bonusSelected = false;
+		core::CommonState::bonusWin = core::bonusOptions[0];
 #ifdef SIMULATION
 		if(baseGameMode == true) {
 			experiment->baseBonusMoney += bonusWin;
@@ -251,7 +251,7 @@ static void freeGamesSetup() {
 	int numberOfScatters = 0;
 	for (int i = 0; i < REELS_LENGTH; i++) {
 		for (int j = 0; j < ROWS_LENGTH; j++) {
-			if (core::view[i][j] == 16) {
+			if (core::CommonState::view[i][j] == 16) {
 				numberOfScatters++;
 			}
 		}
@@ -265,38 +265,38 @@ static void freeGamesSetup() {
 	}
 #endif
 
-	core::scatterMultiplier =
+	core::CommonState::scatterMultiplier =
 			scatterMultipliers[FREE_GAMES_SCATTER_INDEX][numberOfScatters];
 
 	/*
 	 * In base game 3+ scatters turn into free spins.
 	 */
-	if (numberOfScatters < 3 && core::freeGamesNumber == 0) {
+	if (numberOfScatters < 3 && core::CommonState::freeGamesNumber == 0) {
 		return;
 	} else if (3 <= numberOfScatters && numberOfScatters <= 5
-			&& core::freeGamesNumber == 0) {
+			&& core::CommonState::freeGamesNumber == 0) {
 #ifdef SIMULATION
 		if(baseGameMode == true) {
 			experiment->baseSymbolMoney[numberOfScatters][SCATT] += scatterMultiplier*totalBet;
 			experiment->totalNumberOfFreeGameStarts++;
 		}
 #endif
-		core::freeGamesMode = true;
-		core::freeGamesNumber =
+		core::CommonState::freeGamesMode = true;
+		core::CommonState::freeGamesNumber =
 				baseScatterDistritution[FREE_GAMES_SCATTER_INDEX][rand()
 						% (BASE_SCATTER_DISTRIBUTION_LENGTH)];
-		core::freeGamesMultiplier = freeMultiplierDistribution[rand()
+		core::CommonState::freeGamesMultiplier = freeMultiplierDistribution[rand()
 				% (FREE_MULTIPLIER_DISTRIBUTION_LENGTH)];
 	} else if (3 <= numberOfScatters && numberOfScatters <= 5
-			&& core::freeGamesNumber > 0) {
+			&& core::CommonState::freeGamesNumber > 0) {
 #ifdef SIMULATION
 		if(freeGamesMode == true) {
 			experiment->freeSymbolMoney[numberOfScatters][SCATT] += scatterMultiplier*totalBet;
 			experiment->totalNumberOfFreeGameRestarts++;
 		}
 #endif
-		core::freeGamesMode = true;
-		core::freeGamesNumber +=
+		core::CommonState::freeGamesMode = true;
+		core::CommonState::freeGamesNumber +=
 				freeScatterDistritution[FREE_GAMES_SCATTER_INDEX][rand()
 						% (FREE_SCATTER_DISTRIBUTION_LENGTH)];
 	} else if (numberOfScatters > 5) {
@@ -319,7 +319,7 @@ int singleBonusGame(int index) {
 	core::bonusOptions[0] = core::bonusOptions[index];
 	core::bonusOptions[index] = swap;
 
-	return (core::bonusWin);
+	return (core::CommonState::bonusWin);
 }
 
 /**
@@ -336,8 +336,8 @@ int singleFreeGame() {
 	 * Spin reels.
 	 * In retriggered games from FS1 to FS2 and from FS2 to FS3. FS3 can not rettriger FS.
 	 */
-	core::Calculations::spin(core::view, core::freeReels, core::reelsMinOffset,
-			core::reelsMaxOffset);
+	core::Calculations::spin(core::CommonState::view, core::CommonState::freeReels, core::CommonState::reelsMinOffset,
+			core::CommonState::reelsMaxOffset);
 
 	/*
 	 * There is no bonus game in free games mode.
@@ -347,9 +347,9 @@ int singleFreeGame() {
 	/*
 	 * Win accumulated by lines and scatters.
 	 */
-	int win1 = linesWin(core::view, (const int (*)[REELS_LENGTH]) lines,
-			core::numberOfBettingLines);
-	int win2 = (core::scatterMultiplier * core::totalBet);
+	int win1 = linesWin(core::CommonState::view, (const int (*)[REELS_LENGTH]) lines,
+			core::CommonState::numberOfBettingLines);
+	int win2 = (core::CommonState::scatterMultiplier * core::CommonState::totalBet);
 #ifdef SIMULATION
 	experiment->freeGamesMoney += win1;
 	experiment->freeScatterMoney += win2;
@@ -371,8 +371,8 @@ int singleBaseGame() {
 	/*
 	 * Spin reels.
 	 */
-	core::Calculations::spin(core::view, core::baseReels, core::reelsMinOffset,
-			core::reelsMaxOffset);
+	core::Calculations::spin(core::CommonState::view, core::CommonState::baseReels, core::CommonState::reelsMinOffset,
+			core::CommonState::reelsMaxOffset);
 
 	/*
 	 * Check is there conditions for bonus game.
@@ -382,15 +382,15 @@ int singleBaseGame() {
 	/*
 	 * Check is there conditions for free games.
 	 */
-	core::freeGamesMultiplier = 1;
+	core::CommonState::freeGamesMultiplier = 1;
 	freeGamesSetup();
 
 	/*
 	 * Win accumulated by lines and scatters.
 	 */
-	int win1 = linesWin(core::view, (const int (*)[REELS_LENGTH]) lines,
-			core::numberOfBettingLines);
-	int win2 = (core::scatterMultiplier * core::totalBet);
+	int win1 = linesWin(core::CommonState::view, (const int (*)[REELS_LENGTH]) lines,
+			core::CommonState::numberOfBettingLines);
+	int win2 = (core::CommonState::scatterMultiplier * core::CommonState::totalBet);
 #ifdef SIMULATION
 	experiment->baseGameMoney += win1;
 
@@ -418,18 +418,18 @@ void runBonusGame(int &totalWin, int index) {
 	totalWin = singleBonusGame(index - 1);
 #ifndef SIMULATION
 #ifndef OPTIMIZATION
-	core::credit += totalWin;
-	unsigned long idWin = core::persistWin(totalWin, core::credit,
-			persistence::BONUS, core::title);
-	core::persistSession(core::credit, core::sessionId);
+	core::CommonState::credit += totalWin;
+	unsigned long idWin = core::persistWin(totalWin, core::CommonState::credit,
+			persistence::BONUS, core::CommonState::title);
+	core::persistSession(core::CommonState::credit, core::CommonState::sessionId);
 #endif
 #endif
 }
 
 void runFreeGame(int &totalWin) {
-	core::baseGameMode = false;
-	core::freeGamesMode = true;
-	core::bonusGameMode = false;
+	core::CommonState::baseGameMode = false;
+	core::CommonState::freeGamesMode = true;
+	core::CommonState::bonusGameMode = false;
 
 #ifndef SIMULATION
 #ifndef OPTIMIZATION
@@ -437,23 +437,23 @@ void runFreeGame(int &totalWin) {
 #endif
 #endif
 
-	if (core::freeGamesNumber <= 0) {
+	if (core::CommonState::freeGamesNumber <= 0) {
 		return;
 	}
 
 	totalWin = singleFreeGame();
-	core::freeGamesNumber--;
+	core::CommonState::freeGamesNumber--;
 #ifndef SIMULATION
 #ifndef OPTIMIZATION
-	core::credit += totalWin;
-	unsigned long idWin = core::persistWin(totalWin, core::credit,
-			persistence::FREE_GAME, core::title);
-	unsigned long idConfig = core::persistConfig(core::rtp,
-			core::numberOfBettingLines, core::singleLineBet,
-			core::denomination);
-	core::persistHistory(idBet, idWin, idConfig, core::view, symbolsNames,
-			core::title);
-	core::persistSession(core::credit, core::sessionId);
+	core::CommonState::credit += totalWin;
+	unsigned long idWin = core::persistWin(totalWin, core::CommonState::credit,
+			persistence::FREE_GAME, core::CommonState::title);
+	unsigned long idConfig = core::persistConfig(core::CommonState::rtp,
+			core::CommonState::numberOfBettingLines, core::CommonState::singleLineBet,
+			core::CommonState::denomination);
+	core::persistHistory(idBet, idWin, idConfig, core::CommonState::view, symbolsNames,
+			core::CommonState::title);
+	core::persistSession(core::CommonState::credit, core::CommonState::sessionId);
 #endif
 #endif
 
@@ -471,37 +471,37 @@ void runFreeGame(int &totalWin) {
 	/*
 	 * If this is the last free game switch off free games mode.
 	 */
-	if (core::freeGamesNumber == 0) {
-		core::freeGamesMode = false;
+	if (core::CommonState::freeGamesNumber == 0) {
+		core::CommonState::freeGamesMode = false;
 	}
 }
 
 void runBaseGame(int &totalWin) {
-	core::baseGameMode = true;
-	core::freeGamesMode = false;
-	core::bonusGameMode = false;
+	core::CommonState::baseGameMode = true;
+	core::CommonState::freeGamesMode = false;
+	core::CommonState::bonusGameMode = false;
 
 #ifndef SIMULATION
 
 #ifndef OPTIMIZATION
-	idBet = core::persistBet(core::totalBet, core::credit, core::title);
+	idBet = core::persistBet(core::CommonState::totalBet, core::CommonState::credit, core::CommonState::title);
 	gameWins.clear();
-	core::credit -= core::totalBet;
-	core::persistSession(core::credit, core::sessionId);
+	core::CommonState::credit -= core::CommonState::totalBet;
+	core::persistSession(core::CommonState::credit, core::CommonState::sessionId);
 #endif
 #endif
 	totalWin = singleBaseGame();
 #ifndef SIMULATION
 #ifndef OPTIMIZATION
-	core::credit += totalWin;
-	unsigned long idWin = core::persistWin(totalWin, core::credit,
-			persistence::BASE_GAME, core::title);
-	unsigned long idConfig = core::persistConfig(core::rtp,
-			core::numberOfBettingLines, core::singleLineBet,
-			core::denomination);
-	core::persistHistory(idBet, idWin, idConfig, core::view, symbolsNames,
-			core::title);
-	core::persistSession(core::credit, core::sessionId);
+	core::CommonState::credit += totalWin;
+	unsigned long idWin = core::persistWin(totalWin, core::CommonState::credit,
+			persistence::BASE_GAME, core::CommonState::title);
+	unsigned long idConfig = core::persistConfig(core::CommonState::rtp,
+			core::CommonState::numberOfBettingLines, core::CommonState::singleLineBet,
+			core::CommonState::denomination);
+	core::persistHistory(idBet, idWin, idConfig, core::CommonState::view, symbolsNames,
+			core::CommonState::title);
+	core::persistSession(core::CommonState::credit, core::CommonState::sessionId);
 #endif
 #endif
 
