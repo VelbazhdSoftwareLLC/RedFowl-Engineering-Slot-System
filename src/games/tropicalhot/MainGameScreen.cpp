@@ -280,7 +280,7 @@ void drawBonusGame() {
 		drawText(640, 695, "Select One");
 	} else if (core::CommonState::bonusSelected == true) {
 		for (int i = 1; i <= 3; i++) {
-			if (i != core::reelBonusIndex) {
+			if (i != core::SelectThreeBonusGame::SelectThreeBonusGame::reelBonusIndex) {
 				continue;
 			}
 
@@ -289,9 +289,9 @@ void drawBonusGame() {
 					core::canvas, &symbolsCoordinates[i][2]);
 		}
 
-		drawText(450, 695, core::bonusOptions[0]);
-		drawText(690, 695, core::bonusOptions[1]);
-		drawText(930, 695, core::bonusOptions[2]);
+		drawText(450, 695, core::SelectThreeBonusGame::bonusOptions[0]);
+		drawText(690, 695, core::SelectThreeBonusGame::bonusOptions[1]);
+		drawText(930, 695, core::SelectThreeBonusGame::bonusOptions[2]);
 	}
 
 	/*

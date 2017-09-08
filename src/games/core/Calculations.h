@@ -25,7 +25,7 @@ public:
 		static int index = 0;
 		for (int i = 0; i < CommonState::view.size(); i++) {
 			for (int j = CommonState::view[i].size() - 1; j >= 0; j--) {
-				index = (CommonState::reelsStops[i] + j) % CommonState::reels[i].size();
+				index = (CommonState::reelsStops[i] + j) % reels[i].size();
 				CommonState::view[i][j] = reels[i][index];
 			}
 		}

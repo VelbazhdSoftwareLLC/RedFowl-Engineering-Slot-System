@@ -2,14 +2,8 @@
 
 namespace core {
 
-/**
- * Index of the reel with the bonus selected by the user.
- */
-int reelBonusIndex = -1;
+int SelectThreeBonusGame::reelBonusIndex = -1;
 
-/**
- * User can select from three options.
- */
-int bonusOptions[BONUS_SELECT_NUBMER];
+int SelectThreeBonusGame::bonusOptions[SelectThreeBonusGame::BONUS_SELECT_NUBMER];
 
 }

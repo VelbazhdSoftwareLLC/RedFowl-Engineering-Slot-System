@@ -203,11 +203,11 @@ static void bonusGameSetup() {
 		return;
 	} else if (3 <= nubmerOfBonuses && nubmerOfBonuses <= 5) {
 		core::CommonState::bonusGameMode = true;
-		for (int i = 0; i < core::BONUS_SELECT_NUBMER; i++) {
-			core::bonusOptions[i] =
+		for (int i = 0; i < core::SelectThreeBonusGame::BONUS_SELECT_NUBMER; i++) {
+			core::SelectThreeBonusGame::bonusOptions[i] =
 					baseScatterDistritution[BONUS_SCATTER_INDEX][rand()
 							% (BASE_SCATTER_DISTRIBUTION_LENGTH)];
-			core::bonusOptions[i] *=
+			core::SelectThreeBonusGame::bonusOptions[i] *=
 					scatterMultipliers[BONUS_SCATTER_INDEX][nubmerOfBonuses];
 #ifdef SIMULATION
 			break;
@@ -219,15 +219,15 @@ static void bonusGameSetup() {
 			 * Values should be different when they are shown to the player.
 			 */
 			for (int j = 0; j < i; j++) {
-				if (core::bonusOptions[i] == core::bonusOptions[j]) {
+				if (core::SelectThreeBonusGame::bonusOptions[i] == core::SelectThreeBonusGame::bonusOptions[j]) {
 					i--;
 					break;
 				}
 			}
 		}
-		core::reelBonusIndex = -1;
+		core::SelectThreeBonusGame::reelBonusIndex = -1;
 		core::CommonState::bonusSelected = false;
-		core::CommonState::bonusWin = core::bonusOptions[0];
+		core::CommonState::bonusWin = core::SelectThreeBonusGame::bonusOptions[0];
 #ifdef SIMULATION
 		if(baseGameMode == true) {
 			experiment->baseBonusMoney += bonusWin;
@@ -315,9 +315,9 @@ int singleBonusGame(int index) {
 #endif
 
 	//TODO Move this swap out of the GUI functions.
-	int swap = core::bonusOptions[0];
-	core::bonusOptions[0] = core::bonusOptions[index];
-	core::bonusOptions[index] = swap;
+	int swap = core::SelectThreeBonusGame::bonusOptions[0];
+	core::SelectThreeBonusGame::bonusOptions[0] = core::SelectThreeBonusGame::bonusOptions[index];
+	core::SelectThreeBonusGame::bonusOptions[index] = swap;
 
 	return (core::CommonState::bonusWin);
 }
@@ -410,7 +410,7 @@ int singleBaseGame() {
 static unsigned long idBet = 0;
 
 void runBonusGame(int &totalWin, int index) {
-	core::reelBonusIndex = index;
+	core::SelectThreeBonusGame::reelBonusIndex = index;
 
 	/*
 	 * User will select one of the bonus options.
