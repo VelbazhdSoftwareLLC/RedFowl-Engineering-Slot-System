@@ -26,15 +26,15 @@ int main10(int argc, char *argv[], unsigned long &session) {
 	 * Obtain game title.
 	 */
 	core::CommonState::title = TITLE;
-	core::connectDb(argc, argv);
+	core::Persistence::connectDb(argc, argv);
 
 	/*
 	 * Register into the database.
 	 */
-	core::registerGame(core::CommonState::title, core::CommonState::rtp);
-	core::registerSession(session, core::CommonState::credit);
+	core::Persistence::registerGame(core::CommonState::title, core::CommonState::rtp);
+	core::Persistence::registerSession(session, core::CommonState::credit);
 	core::CommonState::sessionId = session;
-	core::adjustDenomination(core::CommonState::denomination);
+	core::Persistence::adjustDenomination(core::CommonState::denomination);
 
 	/*
 	 * Open graphic mode.
@@ -82,7 +82,7 @@ int main10(int argc, char *argv[], unsigned long &session) {
 	/*
 	 * Disconnect database connection.
 	 */
-	core::disconnectDb();
+	core::Persistence::disconnectDb();
 
 	/*
 	 * Return error code to the operating system.

@@ -202,25 +202,25 @@ void runBaseGame(int &totalWin) {
 
 #ifndef SIMULATION
 #ifndef OPTIMIZATION
-	unsigned long idBet = core::persistBet(core::CommonState::totalBet, core::CommonState::credit,
+	unsigned long idBet = core::Persistence::persistBet(core::CommonState::totalBet, core::CommonState::credit,
 			core::CommonState::title);
 	gameWins.clear();
 	core::CommonState::credit -= core::CommonState::totalBet;
-	core::persistSession(core::CommonState::credit, core::CommonState::sessionId);
+	core::Persistence::persistSession(core::CommonState::credit, core::CommonState::sessionId);
 #endif
 #endif
 	totalWin = singleBaseGame();
 #ifndef SIMULATION
 #ifndef OPTIMIZATION
 	core::CommonState::credit += totalWin;
-	unsigned long idWin = core::persistWin(totalWin, core::CommonState::credit,
+	unsigned long idWin = core::Persistence::Persistence::persistWin(totalWin, core::CommonState::credit,
 			persistence::BASE_GAME, core::CommonState::title);
-	unsigned long idConfig = core::persistConfig(core::CommonState::rtp,
+	unsigned long idConfig = core::Persistence::persistConfig(core::CommonState::rtp,
 			core::CommonState::numberOfBettingLines, core::CommonState::singleLineBet,
 			core::CommonState::denomination);
-	core::persistHistory(idBet, idWin, idConfig, core::CommonState::view, symbolsNames,
+	core::Persistence::Persistence::persistHistory(idBet, idWin, idConfig, core::CommonState::view, symbolsNames,
 			core::CommonState::title);
-	core::persistSession(core::CommonState::credit, core::CommonState::sessionId);
+	core::Persistence::persistSession(core::CommonState::credit, core::CommonState::sessionId);
 #endif
 #endif
 
