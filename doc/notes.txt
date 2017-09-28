@@ -16,7 +16,7 @@
 4. PostgreSQL / pgAdmin III
 5. SDL2 / SDL2 Image / SDL2 TTF / SDL2 Mixer
 6. ODB-ORM
-7. ncurses / CDK / 
+7. ncurses / CDK
 8. AStyle
 
 -> След инсталацията трябва да се създаде потребител в PostgreSQL който да е същия както на операционната система.
