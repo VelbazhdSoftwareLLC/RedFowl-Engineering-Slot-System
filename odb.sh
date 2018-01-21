@@ -1,5 +1,6 @@
 #!/bin/bash
 #TODO Add as make script commands.
+cd ./src/persistence/
 rm *.ixx
 rm *.cxx
 rm *.hxx

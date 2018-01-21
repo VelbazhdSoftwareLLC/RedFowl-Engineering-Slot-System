@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <sstream>
 
-#include <cdk/cdk.h>
+#include <cdk.h>
 
 #include <odb/database.hxx>
 #include <odb/transaction.hxx>

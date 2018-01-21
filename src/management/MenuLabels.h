@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include <cdk/cdk.h>
+#include <cdk.h>
 
 namespace management {
 
