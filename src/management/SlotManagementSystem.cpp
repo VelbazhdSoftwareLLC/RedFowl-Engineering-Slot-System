@@ -38,7 +38,7 @@ int main1(int argc, char *argv[], unsigned long &session) {
 		int selection = activateCDKMenu(menu, (chtype *) NULL);
 
 		/*
-		 * Determine how the user exitted from the widget.
+		 * Determine how the user exited from the widget.
 		 */
 		if (menu->exitType
 				== vNORMAL&& MenuLabels::FUNCTIONS[selection / 100][selection % 100 + 1] != NULL) {

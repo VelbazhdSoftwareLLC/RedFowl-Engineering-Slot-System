@@ -30,7 +30,7 @@ void creditInLogMenuOption() {
 	auto_ptr<odb::core::database> db = connection;
 
 	/*
-	 * Machine cunrrency.
+	 * Machine currency.
 	 */
 	static double denomination = 0;
 	static string currency = "";
