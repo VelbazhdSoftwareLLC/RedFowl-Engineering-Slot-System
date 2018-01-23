@@ -28,7 +28,7 @@ private:
 public:
 
 	MachineConfiguration(double denomination, string currency,
-			double attendantLimit) {
+						 double attendantLimit) {
 		this->denomination = denomination;
 		this->currency = currency;
 		this->attendantLimit = attendantLimit;

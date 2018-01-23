@@ -89,14 +89,14 @@ private:
 			for (int j = 0; j < 18; j += 3) {
 				if (0
 						== (bingoCards[i][j + 0] != 0 ? 1 : 0)
-								+ (bingoCards[i][j + 1] != 0 ? 1 : 0)
-								+ (bingoCards[i][j + 2] != 0 ? 1 : 0)) {
+						+ (bingoCards[i][j + 1] != 0 ? 1 : 0)
+						+ (bingoCards[i][j + 2] != 0 ? 1 : 0)) {
 					a = j + rand() % (3);
 				}
 				if (3
 						== (bingoCards[i][j + 0] != 0 ? 1 : 0)
-								+ (bingoCards[i][j + 1] != 0 ? 1 : 0)
-								+ (bingoCards[i][j + 2] != 0 ? 1 : 0)) {
+						+ (bingoCards[i][j + 1] != 0 ? 1 : 0)
+						+ (bingoCards[i][j + 2] != 0 ? 1 : 0)) {
 					b = j + rand() % (3);
 				}
 			}
@@ -342,7 +342,7 @@ public:
 	 */
 	static int bingoLineWin() {
 		return (bingoLineBonusDistribution[rand()
-				% BINGO_BONUS_DISTRIBUTION_LENGTH]);
+										   % BINGO_BONUS_DISTRIBUTION_LENGTH]);
 	}
 
 	/**

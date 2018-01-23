@@ -86,9 +86,9 @@ void loop() {
 				done = true;
 				break;
 
-				/*
-				 * Read keyboard.
-				 */
+			/*
+			 * Read keyboard.
+			 */
 			case SDL_KEYDOWN:
 				switch (event.key.keysym.sym) {
 				case SDLK_h:
@@ -105,9 +105,9 @@ void loop() {
 					done = true;
 					break;
 
-					/*
-					 * Number of lines changed by user.
-					 */
+				/*
+				 * Number of lines changed by user.
+				 */
 				case SDLK_l:
 					core::CommonState::numberOfBettingLines++;
 
@@ -116,12 +116,12 @@ void loop() {
 					}
 
 					core::CommonState::totalBet = core::CommonState::numberOfBettingLines
-							* core::CommonState::singleLineBet;
+												  * core::CommonState::singleLineBet;
 					break;
 
-					/*
-					 * Bet changed by user.
-					 */
+				/*
+				 * Bet changed by user.
+				 */
 				case SDLK_b:
 					core::CommonState::singleLineBet++;
 
@@ -130,32 +130,32 @@ void loop() {
 					}
 
 					core::CommonState::totalBet = core::CommonState::numberOfBettingLines
-							* core::CommonState::singleLineBet;
+												  * core::CommonState::singleLineBet;
 					break;
 
-					/*
-					 * Max bet changed by user.
-					 */
+				/*
+				 * Max bet changed by user.
+				 */
 				case SDLK_m:
 					core::CommonState::singleLineBet = MAX_SINGLE_LINE_BET;
 					core::CommonState::numberOfBettingLines = MAX_SELECTED_LINES;
 
 					core::CommonState::totalBet = core::CommonState::numberOfBettingLines
-							* core::CommonState::singleLineBet;
+												  * core::CommonState::singleLineBet;
 					break;
 
-					/*
-					 * Credit changed by user.
-					 */
+				/*
+				 * Credit changed by user.
+				 */
 				case SDLK_c:
 					if (core::CommonState::credit + CREDIT_INCREMENT <= MAX_CREDIT) {
 						core::CommonState::credit += CREDIT_INCREMENT;
 					}
 					break;
 
-					/*
-					 * Spin reels by user.
-					 */
+				/*
+				 * Spin reels by user.
+				 */
 				case SDLK_RETURN:
 #ifdef SIMULATION
 					break;

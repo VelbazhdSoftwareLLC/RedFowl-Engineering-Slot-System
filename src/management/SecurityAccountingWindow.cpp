@@ -42,12 +42,12 @@ public:
 static void readStackerInfo(time_t &remove, time_t &insert, long &count) {
 	int argc = 0;
 	auto_ptr<odb::core::database> connection(
-			new odb::pgsql::database(argc, NULL));
+		new odb::pgsql::database(argc, NULL));
 	auto_ptr<odb::core::database> db = connection;
 
 	odb::transaction t(db->begin());
 	odb::result<persistence::BillStackerAccess> r(
-			db->query<persistence::BillStackerAccess>());
+		db->query<persistence::BillStackerAccess>());
 	for (odb::result<persistence::BillStackerAccess>::iterator i(r.begin());
 			i != r.end(); ++i) {
 		if (i->getAction() == persistence::REMOVE
@@ -64,8 +64,8 @@ static void readStackerInfo(time_t &remove, time_t &insert, long &count) {
 }
 
 static void readLastPowerOffDoorInfo(DoorInfo &info,
-		const persistence::DoorType &type, const time_t &off,
-		const time_t &on) {
+									 const persistence::DoorType &type, const time_t &off,
+									 const time_t &on) {
 }
 
 static void numberOfGamesAflterLastPowerOff(long &games, const time_t &on) {
@@ -73,13 +73,13 @@ static void numberOfGamesAflterLastPowerOff(long &games, const time_t &on) {
 
 	int argc = 0;
 	auto_ptr<odb::core::database> connection(
-			new odb::pgsql::database(argc, NULL));
+		new odb::pgsql::database(argc, NULL));
 	auto_ptr<odb::core::database> db = connection;
 
 	odb::transaction t(db->begin());
 	odb::result<persistence::PlayHistory> r(
-			db->query<persistence::PlayHistory>(
-					odb::query<persistence::PlayHistory>::timestamp >= on));
+		db->query<persistence::PlayHistory>(
+			odb::query<persistence::PlayHistory>::timestamp >= on));
 	for (odb::result<persistence::PlayHistory>::iterator i(r.begin());
 			i != r.end(); ++i) {
 		games++;
@@ -93,12 +93,12 @@ static void readPowerInfo(time_t &off, time_t &on, long &count) {
 
 	int argc = 0;
 	auto_ptr<odb::core::database> connection(
-			new odb::pgsql::database(argc, NULL));
+		new odb::pgsql::database(argc, NULL));
 	auto_ptr<odb::core::database> db = connection;
 
 	odb::transaction t(db->begin());
 	odb::result<persistence::PowerState> r(
-			db->query<persistence::PowerState>());
+		db->query<persistence::PowerState>());
 	for (odb::result<persistence::PowerState>::iterator i(r.begin());
 			i != r.end(); ++i) {
 		if (i->getAction() == persistence::OFF && off < i->getTimestamp()) {
@@ -113,7 +113,7 @@ static void readPowerInfo(time_t &off, time_t &on, long &count) {
 }
 
 static void showDoorInfo(CDKSWINDOW *scroll, const char title[],
-		const DoorInfo &info) {
+						 const DoorInfo &info) {
 	char time[100];
 	char message[100];
 
@@ -135,7 +135,7 @@ static void showDoorInfo(CDKSWINDOW *scroll, const char title[],
 static void readDoorInfo(DoorInfo &info, const persistence::DoorType &type) {
 	int argc = 0;
 	auto_ptr<odb::core::database> connection(
-			new odb::pgsql::database(argc, NULL));
+		new odb::pgsql::database(argc, NULL));
 	auto_ptr<odb::core::database> db = connection;
 
 	/*
@@ -143,8 +143,8 @@ static void readDoorInfo(DoorInfo &info, const persistence::DoorType &type) {
 	 */{
 		odb::transaction t(db->begin());
 		odb::result<persistence::DoorState> r(
-				db->query<persistence::DoorState>(
-						odb::query<persistence::DoorState>::type == type));
+			db->query<persistence::DoorState>(
+				odb::query<persistence::DoorState>::type == type));
 		for (odb::result<persistence::DoorState>::iterator i(r.begin());
 				i != r.end(); ++i) {
 			if (i->getAction() == persistence::OPEN) {
@@ -163,9 +163,9 @@ static void readDoorInfo(DoorInfo &info, const persistence::DoorType &type) {
 	{
 		odb::transaction t(db->begin());
 		odb::result<persistence::PlayHistory> r(
-				db->query<persistence::PlayHistory>(
-						odb::query<persistence::PlayHistory>::timestamp
-								>= info.lastClose));
+			db->query<persistence::PlayHistory>(
+				odb::query<persistence::PlayHistory>::timestamp
+				>= info.lastClose));
 		for (odb::result<persistence::PlayHistory>::iterator i(r.begin());
 				i != r.end(); ++i) {
 			info.count++;
@@ -206,7 +206,7 @@ void securityAccountingMenuOption() {
 	readStackerInfo(stackerLastRemove, stackerLastInsert, stackerCount);
 
 	CDKSWINDOW *scroll = newCDKSwindow(screen, CENTER, 1, LINES - 3, COLS,
-			"Security Accounting", 1000, TRUE, FALSE);
+									   "Security Accounting", 1000, TRUE, FALSE);
 
 	addCDKSwindow(scroll, "\n", BOTTOM);
 	showDoorInfo(scroll, "Main Door", mainDoor);

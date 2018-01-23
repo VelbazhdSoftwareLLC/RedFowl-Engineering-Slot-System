@@ -24,7 +24,7 @@ private:
 
 public:
 	GameConfiguration(int rtp, int activeLines, int singleBet,
-			double denomination) {
+					  double denomination) {
 		this->rtp = rtp;
 		this->activeLines = activeLines;
 		this->singleBet = singleBet;

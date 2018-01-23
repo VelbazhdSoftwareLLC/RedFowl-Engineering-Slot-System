@@ -34,8 +34,8 @@ private:
 public:
 
 	PlayHistory(const Game *game, const Bet *bet, const Win *win,
-			const GameConfiguration *configuration, string view,
-			time_t timestamp) {
+				const GameConfiguration *configuration, string view,
+				time_t timestamp) {
 		this->game = game;
 		this->bet = bet;
 		this->win = win;

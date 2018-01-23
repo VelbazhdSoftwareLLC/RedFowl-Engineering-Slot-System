@@ -80,9 +80,9 @@ void loop() {
 				done = true;
 				break;
 
-				/*
-				 * Read keyboard.
-				 */
+			/*
+			 * Read keyboard.
+			 */
 			case SDL_KEYDOWN:
 				switch (event.key.keysym.sym) {
 
@@ -122,9 +122,9 @@ void loop() {
 					done = true;
 					break;
 
-					/*
-					 * Number of lines changed by user.
-					 */
+				/*
+				 * Number of lines changed by user.
+				 */
 				case SDLK_l:
 					core::CommonState::numberOfBettingLines++;
 
@@ -133,12 +133,12 @@ void loop() {
 					}
 
 					core::CommonState::totalBet = core::CommonState::numberOfBettingLines
-							* core::CommonState::singleLineBet;
+												  * core::CommonState::singleLineBet;
 					break;
 
-					/*
-					 * Bet changed by user.
-					 */
+				/*
+				 * Bet changed by user.
+				 */
 				case SDLK_b:
 					core::CommonState::singleLineBet++;
 
@@ -147,18 +147,18 @@ void loop() {
 					}
 
 					core::CommonState::totalBet = core::CommonState::numberOfBettingLines
-							* core::CommonState::singleLineBet;
+												  * core::CommonState::singleLineBet;
 					break;
 
-					/*
-					 * Max bet changed by user.
-					 */
+				/*
+				 * Max bet changed by user.
+				 */
 				case SDLK_m:
 					core::CommonState::singleLineBet = MAX_SINGLE_LINE_BET;
 					core::CommonState::numberOfBettingLines = MAX_SELECTED_LINES;
 
 					core::CommonState::totalBet = core::CommonState::numberOfBettingLines
-							* core::CommonState::singleLineBet;
+												  * core::CommonState::singleLineBet;
 					break;
 
 				case SDLK_c:
@@ -167,9 +167,9 @@ void loop() {
 					}
 					break;
 
-					/*
-					 * Spin reels by user.
-					 */
+				/*
+				 * Spin reels by user.
+				 */
 				case SDLK_RETURN:
 #ifdef SIMULATION
 					break;
@@ -236,7 +236,7 @@ void loop() {
 		if (core::CommonState::baseGameMode == true) {
 			core::activeScreen = core::MAIN_GAME_SCREEN;
 		} else if (core::CommonState::freeGamesMode == true
-				&& core::CommonState::bonusGameMode == false) {
+				   && core::CommonState::bonusGameMode == false) {
 			if (SDL_GetTicks() - core::FiniteStateMachine::lastSpinTick > 1000) {
 				core::activeScreen = core::FREE_GAME_SCREEN;
 				core::FiniteStateMachine::spinAllReels();

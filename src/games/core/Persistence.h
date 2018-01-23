@@ -47,7 +47,7 @@ public:
 	 */
 	static void connectDb(int argc, char *argv[]) {
 		auto_ptr<odb::core::database> connection(
-				new odb::pgsql::database(argc, argv));
+			new odb::pgsql::database(argc, argv));
 		db = connection;
 	}
 
@@ -69,8 +69,8 @@ public:
 
 		odb::transaction t(db->begin());
 		odb::result<Game> r(
-				db->query < Game
-						> (odb::query<Game>::title == title));
+			db->query < Game
+			> (odb::query<Game>::title == title));
 		for (odb::result<Game>::iterator i(r.begin());
 				i != r.end(); ++i) {
 			if (title.compare(i->getTitle()) != 0) {
@@ -109,8 +109,8 @@ public:
 
 		odb::transaction t(db->begin());
 		odb::result<Session> r(
-				db->query < Session
-						> (odb::query<Session>::id == id));
+			db->query < Session
+			> (odb::query<Session>::id == id));
 		for (odb::result<Session>::iterator i(r.begin());
 				i != r.end(); ++i) {
 			Session &session(*i);
@@ -140,21 +140,21 @@ public:
 	 * @param denomination Currency denomination of the virtual coins.
 	 */
 	static unsigned long persistConfig(int rtp, int numberOfBettingLines,
-			int singleLineBet, double denomination) {
+									   int singleLineBet, double denomination) {
 		unsigned long id;
 		bool found = false;
 
 		odb::transaction t(db->begin());
 		odb::result<GameConfiguration> r(
-				db->query < GameConfiguration
-						> (odb::query<GameConfiguration>::rtp
-								== rtp
-								&& odb::query<GameConfiguration>::activeLines
-										== numberOfBettingLines
-								&& odb::query<GameConfiguration>::singleBet
-										== singleLineBet
-								&& odb::query<GameConfiguration>::denomination
-										== denomination));
+			db->query < GameConfiguration
+			> (odb::query<GameConfiguration>::rtp
+			   == rtp
+			   && odb::query<GameConfiguration>::activeLines
+			   == numberOfBettingLines
+			   && odb::query<GameConfiguration>::singleBet
+			   == singleLineBet
+			   && odb::query<GameConfiguration>::denomination
+			   == denomination));
 		for (odb::result<GameConfiguration>::iterator i(r.begin());
 				i != r.end(); ++i) {
 			GameConfiguration &config(*i);
@@ -174,7 +174,7 @@ public:
 
 		/* Register game. */{
 			GameConfiguration config(rtp, numberOfBettingLines,
-					singleLineBet, denomination);
+									 singleLineBet, denomination);
 			odb::transaction t(db->begin());
 			id = db->persist(config);
 			t.commit();
@@ -195,8 +195,8 @@ public:
 
 		odb::transaction t(db->begin());
 		odb::result<Game> r(
-				db->query < Game
-						> (odb::query<Game>::title == title));
+			db->query < Game
+			> (odb::query<Game>::title == title));
 		for (odb::result<Game>::iterator i(r.begin());
 				i != r.end(); ++i) {
 			if (title.compare(i->getTitle()) != 0) {
@@ -207,7 +207,7 @@ public:
 			t.commit();
 
 			Bet store(bet, credit, CASHABLE,
-					time(NULL), &game);
+					  time(NULL), &game);
 			odb::transaction t(db->begin());
 			id = db->persist(store);
 			t.commit();
@@ -227,13 +227,13 @@ public:
 	 * @param title Title of the game where the win appeared.
 	 */
 	static unsigned long persistWin(int win, int credit,
-			WinType type, const string &title) {
+									WinType type, const string &title) {
 		unsigned long id;
 
 		odb::transaction t(db->begin());
 		odb::result<Game> r(
-				db->query < Game
-						> (odb::query<Game>::title == title));
+			db->query < Game
+			> (odb::query<Game>::title == title));
 		for (odb::result<Game>::iterator i(r.begin());
 				i != r.end(); ++i) {
 			if (title.compare(i->getTitle()) != 0) {
@@ -265,12 +265,12 @@ public:
 	 * @param title Title of the game for history save.
 	 */
 	static void persistHistory(unsigned long idBet, unsigned long idWin,
-			unsigned long idConfig, const vector<vector<int> > &view,
-			const string symbolsNames[], const string &title) {
+							   unsigned long idConfig, const vector<vector<int> > &view,
+							   const string symbolsNames[], const string &title) {
 		odb::transaction t(db->begin());
 		odb::result<Game> r(
-				db->query < Game
-						> (odb::query<Game>::title == title));
+			db->query < Game
+			> (odb::query<Game>::title == title));
 		for (odb::result<Game>::iterator i(r.begin());
 				i != r.end(); ++i) {
 			if (title.compare(i->getTitle()) != 0) {
@@ -282,8 +282,8 @@ public:
 
 			odb::transaction t(db->begin());
 			odb::result<Bet> r(
-					db->query < Bet
-							> (odb::query<Bet>::id == idBet));
+				db->query < Bet
+				> (odb::query<Bet>::id == idBet));
 			for (odb::result<Bet>::iterator i(r.begin());
 					i != r.end(); ++i) {
 				Bet &bet(*i);
@@ -291,8 +291,8 @@ public:
 
 				odb::transaction t(db->begin());
 				odb::result<Win> r(
-						db->query < Win
-								> (odb::query<Win>::id == idWin));
+					db->query < Win
+					> (odb::query<Win>::id == idWin));
 				for (odb::result<Win>::iterator i(r.begin());
 						i != r.end(); ++i) {
 					Win &win(*i);
@@ -300,11 +300,11 @@ public:
 
 					odb::transaction t(db->begin());
 					odb::result<GameConfiguration> r(
-							db->query < GameConfiguration
-									> (odb::query<GameConfiguration>::id
-											== idConfig));
+						db->query < GameConfiguration
+						> (odb::query<GameConfiguration>::id
+						   == idConfig));
 					for (odb::result<GameConfiguration>::iterator i(
-							r.begin()); i != r.end(); ++i) {
+								r.begin()); i != r.end(); ++i) {
 						GameConfiguration &config(*i);
 						t.commit();
 
@@ -324,7 +324,7 @@ public:
 						}
 
 						PlayHistory store(&game, &bet, &win,
-								&config, text, time(NULL));
+										  &config, text, time(NULL));
 						odb::transaction t(db->begin());
 						db->persist(store);
 						t.commit();
@@ -351,8 +351,8 @@ public:
 	static void persistSession(int credit, unsigned long id) {
 		odb::transaction t(db->begin());
 		odb::result<Session> r(
-				db->query < Session
-						> (odb::query<Session>::id == id));
+			db->query < Session
+			> (odb::query<Session>::id == id));
 		for (odb::result<Session>::iterator i(r.begin());
 				i != r.end(); ++i) {
 			Session &session(*i);
@@ -373,9 +373,9 @@ public:
 
 		odb::transaction t(db->begin());
 		odb::result<MachineConfiguration> r(
-				db->query<MachineConfiguration>());
+			db->query<MachineConfiguration>());
 		for (odb::result<MachineConfiguration>::iterator i(
-				r.begin()); i != r.end(); ++i) {
+					r.begin()); i != r.end(); ++i) {
 			MachineConfiguration &machine(*i);
 			denomination = machine.getDenomination();
 			found = true;

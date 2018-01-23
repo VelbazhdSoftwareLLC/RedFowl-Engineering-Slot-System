@@ -74,29 +74,29 @@ void calculateAverage() {
 		average.wonMoney += experiments[e].wonMoney / NUMBER_OF_EXPERIMENTS;
 		average.lostMoney += experiments[e].lostMoney / NUMBER_OF_EXPERIMENTS;
 		average.baseGameMoney += experiments[e].baseGameMoney
-				/ NUMBER_OF_EXPERIMENTS;
+								 / NUMBER_OF_EXPERIMENTS;
 		average.lineBonusMoney += experiments[e].lineBonusMoney
-				/ NUMBER_OF_EXPERIMENTS;
+								  / NUMBER_OF_EXPERIMENTS;
 		average.bingoBonusMoney += experiments[e].bingoBonusMoney
-				/ NUMBER_OF_EXPERIMENTS;
+								   / NUMBER_OF_EXPERIMENTS;
 		average.totalNumberOfBaseGames += experiments[e].totalNumberOfBaseGames
-				/ NUMBER_OF_EXPERIMENTS;
+										  / NUMBER_OF_EXPERIMENTS;
 		average.totalNumberOfLineBonus += experiments[e].totalNumberOfLineBonus
-				/ NUMBER_OF_EXPERIMENTS;
+										  / NUMBER_OF_EXPERIMENTS;
 		average.totalNumberOfBingoBonus +=
-				experiments[e].totalNumberOfBingoBonus / NUMBER_OF_EXPERIMENTS;
+			experiments[e].totalNumberOfBingoBonus / NUMBER_OF_EXPERIMENTS;
 		average.baseGameHitRate += experiments[e].baseGameHitRate
-				/ NUMBER_OF_EXPERIMENTS;
+								   / NUMBER_OF_EXPERIMENTS;
 		average.bonusGameHitRate += experiments[e].bonusGameHitRate
-				/ NUMBER_OF_EXPERIMENTS;
+									/ NUMBER_OF_EXPERIMENTS;
 		for (int j = 0; j < SYMBOLS_LENGTH; j++) {
 			for (int i = 0; i < COMBINATION_LENGTH; i++) {
 				average.baseSymbolMoney[i][j] +=
-						experiments[e].baseSymbolMoney[i][j]
-								/ NUMBER_OF_EXPERIMENTS;
+					experiments[e].baseSymbolMoney[i][j]
+					/ NUMBER_OF_EXPERIMENTS;
 				average.baseGameSymbolsHitRate[i][j] +=
-						experiments[e].baseGameSymbolsHitRate[i][j]
-								/ NUMBER_OF_EXPERIMENTS;
+					experiments[e].baseGameSymbolsHitRate[i][j]
+					/ NUMBER_OF_EXPERIMENTS;
 			}
 		}
 	}
@@ -109,7 +109,7 @@ void printSimulationResults() {
 	cout << "Total RTP\t";
 	cout
 			<< (int) ((double) experiment->wonMoney * 10000
-					/ (double) experiment->lostMoney) / 100.0 << "%"
+					  / (double) experiment->lostMoney) / 100.0 << "%"
 			<< endl;
 
 	cout << "Won Money\t";
@@ -121,20 +121,20 @@ void printSimulationResults() {
 	cout << "Base Game RTP\t";
 	cout
 			<< (int) ((double) (experiment->baseGameMoney) * 10000
-					/ (double) experiment->lostMoney) / 100.0 << "%\t";
+					  / (double) experiment->lostMoney) / 100.0 << "%\t";
 	cout << endl;
 
 	cout << "Bonus Game RTP\t";
 	cout
 			<< (int) ((double) (experiment->lineBonusMoney
-					+ experiment->bingoBonusMoney) * 10000
-					/ (double) experiment->lostMoney) / 100.0 << "%\t";
+								+ experiment->bingoBonusMoney) * 10000
+					  / (double) experiment->lostMoney) / 100.0 << "%\t";
 	cout
 			<< (int) ((double) (experiment->lineBonusMoney) * 10000
-					/ (double) experiment->lostMoney) / 100.0 << "%\t";
+					  / (double) experiment->lostMoney) / 100.0 << "%\t";
 	cout
 			<< (int) ((double) (experiment->bingoBonusMoney) * 10000
-					/ (double) experiment->lostMoney) / 100.0 << "%\t";
+					  / (double) experiment->lostMoney) / 100.0 << "%\t";
 	cout << endl;
 
 	cout << "Total Number of Base Games\t";
@@ -149,13 +149,13 @@ void printSimulationResults() {
 	cout << "Base Game Hit Rate\t";
 	cout
 			<< (int) ((double) experiment->baseGameHitRate * 10000
-					/ (double) experiment->totalNumberOfBaseGames) / 100.0
+					  / (double) experiment->totalNumberOfBaseGames) / 100.0
 			<< "%" << endl;
 
 	cout << "Bonus Game Hit Rate\t";
 	cout
 			<< (int) ((double) experiment->bonusGameHitRate * 10000
-					/ (double) experiment->totalNumberOfBaseGames) / 100.0
+					  / (double) experiment->totalNumberOfBaseGames) / 100.0
 			<< "%" << endl;
 
 	cout << endl;
@@ -179,7 +179,7 @@ void printSimulationResults() {
 		for (int i = 0; i < COMBINATION_LENGTH; i++) {
 			cout
 					<< (int) ((double) experiment->baseSymbolMoney[i][j] * 10000
-							/ (double) experiment->wonMoney) / 100.0 << "\t";
+							  / (double) experiment->wonMoney) / 100.0 << "\t";
 		}
 		cout << endl;
 	}
@@ -195,9 +195,9 @@ void printSimulationResults() {
 		for (int i = 0; i < COMBINATION_LENGTH; i++) {
 			cout
 					<< (int) ((double) experiment->baseGameSymbolsHitRate[i][j]
-							* 10000
-							/ (double) experiment->totalNumberOfBaseGames)
-							/ 100.0 << "\t";
+							  * 10000
+							  / (double) experiment->totalNumberOfBaseGames)
+					/ 100.0 << "\t";
 		}
 		cout << endl;
 	}
@@ -205,15 +205,26 @@ void printSimulationResults() {
 	for (int p = core::CommonState::rtp - 90; p <= core::CommonState::rtp - 90; p++) {
 		cout << endl;
 		cout << "Base Game Reels " << (90 + p) << "% Symbols Count\t"
-				<< endl;
+			 << endl;
 		/* Count symbols in reels. */
 		{
-			int counters[REELS_LENGTH][SYMBOLS_LENGTH] = { { 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-					0, 0, 0 }, };
+			int counters[REELS_LENGTH][SYMBOLS_LENGTH] = { {
+					0, 0, 0, 0, 0, 0,
+					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+				}, {
+					0, 0, 0, 0, 0, 0, 0, 0,
+					0, 0, 0, 0, 0, 0, 0, 0, 0
+				}, {
+					0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+					0, 0, 0, 0, 0, 0, 0
+				}, {
+					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+					0, 0, 0, 0, 0
+				}, {
+					0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+					0, 0, 0
+				},
+			};
 			for (int i = 0; i < REELS_LENGTH; i++) {
 				for (int j = 0; j < REEL_LENGTH; j++) {
 					counters[i][baseGameReels[p][i][j]]++;
@@ -227,7 +238,7 @@ void printSimulationResults() {
 				cout << endl;
 			}
 			cout << "---------------------------------------------"
-					<< endl;
+				 << endl;
 			cout << "Total:\t";
 			unsigned long combinations = 1L;
 			for (int i = 0; i < REELS_LENGTH; i++) {
@@ -242,7 +253,7 @@ void printSimulationResults() {
 			}
 			cout << endl;
 			cout << "---------------------------------------------"
-					<< endl;
+				 << endl;
 			cout << "Combinations:\t" << combinations;
 			cout << endl;
 		}

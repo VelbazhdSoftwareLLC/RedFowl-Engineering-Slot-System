@@ -26,8 +26,8 @@ using namespace std;
 static string currency = "";
 
 static void showPlayHistoryInfo(CDKSWINDOW *scroll,
-		const persistence::GameHistoryInfo &info, const int currnet,
-		const int all) {
+								const persistence::GameHistoryInfo &info, const int currnet,
+								const int all) {
 	char time[100];
 	char message[100];
 
@@ -69,13 +69,13 @@ static void showPlayHistoryInfo(CDKSWINDOW *scroll,
 
 void displayMenuOption() {
 	CDKSWINDOW *scroll = newCDKSwindow(screen, CENTER, 1, LINES - 3, COLS,
-			"Play History", 1000, TRUE, FALSE);
+									   "Play History", 1000, TRUE, FALSE);
 
 	addCDKSwindow(scroll, "\n", BOTTOM);
 
 	int argc = 0;
 	auto_ptr<odb::core::database> connection(
-			new odb::pgsql::database(argc, NULL));
+		new odb::pgsql::database(argc, NULL));
 	auto_ptr<odb::core::database> db = connection;
 
 	/*
@@ -83,9 +83,9 @@ void displayMenuOption() {
 	 */{
 		odb::transaction t(db->begin());
 		odb::result<persistence::MachineConfiguration> r(
-				db->query<persistence::MachineConfiguration>());
+			db->query<persistence::MachineConfiguration>());
 		for (odb::result<persistence::MachineConfiguration>::iterator i(
-				r.begin()); i != r.end(); ++i) {
+					r.begin()); i != r.end(); ++i) {
 			currency = i->getCurrency();
 			break;
 		}
@@ -94,7 +94,7 @@ void displayMenuOption() {
 
 	odb::transaction t(db->begin());
 	odb::result<persistence::GameHistoryInfo> r(
-			db->query<persistence::GameHistoryInfo>());
+		db->query<persistence::GameHistoryInfo>());
 	int number = 0;
 	for (odb::result<persistence::GameHistoryInfo>::iterator i(r.begin());
 			i != r.end(); ++i) {

@@ -46,7 +46,7 @@ public:
 		for (int i = 0; i < view.size(); i++) {
 			for (int j = view[i].size() - 1; j >= 0; j--) {
 				CommonState::reelsStops[i] += reelsMinOffset[i]
-						+ rand() % (reelsMaxOffset[i] - reelsMinOffset[i] + 1);
+											  + rand() % (reelsMaxOffset[i] - reelsMinOffset[i] + 1);
 
 				index = (CommonState::reelsStops[i] + j) % reels[i].size();
 				view[i][j] = reels[i][index];

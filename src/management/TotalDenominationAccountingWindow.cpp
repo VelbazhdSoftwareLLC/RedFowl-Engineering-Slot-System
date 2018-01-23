@@ -22,7 +22,7 @@ using namespace std;
 void totalDenominationAccountingMenuOption() {
 	int argc = 0;
 	auto_ptr<odb::core::database> connection(
-			new odb::pgsql::database(argc, NULL));
+		new odb::pgsql::database(argc, NULL));
 	auto_ptr<odb::core::database> db = connection;
 
 	double denomination = 0.0;
@@ -32,9 +32,9 @@ void totalDenominationAccountingMenuOption() {
 	 */{
 		odb::transaction t(db->begin());
 		odb::result<persistence::MachineConfiguration> r(
-				db->query<persistence::MachineConfiguration>());
+			db->query<persistence::MachineConfiguration>());
 		for (odb::result<persistence::MachineConfiguration>::iterator i(
-				r.begin()); i != r.end(); ++i) {
+					r.begin()); i != r.end(); ++i) {
 			denomination = i->getDenomination();
 			currency = i->getCurrency();
 			break;
@@ -82,7 +82,7 @@ void totalDenominationAccountingMenuOption() {
 	}
 
 	CDKSWINDOW *scroll = newCDKSwindow(screen, CENTER, 1, LINES - 3, COLS,
-			"Total Denomination Accounting", 1000, TRUE, FALSE);
+									   "Total Denomination Accounting", 1000, TRUE, FALSE);
 
 	/* Total bet. */{
 		char message[100];

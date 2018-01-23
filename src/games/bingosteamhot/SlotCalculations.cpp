@@ -63,8 +63,8 @@ static int lineWin(int line[REELS_LENGTH], const int &index) {
 	 */
 	if (win > 0) {
 		gameWins.push_back(
-				BingoSteamHotWinCombination(index, number, win,
-						core::CommonState::baseGameMode, false));
+			BingoSteamHotWinCombination(index, number, win,
+										core::CommonState::baseGameMode, false));
 	}
 #endif
 #endif
@@ -90,7 +90,7 @@ static int lineWin(int line[REELS_LENGTH], const int &index) {
  * @return Calculated win.
  */
 static int linesWin(vector<vector<int> > &view,
-		const int lines[LINES_LENGTH][REELS_LENGTH], int numberOfBettingLines) {
+					const int lines[LINES_LENGTH][REELS_LENGTH], int numberOfBettingLines) {
 	/*
 	 * Static variables are not allocated into stack and it is faster to be used.
 	 */
@@ -140,7 +140,7 @@ int singleBaseGame() {
 	 * Spin reels.
 	 */
 	core::Calculations::spin(core::CommonState::view, core::CommonState::baseReels, core::CommonState::reelsMinOffset,
-			core::CommonState::reelsMaxOffset);
+							 core::CommonState::reelsMaxOffset);
 
 	/*
 	 * Simulate bingo ball out on each reels spin.
@@ -185,7 +185,7 @@ int singleBaseGame() {
 	 */
 	static int win1;
 	win1 = linesWin(core::CommonState::view, (const int (*)[REELS_LENGTH]) lines,
-			core::CommonState::numberOfBettingLines);
+					core::CommonState::numberOfBettingLines);
 #ifdef SIMULATION
 	experiment->baseGameMoney += win1;
 
@@ -203,7 +203,7 @@ void runBaseGame(int &totalWin) {
 #ifndef SIMULATION
 #ifndef OPTIMIZATION
 	unsigned long idBet = core::Persistence::persistBet(core::CommonState::totalBet, core::CommonState::credit,
-			core::CommonState::title);
+						  core::CommonState::title);
 	gameWins.clear();
 	core::CommonState::credit -= core::CommonState::totalBet;
 	core::Persistence::persistSession(core::CommonState::credit, core::CommonState::sessionId);
@@ -214,10 +214,10 @@ void runBaseGame(int &totalWin) {
 #ifndef OPTIMIZATION
 	core::CommonState::credit += totalWin;
 	unsigned long idWin = core::Persistence::Persistence::persistWin(totalWin, core::CommonState::credit,
-			persistence::BASE_GAME, core::CommonState::title);
+						  persistence::BASE_GAME, core::CommonState::title);
 	unsigned long idConfig = core::Persistence::persistConfig(core::CommonState::rtp,
-			core::CommonState::numberOfBettingLines, core::CommonState::singleLineBet,
-			core::CommonState::denomination);
+							 core::CommonState::numberOfBettingLines, core::CommonState::singleLineBet,
+							 core::CommonState::denomination);
 	core::Persistence::Persistence::persistHistory(idBet, idWin, idConfig, core::CommonState::view, symbolsNames,
 			core::CommonState::title);
 	core::Persistence::persistSession(core::CommonState::credit, core::CommonState::sessionId);

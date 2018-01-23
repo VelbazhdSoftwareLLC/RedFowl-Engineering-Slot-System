@@ -40,8 +40,8 @@ int freeSymbolsWinSum[SYMBOLS_LENGTH];
  * base game scatters distribution + free games scatters distribution.
  */
 const int CHROMOSOME_LENGHT =
-		REELS_LENGTH
-				* REEL_LENGTH /*+ REELS_LENGHT * REEL_LENGHT + FREE_MULTIPLIER_DISTRIBUTION_LENGHT + NUMBER_OF_SCATTERS * BASE_SCATTER_DISTRIBUTION_LENGHT + NUMBER_OF_SCATTERS * FREE_SCATTER_DISTRIBUTION_LENGHT*/;
+	REELS_LENGTH
+	* REEL_LENGTH /*+ REELS_LENGHT * REEL_LENGHT + FREE_MULTIPLIER_DISTRIBUTION_LENGHT + NUMBER_OF_SCATTERS * BASE_SCATTER_DISTRIBUTION_LENGHT + NUMBER_OF_SCATTERS * FREE_SCATTER_DISTRIBUTION_LENGHT*/;
 
 /**
  * Genetic algorithm population size.
@@ -117,8 +117,8 @@ void symbolsBalance(int chromozome[]) {
 					c = (a + 2) % REEL_LENGTH;
 					t++;
 				} while (array[i][j] == array[i][a]
-						|| array[i][j] == array[i][b]
-						|| array[i][j] == array[i][c]);
+						 || array[i][j] == array[i][b]
+						 || array[i][j] == array[i][c]);
 
 				swap = array[i][j];
 				array[i][j] = array[i][a];
@@ -200,11 +200,12 @@ bool isValidChromosome(int chromosome[]) {
  */
 void createRandomChromosome(int chromosome[]) {
 	static const int BASE_SYMBOLS_DISTRIBUTION[] = { 1, 3, 4, 4, 4, 4, 4, 4, 4,
-			4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
-			7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
-			8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 10, 10,
-			10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11,
-			11, 11, 11, 11, 11, 11, 11, 15, 15, 15, 15, 16, 16, 16, 16 };
+													 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+													 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+													 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 10, 10,
+													 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11,
+													 11, 11, 11, 11, 11, 11, 11, 15, 15, 15, 15, 16, 16, 16, 16
+												   };
 
 #ifdef RARE_RANDOM_CHROMOSOME
 	if( rand()%(POPULATION_SIZE*NUMBER_OF_EPOCHS) ) {
@@ -316,7 +317,7 @@ double evaluate(int chromosome[]) {
 		runSimulation();
 
 		average += (double) experiment->wonMoney
-				/ (double) experiment->lostMoney * 100;
+				   / (double) experiment->lostMoney * 100;
 	}
 	average /= NUMBER_OF_EXPERIMENTS;
 
@@ -370,9 +371,9 @@ void selectIndexes() {
 
 	static int percent = -1;
 	percent = rand()
-			% (CROSSOVER_RESULT_INTO_WORST_PERCENT
-					+ CROSSOVER_RESULT_INTO_MIDDLE_PERCENT
-					+ CROSSOVER_RESULT_INTO_BEST_PERCENT);
+			  % (CROSSOVER_RESULT_INTO_WORST_PERCENT
+				 + CROSSOVER_RESULT_INTO_MIDDLE_PERCENT
+				 + CROSSOVER_RESULT_INTO_BEST_PERCENT);
 
 	if (percent < CROSSOVER_RESULT_INTO_WORST_PERCENT) {
 		do {
@@ -380,10 +381,10 @@ void selectIndexes() {
 			firstParentIndex = rand() % GA_POPULATION_SIZE;
 			secondParentIndex = rand() % GA_POPULATION_SIZE;
 		} while (fitness[childIndex] < fitness[firstParentIndex]
-				|| fitness[childIndex] < fitness[secondParentIndex]);
+				 || fitness[childIndex] < fitness[secondParentIndex]);
 	} else if (percent
-			< (CROSSOVER_RESULT_INTO_WORST_PERCENT
-					+ CROSSOVER_RESULT_INTO_MIDDLE_PERCENT)) {
+			   < (CROSSOVER_RESULT_INTO_WORST_PERCENT
+				  + CROSSOVER_RESULT_INTO_MIDDLE_PERCENT)) {
 		if (fitness[secondParentIndex] < fitness[firstParentIndex]) {
 			int index = secondParentIndex;
 			secondParentIndex = firstParentIndex;
@@ -394,17 +395,17 @@ void selectIndexes() {
 			firstParentIndex = rand() % GA_POPULATION_SIZE;
 			secondParentIndex = rand() % GA_POPULATION_SIZE;
 		} while (fitness[childIndex] < fitness[firstParentIndex]
-				|| fitness[childIndex] > fitness[secondParentIndex]);
+				 || fitness[childIndex] > fitness[secondParentIndex]);
 	} else if (percent
-			< (CROSSOVER_RESULT_INTO_WORST_PERCENT
-					+ CROSSOVER_RESULT_INTO_MIDDLE_PERCENT
-					+ CROSSOVER_RESULT_INTO_BEST_PERCENT)) {
+			   < (CROSSOVER_RESULT_INTO_WORST_PERCENT
+				  + CROSSOVER_RESULT_INTO_MIDDLE_PERCENT
+				  + CROSSOVER_RESULT_INTO_BEST_PERCENT)) {
 		do {
 			childIndex = rand() % GA_POPULATION_SIZE;
 			firstParentIndex = rand() % GA_POPULATION_SIZE;
 			secondParentIndex = rand() % GA_POPULATION_SIZE;
 		} while (fitness[childIndex] > fitness[firstParentIndex]
-				|| fitness[childIndex] > fitness[secondParentIndex]);
+				 || fitness[childIndex] > fitness[secondParentIndex]);
 	}
 
 #ifdef KEEP_ELITE
@@ -486,8 +487,8 @@ void runOptimization() {
 			if (clock() - lastPrintTime > 10) {
 				cerr
 						<< (int) ((double) (e * GA_POPULATION_SIZE + p) * 10000
-								/ (double) (GA_NUMBER_OF_EPOCHS
-										* GA_POPULATION_SIZE)) / 100.0 << "%"
+								  / (double) (GA_NUMBER_OF_EPOCHS
+											  * GA_POPULATION_SIZE)) / 100.0 << "%"
 						<< endl;
 				lastPrintTime = clock();
 			}
@@ -501,7 +502,7 @@ void runOptimization() {
 #endif
 
 			crossover(population[childIndex], population[firstParentIndex],
-					population[secondParentIndex]);
+					  population[secondParentIndex]);
 
 			mutate(population[childIndex]);
 
@@ -510,14 +511,14 @@ void runOptimization() {
 #endif
 
 			fitness[childIndex] = abs(
-					optimalPercent - evaluate(population[childIndex]));
+									  optimalPercent - evaluate(population[childIndex]));
 			keepTrackOfBestAndWorst(childIndex);
 #ifdef EVALUATE_IN_EACH_GENERATION
 			fitness[firstParentIndex] = abs(
-					optimalPercent - evaluate(population[firstParentIndex]));
+											optimalPercent - evaluate(population[firstParentIndex]));
 			keepTrackOfBestAndWorst(firstParentIndex);
 			fitness[secondParentIndex] = abs(
-					optimalPercent - evaluate(population[secondParentIndex]));
+											 optimalPercent - evaluate(population[secondParentIndex]));
 			keepTrackOfBestAndWorst(secondParentIndex);
 #endif
 		}
@@ -540,7 +541,7 @@ void printOptimalResults(ostream &out) {
 	 */
 	out << "\t";
 	out << "/*Base game \tTarget percent: " << optimalPercent
-			<< "%\tFitness value: " << fitness[bestFitnessIndex] << "%*/{";
+		<< "%\tFitness value: " << fitness[bestFitnessIndex] << "%*/{";
 	out << endl;
 	for (int i = 0; i < REELS_LENGTH; i++) {
 		out << "\t\t";

@@ -15,7 +15,7 @@ public:
 	bool bingGameWin;
 
 	BingoSteamHotWinCombination(int lineIndex, int numberOfSymbols, int lineWin,
-			bool baseGameWin, bool bingGameWin) {
+								bool baseGameWin, bool bingGameWin) {
 		this->lineIndex = lineIndex;
 		this->numberOfSymbols = numberOfSymbols;
 		this->lineWin = lineWin;

@@ -43,22 +43,31 @@ SDL_Surface *FontImages::LETTER_Z;
 SDL_Surface* FontImages::DIGITS[FontImages::NUMBER_OF_DIGITS];
 SDL_Surface* FontImages::SYMBOLS[FontImages::NUMBER_OF_ASCII_SYMBOLS];
 
-const char FontImages::TEXT_SYMBOLS[10][10] = { { 0, '!', 0, 0, '$', 0, 0, 0,
-		'(', ')' }, { '*', '+', ',', 0, '.', '/', '0', '1', '2', '3' }, { '4',
-		'5', '6', '7', '8', '9', ':', ';', '<', '=' }, { '>', '?', 0, 'A', 'B',
-		'C', 'D', 'E', 'F', 'G' }, { 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
-		'P', 'Q' }, { 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[' }, {
-		'\\', ']', 0, '_', 0, 'a', 'b', 'c', 'd', 'e' }, { 'f', 'g', 'h', 'i',
-		'j', 'k', 'l', 'm', 'n', 'o' }, { 'p', 'q', 'r', 's', 't', 'u', 'v',
-		'w', 'x', 'y' }, { 'z', 0, '|', 0, 0, 0, 0, 0, 0, 0 }, };
+const char FontImages::TEXT_SYMBOLS[10][10] = { {
+		0, '!', 0, 0, '$', 0, 0, 0,
+		'(', ')'
+	}, { '*', '+', ',', 0, '.', '/', '0', '1', '2', '3' }, { '4',
+		'5', '6', '7', '8', '9', ':', ';', '<', '='
+	}, { '>', '?', 0, 'A', 'B',
+		'C', 'D', 'E', 'F', 'G'
+	}, { 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
+		'P', 'Q'
+	}, { 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[' }, {
+		'\\', ']', 0, '_', 0, 'a', 'b', 'c', 'd', 'e'
+	}, { 'f', 'g', 'h', 'i',
+		'j', 'k', 'l', 'm', 'n', 'o'
+	}, { 'p', 'q', 'r', 's', 't', 'u', 'v',
+		'w', 'x', 'y'
+	}, { 'z', 0, '|', 0, 0, 0, 0, 0, 0, 0 },
+};
 
 static SDL_Surface *buffer;
 
 SDL_Surface* FontImages::extractImage(SDL_Surface *image, SDL_Surface *buffer,
-		int left, int top, int width, int height) {
+									  int left, int top, int width, int height) {
 	buffer = SDL_CreateRGBSurface(image->flags, width, height,
-			image->format->BitsPerPixel, image->format->Rmask,
-			image->format->Gmask, image->format->Bmask, image->format->Amask);
+								  image->format->BitsPerPixel, image->format->Rmask,
+								  image->format->Gmask, image->format->Bmask, image->format->Amask);
 
 	if (image->format->BitsPerPixel == 32) {
 		Uint32 value;
@@ -66,7 +75,7 @@ SDL_Surface* FontImages::extractImage(SDL_Surface *image, SDL_Surface *buffer,
 			for (int i = 0; i < width; i++) {
 				//TODO Optimize by memory block copy.
 				value = *((Uint32*) (image->pixels) + left + i
-						+ (image->w * (top + j)));
+						  + (image->w * (top + j)));
 				*((Uint32*) (buffer->pixels) + i + width * j) = value;
 			}
 		}

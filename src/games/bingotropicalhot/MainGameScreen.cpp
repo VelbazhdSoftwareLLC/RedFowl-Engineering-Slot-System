@@ -46,188 +46,195 @@ static const SDL_Color NUMBERS_OUT_OF_SPHERE_COLOR = { 144, 116, 77 };
 static const SDL_Color NUMBERS_IN_THE_SPHERE_COLOR = { 76, 51, 21 };
 
 static const SDL_Surface *backgroundSurface = IMG_Load(
-		"./bingotropicalhot/images/Background.png");
+			"./bingotropicalhot/images/Background.png");
 
 static const SDL_Surface *foregroundSurface = IMG_Load(
-		"./bingotropicalhot/images/Foreground.png");
+			"./bingotropicalhot/images/Foreground.png");
 
 static const SDL_Surface *logoSurface = IMG_Load(
 		"./bingotropicalhot/images/Logo.png");
 
 static const SDL_Surface *messageBarSurface = IMG_Load(
-		"./bingotropicalhot/images/MessageBar.png");
+			"./bingotropicalhot/images/MessageBar.png");
 
 static const SDL_Surface *talonsSurface[core::BingoBonus::BINGO_CARDS_TALONS] = { IMG_Load(
 		"./bingotropicalhot/images/BingoCard01.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoCard02.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoCard04.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoCard03.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoCard05.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoCard06.png"), };
+				"./bingotropicalhot/images/BingoCard02.png"), IMG_Load(
+						"./bingotropicalhot/images/BingoCard04.png"), IMG_Load(
+								"./bingotropicalhot/images/BingoCard03.png"), IMG_Load(
+										"./bingotropicalhot/images/BingoCard05.png"), IMG_Load(
+												"./bingotropicalhot/images/BingoCard06.png"),
+																				};
 
 static const SDL_Surface *marksSurface[MARKS_LENGTH] = { IMG_Load(
 		"./bingotropicalhot/images/LeftMark01.png"), IMG_Load(
-		"./bingotropicalhot/images/LeftMark02.png"), IMG_Load(
-		"./bingotropicalhot/images/LeftMark03.png"), IMG_Load(
-		"./bingotropicalhot/images/LeftMark04.png"), IMG_Load(
-		"./bingotropicalhot/images/LeftMark05.png"), IMG_Load(
-		"./bingotropicalhot/images/LeftMark06.png"), IMG_Load(
-		"./bingotropicalhot/images/LeftMark07.png"), IMG_Load(
-		"./bingotropicalhot/images/LeftMark08.png"), IMG_Load(
-		"./bingotropicalhot/images/LeftMark09.png"), IMG_Load(
-		"./bingotropicalhot/images/RightMark01.png"), IMG_Load(
-		"./bingotropicalhot/images/RightMark02.png"), IMG_Load(
-		"./bingotropicalhot/images/RightMark03.png"), IMG_Load(
-		"./bingotropicalhot/images/RightMark04.png"), IMG_Load(
-		"./bingotropicalhot/images/RightMark05.png"), IMG_Load(
-		"./bingotropicalhot/images/RightMark06.png"), IMG_Load(
-		"./bingotropicalhot/images/RightMark07.png"), IMG_Load(
-		"./bingotropicalhot/images/RightMark08.png"), IMG_Load(
-		"./bingotropicalhot/images/RightMark09.png"), };
+				"./bingotropicalhot/images/LeftMark02.png"), IMG_Load(
+						"./bingotropicalhot/images/LeftMark03.png"), IMG_Load(
+								"./bingotropicalhot/images/LeftMark04.png"), IMG_Load(
+										"./bingotropicalhot/images/LeftMark05.png"), IMG_Load(
+												"./bingotropicalhot/images/LeftMark06.png"), IMG_Load(
+														"./bingotropicalhot/images/LeftMark07.png"), IMG_Load(
+																"./bingotropicalhot/images/LeftMark08.png"), IMG_Load(
+																		"./bingotropicalhot/images/LeftMark09.png"), IMG_Load(
+																				"./bingotropicalhot/images/RightMark01.png"), IMG_Load(
+																						"./bingotropicalhot/images/RightMark02.png"), IMG_Load(
+																								"./bingotropicalhot/images/RightMark03.png"), IMG_Load(
+																										"./bingotropicalhot/images/RightMark04.png"), IMG_Load(
+																												"./bingotropicalhot/images/RightMark05.png"), IMG_Load(
+																														"./bingotropicalhot/images/RightMark06.png"), IMG_Load(
+																																"./bingotropicalhot/images/RightMark07.png"), IMG_Load(
+																																		"./bingotropicalhot/images/RightMark08.png"), IMG_Load(
+																																				"./bingotropicalhot/images/RightMark09.png"),
+													   };
 
 static const SDL_Surface *bingoBallsSurface[BINGO_BALLS_LENGTH] = { IMG_Load(
 		"./bingotropicalhot/images/BingoBall01.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall02.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall03.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall04.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall05.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall06.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall07.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall08.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall09.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall10.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall11.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall12.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall13.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall14.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall15.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall16.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall17.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall18.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall19.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall20.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall21.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall22.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall23.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall24.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall25.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall26.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall27.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall28.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall29.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall30.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall31.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall32.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall33.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall34.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall35.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall36.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall37.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall38.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall39.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall40.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall41.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall42.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall43.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall44.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall45.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall46.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall47.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall48.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall49.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall50.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall51.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall52.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall53.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall54.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall55.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall56.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall57.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall58.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall59.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall60.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall61.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall62.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall63.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall64.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall65.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall66.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall67.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall68.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall69.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall70.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall71.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall72.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall73.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall74.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall75.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall76.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall77.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall78.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall79.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall80.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall81.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall82.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall83.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall84.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall85.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall86.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall87.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall88.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall89.png"), IMG_Load(
-		"./bingotropicalhot/images/BingoBall90.png"), };
+				"./bingotropicalhot/images/BingoBall02.png"), IMG_Load(
+						"./bingotropicalhot/images/BingoBall03.png"), IMG_Load(
+								"./bingotropicalhot/images/BingoBall04.png"), IMG_Load(
+										"./bingotropicalhot/images/BingoBall05.png"), IMG_Load(
+												"./bingotropicalhot/images/BingoBall06.png"), IMG_Load(
+														"./bingotropicalhot/images/BingoBall07.png"), IMG_Load(
+																"./bingotropicalhot/images/BingoBall08.png"), IMG_Load(
+																		"./bingotropicalhot/images/BingoBall09.png"), IMG_Load(
+																				"./bingotropicalhot/images/BingoBall10.png"), IMG_Load(
+																						"./bingotropicalhot/images/BingoBall11.png"), IMG_Load(
+																								"./bingotropicalhot/images/BingoBall12.png"), IMG_Load(
+																										"./bingotropicalhot/images/BingoBall13.png"), IMG_Load(
+																												"./bingotropicalhot/images/BingoBall14.png"), IMG_Load(
+																														"./bingotropicalhot/images/BingoBall15.png"), IMG_Load(
+																																"./bingotropicalhot/images/BingoBall16.png"), IMG_Load(
+																																		"./bingotropicalhot/images/BingoBall17.png"), IMG_Load(
+																																				"./bingotropicalhot/images/BingoBall18.png"), IMG_Load(
+																																						"./bingotropicalhot/images/BingoBall19.png"), IMG_Load(
+																																								"./bingotropicalhot/images/BingoBall20.png"), IMG_Load(
+																																										"./bingotropicalhot/images/BingoBall21.png"), IMG_Load(
+																																												"./bingotropicalhot/images/BingoBall22.png"), IMG_Load(
+																																														"./bingotropicalhot/images/BingoBall23.png"), IMG_Load(
+																																																"./bingotropicalhot/images/BingoBall24.png"), IMG_Load(
+																																																		"./bingotropicalhot/images/BingoBall25.png"), IMG_Load(
+																																																				"./bingotropicalhot/images/BingoBall26.png"), IMG_Load(
+																																																						"./bingotropicalhot/images/BingoBall27.png"), IMG_Load(
+																																																								"./bingotropicalhot/images/BingoBall28.png"), IMG_Load(
+																																																										"./bingotropicalhot/images/BingoBall29.png"), IMG_Load(
+																																																												"./bingotropicalhot/images/BingoBall30.png"), IMG_Load(
+																																																														"./bingotropicalhot/images/BingoBall31.png"), IMG_Load(
+																																																																"./bingotropicalhot/images/BingoBall32.png"), IMG_Load(
+																																																																		"./bingotropicalhot/images/BingoBall33.png"), IMG_Load(
+																																																																				"./bingotropicalhot/images/BingoBall34.png"), IMG_Load(
+																																																																						"./bingotropicalhot/images/BingoBall35.png"), IMG_Load(
+																																																																								"./bingotropicalhot/images/BingoBall36.png"), IMG_Load(
+																																																																										"./bingotropicalhot/images/BingoBall37.png"), IMG_Load(
+																																																																												"./bingotropicalhot/images/BingoBall38.png"), IMG_Load(
+																																																																														"./bingotropicalhot/images/BingoBall39.png"), IMG_Load(
+																																																																																"./bingotropicalhot/images/BingoBall40.png"), IMG_Load(
+																																																																																		"./bingotropicalhot/images/BingoBall41.png"), IMG_Load(
+																																																																																				"./bingotropicalhot/images/BingoBall42.png"), IMG_Load(
+																																																																																						"./bingotropicalhot/images/BingoBall43.png"), IMG_Load(
+																																																																																								"./bingotropicalhot/images/BingoBall44.png"), IMG_Load(
+																																																																																										"./bingotropicalhot/images/BingoBall45.png"), IMG_Load(
+																																																																																												"./bingotropicalhot/images/BingoBall46.png"), IMG_Load(
+																																																																																														"./bingotropicalhot/images/BingoBall47.png"), IMG_Load(
+																																																																																																"./bingotropicalhot/images/BingoBall48.png"), IMG_Load(
+																																																																																																		"./bingotropicalhot/images/BingoBall49.png"), IMG_Load(
+																																																																																																				"./bingotropicalhot/images/BingoBall50.png"), IMG_Load(
+																																																																																																						"./bingotropicalhot/images/BingoBall51.png"), IMG_Load(
+																																																																																																								"./bingotropicalhot/images/BingoBall52.png"), IMG_Load(
+																																																																																																										"./bingotropicalhot/images/BingoBall53.png"), IMG_Load(
+																																																																																																												"./bingotropicalhot/images/BingoBall54.png"), IMG_Load(
+																																																																																																														"./bingotropicalhot/images/BingoBall55.png"), IMG_Load(
+																																																																																																																"./bingotropicalhot/images/BingoBall56.png"), IMG_Load(
+																																																																																																																		"./bingotropicalhot/images/BingoBall57.png"), IMG_Load(
+																																																																																																																				"./bingotropicalhot/images/BingoBall58.png"), IMG_Load(
+																																																																																																																						"./bingotropicalhot/images/BingoBall59.png"), IMG_Load(
+																																																																																																																								"./bingotropicalhot/images/BingoBall60.png"), IMG_Load(
+																																																																																																																										"./bingotropicalhot/images/BingoBall61.png"), IMG_Load(
+																																																																																																																												"./bingotropicalhot/images/BingoBall62.png"), IMG_Load(
+																																																																																																																														"./bingotropicalhot/images/BingoBall63.png"), IMG_Load(
+																																																																																																																																"./bingotropicalhot/images/BingoBall64.png"), IMG_Load(
+																																																																																																																																		"./bingotropicalhot/images/BingoBall65.png"), IMG_Load(
+																																																																																																																																				"./bingotropicalhot/images/BingoBall66.png"), IMG_Load(
+																																																																																																																																						"./bingotropicalhot/images/BingoBall67.png"), IMG_Load(
+																																																																																																																																								"./bingotropicalhot/images/BingoBall68.png"), IMG_Load(
+																																																																																																																																										"./bingotropicalhot/images/BingoBall69.png"), IMG_Load(
+																																																																																																																																												"./bingotropicalhot/images/BingoBall70.png"), IMG_Load(
+																																																																																																																																														"./bingotropicalhot/images/BingoBall71.png"), IMG_Load(
+																																																																																																																																																"./bingotropicalhot/images/BingoBall72.png"), IMG_Load(
+																																																																																																																																																		"./bingotropicalhot/images/BingoBall73.png"), IMG_Load(
+																																																																																																																																																				"./bingotropicalhot/images/BingoBall74.png"), IMG_Load(
+																																																																																																																																																						"./bingotropicalhot/images/BingoBall75.png"), IMG_Load(
+																																																																																																																																																								"./bingotropicalhot/images/BingoBall76.png"), IMG_Load(
+																																																																																																																																																										"./bingotropicalhot/images/BingoBall77.png"), IMG_Load(
+																																																																																																																																																												"./bingotropicalhot/images/BingoBall78.png"), IMG_Load(
+																																																																																																																																																														"./bingotropicalhot/images/BingoBall79.png"), IMG_Load(
+																																																																																																																																																																"./bingotropicalhot/images/BingoBall80.png"), IMG_Load(
+																																																																																																																																																																		"./bingotropicalhot/images/BingoBall81.png"), IMG_Load(
+																																																																																																																																																																				"./bingotropicalhot/images/BingoBall82.png"), IMG_Load(
+																																																																																																																																																																						"./bingotropicalhot/images/BingoBall83.png"), IMG_Load(
+																																																																																																																																																																								"./bingotropicalhot/images/BingoBall84.png"), IMG_Load(
+																																																																																																																																																																										"./bingotropicalhot/images/BingoBall85.png"), IMG_Load(
+																																																																																																																																																																												"./bingotropicalhot/images/BingoBall86.png"), IMG_Load(
+																																																																																																																																																																														"./bingotropicalhot/images/BingoBall87.png"), IMG_Load(
+																																																																																																																																																																																"./bingotropicalhot/images/BingoBall88.png"), IMG_Load(
+																																																																																																																																																																																		"./bingotropicalhot/images/BingoBall89.png"), IMG_Load(
+																																																																																																																																																																																				"./bingotropicalhot/images/BingoBall90.png"),
+																  };
 
 static const SDL_Surface *ballBarSurface = IMG_Load(
-		"./bingotropicalhot/images/BallBar.png");
+			"./bingotropicalhot/images/BallBar.png");
 
 static const SDL_Surface *symbolsSurface[] = {
-NULL,
-NULL,
-NULL, IMG_Load("./bingotropicalhot/images/Symbol03.png"), IMG_Load(
+	NULL,
+	NULL,
+	NULL, IMG_Load("./bingotropicalhot/images/Symbol03.png"), IMG_Load(
 		"./bingotropicalhot/images/Symbol04.png"), IMG_Load(
-		"./bingotropicalhot/images/Symbol05.png"), IMG_Load(
-		"./bingotropicalhot/images/Symbol06.png"), IMG_Load(
-		"./bingotropicalhot/images/Symbol07.png"), IMG_Load(
-		"./bingotropicalhot/images/Symbol08.png"), IMG_Load(
-		"./bingotropicalhot/images/Symbol09.png"), IMG_Load(
-		"./bingotropicalhot/images/Symbol10.png"), IMG_Load(
-		"./bingotropicalhot/images/Symbol11.png"), IMG_Load(
-		"./bingotropicalhot/images/Symbol12.png"),
-NULL,
-NULL,
-NULL,
-NULL, };
+			"./bingotropicalhot/images/Symbol05.png"), IMG_Load(
+				"./bingotropicalhot/images/Symbol06.png"), IMG_Load(
+					"./bingotropicalhot/images/Symbol07.png"), IMG_Load(
+						"./bingotropicalhot/images/Symbol08.png"), IMG_Load(
+							"./bingotropicalhot/images/Symbol09.png"), IMG_Load(
+								"./bingotropicalhot/images/Symbol10.png"), IMG_Load(
+									"./bingotropicalhot/images/Symbol11.png"), IMG_Load(
+										"./bingotropicalhot/images/Symbol12.png"),
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+};
 
 static const SDL_Surface *linesSurface[LINES_LENGTH] = { IMG_Load(
 		"./bingotropicalhot/images/Line01.png"), IMG_Load(
-		"./bingotropicalhot/images/Line02.png"), IMG_Load(
-		"./bingotropicalhot/images/Line03.png"), IMG_Load(
-		"./bingotropicalhot/images/Line04.png"), IMG_Load(
-		"./bingotropicalhot/images/Line05.png"), IMG_Load(
-		"./bingotropicalhot/images/Line06.png"), IMG_Load(
-		"./bingotropicalhot/images/Line07.png"), IMG_Load(
-		"./bingotropicalhot/images/Line08.png"), IMG_Load(
-		"./bingotropicalhot/images/Line09.png"), };
+				"./bingotropicalhot/images/Line02.png"), IMG_Load(
+						"./bingotropicalhot/images/Line03.png"), IMG_Load(
+								"./bingotropicalhot/images/Line04.png"), IMG_Load(
+										"./bingotropicalhot/images/Line05.png"), IMG_Load(
+												"./bingotropicalhot/images/Line06.png"), IMG_Load(
+														"./bingotropicalhot/images/Line07.png"), IMG_Load(
+																"./bingotropicalhot/images/Line08.png"), IMG_Load(
+																		"./bingotropicalhot/images/Line09.png"),
+													   };
 
 static const SDL_Surface *linesMarksBarsSurface[] = { IMG_Load(
 		"./bingotropicalhot/images/LineMarkBarRight.png"), IMG_Load(
-		"./bingotropicalhot/images/LineMarkBarLeft.png"), };
+				"./bingotropicalhot/images/LineMarkBarLeft.png"),
+													};
 
 static const SDL_Surface *buttonsSurface[] = { IMG_Load(
 		"./bingotropicalhot/images/PayoutButton.png"), IMG_Load(
-		"./bingotropicalhot/images/SpinButton.png"), IMG_Load(
-		"./bingotropicalhot/images/MaxBetButton.png"), IMG_Load(
-		"./bingotropicalhot/images/BetButton.png"), IMG_Load(
-		"./bingotropicalhot/images/CoinsButton.png"), IMG_Load(
-		"./bingotropicalhot/images/LinesButton.png"), IMG_Load(
-		"./bingotropicalhot/images/AutoPlayButton.png"), IMG_Load(
-		"./bingotropicalhot/images/Win.png"), IMG_Load(
-		"./bingotropicalhot/images/SwapButton.png"), IMG_Load(
-		"./bingotropicalhot/images/Spins.png"), IMG_Load(
-		"./bingotropicalhot/images/CreditButton.png"), };
+				"./bingotropicalhot/images/SpinButton.png"), IMG_Load(
+						"./bingotropicalhot/images/MaxBetButton.png"), IMG_Load(
+								"./bingotropicalhot/images/BetButton.png"), IMG_Load(
+										"./bingotropicalhot/images/CoinsButton.png"), IMG_Load(
+												"./bingotropicalhot/images/LinesButton.png"), IMG_Load(
+														"./bingotropicalhot/images/AutoPlayButton.png"), IMG_Load(
+																"./bingotropicalhot/images/Win.png"), IMG_Load(
+																		"./bingotropicalhot/images/SwapButton.png"), IMG_Load(
+																				"./bingotropicalhot/images/Spins.png"), IMG_Load(
+																						"./bingotropicalhot/images/CreditButton.png"),
+											 };
 
 static SDL_Rect bingoBallsCoordinates =
-		{ OFFSET_X + 1212, OFFSET_Y + 119, 0, 0 };
+{ OFFSET_X + 1212, OFFSET_Y + 119, 0, 0 };
 
 static SDL_Rect ballBarCoordinates = { OFFSET_X + 1195, OFFSET_Y + 115, 0, 0 };
 
@@ -238,73 +245,125 @@ static SDL_Rect logoCoordinates = { OFFSET_X + 195, OFFSET_Y + 0, 0, 0 };
 static SDL_Rect messageBarCoordinates = { OFFSET_X + 255, OFFSET_Y + 574, 0, 0 };
 
 static SDL_Rect linesMarksBarsCoordinates[] = { {
-OFFSET_X + 1121, OFFSET_Y + 137, 0, 0 }, {
-OFFSET_X + 208, OFFSET_Y + 137, 0, 0 }, };
+		OFFSET_X + 1121, OFFSET_Y + 137, 0, 0
+	}, {
+		OFFSET_X + 208, OFFSET_Y + 137, 0, 0
+	},
+};
 
 static SDL_Rect backgroundCoordinates = { OFFSET_X + 0, OFFSET_Y + 0, 0, 0 };
 
 static SDL_Rect linesCoordinates[] = { { OFFSET_X + 260, OFFSET_Y + 324, 0, 0 },
-		{ OFFSET_X + 264, OFFSET_Y + 192, 0, 0 }, {
-		OFFSET_X + 256, OFFSET_Y + 457, 0, 0 }, { OFFSET_X + 266, OFFSET_Y
-				+ 136, 0, 0 }, {
-		OFFSET_X + 256, OFFSET_Y + 203, 0, 0 }, {
+	{ OFFSET_X + 264, OFFSET_Y + 192, 0, 0 }, {
+		OFFSET_X + 256, OFFSET_Y + 457, 0, 0
+	}, {
+		OFFSET_X + 266, OFFSET_Y
+		+ 136, 0, 0
+	}, {
+		OFFSET_X + 256, OFFSET_Y + 203, 0, 0
+	}, {
 		OFFSET_X + 256,
-		OFFSET_Y + 232, 0, 0 }, { OFFSET_X + 253, OFFSET_Y + 232, 0, 0 }, {
-		OFFSET_X + 256, OFFSET_Y + 200, 0, 0 }, {
+		OFFSET_Y + 232, 0, 0
+	}, { OFFSET_X + 253, OFFSET_Y + 232, 0, 0 }, {
+		OFFSET_X + 256, OFFSET_Y + 200, 0, 0
+	}, {
 		OFFSET_X + 261,
-		OFFSET_Y + 203, 0, 0 }, };
+		OFFSET_Y + 203, 0, 0
+	},
+};
 
 static SDL_Rect bingoCardsCoordinates[] = { { OFFSET_X + 97, OFFSET_Y + 633 }, {
-OFFSET_X + 518, OFFSET_Y + 633 }, { OFFSET_X + 938, OFFSET_Y + 633 }, {
-OFFSET_X + 97, OFFSET_Y + 700 }, { OFFSET_X + 518, OFFSET_Y + 700 }, {
-OFFSET_X + 938, OFFSET_Y + 700 }, };
+		OFFSET_X + 518, OFFSET_Y + 633
+	}, { OFFSET_X + 938, OFFSET_Y + 633 }, {
+		OFFSET_X + 97, OFFSET_Y + 700
+	}, { OFFSET_X + 518, OFFSET_Y + 700 }, {
+		OFFSET_X + 938, OFFSET_Y + 700
+	},
+};
 
 static SDL_Rect marksCoordinates[] = { { OFFSET_X + 253, OFFSET_Y + 322 }, {
-OFFSET_X + 248, OFFSET_Y + 183 }, {
-OFFSET_X + 246, OFFSET_Y + 459 }, { OFFSET_X + 256, OFFSET_Y + 136 }, {
-OFFSET_X + 253, OFFSET_Y + 512 }, {
-OFFSET_X + 248, OFFSET_Y + 243 }, { OFFSET_X + 246, OFFSET_Y + 400 }, {
-OFFSET_X + 255, OFFSET_Y + 430 }, {
-OFFSET_X + 259, OFFSET_Y + 213 },
+		OFFSET_X + 248, OFFSET_Y + 183
+	}, {
+		OFFSET_X + 246, OFFSET_Y + 459
+	}, { OFFSET_X + 256, OFFSET_Y + 136 }, {
+		OFFSET_X + 253, OFFSET_Y + 512
+	}, {
+		OFFSET_X + 248, OFFSET_Y + 243
+	}, { OFFSET_X + 246, OFFSET_Y + 400 }, {
+		OFFSET_X + 255, OFFSET_Y + 430
+	}, {
+		OFFSET_X + 259, OFFSET_Y + 213
+	},
 
-{ OFFSET_X + 1147, OFFSET_Y + 322 }, {
-OFFSET_X + 1152, OFFSET_Y + 183 }, { OFFSET_X + 1153, OFFSET_Y + 459 }, {
-OFFSET_X + 1141, OFFSET_Y + 136 }, {
-OFFSET_X + 1145, OFFSET_Y + 512 }, { OFFSET_X + 1154, OFFSET_Y + 400 }, {
-OFFSET_X + 1152, OFFSET_Y + 243 }, {
-OFFSET_X + 1143, OFFSET_Y + 213 }, { OFFSET_X + 1144, OFFSET_Y + 430 }, };
+	{ OFFSET_X + 1147, OFFSET_Y + 322 }, {
+		OFFSET_X + 1152, OFFSET_Y + 183
+	}, { OFFSET_X + 1153, OFFSET_Y + 459 }, {
+		OFFSET_X + 1141, OFFSET_Y + 136
+	}, {
+		OFFSET_X + 1145, OFFSET_Y + 512
+	}, { OFFSET_X + 1154, OFFSET_Y + 400 }, {
+		OFFSET_X + 1152, OFFSET_Y + 243
+	}, {
+		OFFSET_X + 1143, OFFSET_Y + 213
+	}, { OFFSET_X + 1144, OFFSET_Y + 430 },
+};
 
 static SDL_Rect buttonsCoordinates[] = { { OFFSET_X + 747, OFFSET_Y + 854 }, {
-OFFSET_X + 1043, OFFSET_Y + 735 }, { OFFSET_X + 747, OFFSET_Y + 778 }, {
-OFFSET_X + 531, OFFSET_Y + 777 }, { OFFSET_X + 422, OFFSET_Y + 777 }, {
-OFFSET_X + 314, OFFSET_Y + 777 }, { OFFSET_X + 747, OFFSET_Y + 815 }, {
-OFFSET_X + 640, OFFSET_Y + 777 }, { OFFSET_X + 889, OFFSET_Y + 769 }, {
-OFFSET_X + 205, OFFSET_Y + 777 }, { OFFSET_X + 96, OFFSET_Y + 777 }, };
+		OFFSET_X + 1043, OFFSET_Y + 735
+	}, { OFFSET_X + 747, OFFSET_Y + 778 }, {
+		OFFSET_X + 531, OFFSET_Y + 777
+	}, { OFFSET_X + 422, OFFSET_Y + 777 }, {
+		OFFSET_X + 314, OFFSET_Y + 777
+	}, { OFFSET_X + 747, OFFSET_Y + 815 }, {
+		OFFSET_X + 640, OFFSET_Y + 777
+	}, { OFFSET_X + 889, OFFSET_Y + 769 }, {
+		OFFSET_X + 205, OFFSET_Y + 777
+	}, { OFFSET_X + 96, OFFSET_Y + 777 },
+};
 
 static SDL_Rect symbolsCoordinates[][3] = { { {
-OFFSET_X + 319, OFFSET_Y + 146, 0, 0 },
+			OFFSET_X + 319, OFFSET_Y + 146, 0, 0
+		},
 		{ OFFSET_X + 319, OFFSET_Y + 281, 0, 0 }, {
-		OFFSET_X + 319,
-		OFFSET_Y + 417, 0, 0 } }, { { OFFSET_X + 485, OFFSET_Y + 146, 0, 0 }, {
-OFFSET_X + 485, OFFSET_Y + 281, 0, 0 }, {
-OFFSET_X + 485, OFFSET_Y + 417, 0, 0 } }, { { OFFSET_X + 652, OFFSET_Y + 146, 0,
-		0 }, {
-OFFSET_X + 652, OFFSET_Y + 281, 0, 0 }, {
-OFFSET_X + 652,
-OFFSET_Y + 417, 0, 0 } }, { { OFFSET_X + 818, OFFSET_Y + 146, 0, 0 }, {
-OFFSET_X + 818, OFFSET_Y + 281, 0, 0 }, {
-OFFSET_X + 818,
-OFFSET_Y + 417, 0, 0 } }, { { OFFSET_X + 984, OFFSET_Y + 146, 0, 0 }, {
-OFFSET_X + 984, OFFSET_Y + 281, 0, 0 }, {
-OFFSET_X + 984,
-OFFSET_Y + 417, 0, 0 } }, };
+			OFFSET_X + 319,
+			OFFSET_Y + 417, 0, 0
+		}
+	}, { { OFFSET_X + 485, OFFSET_Y + 146, 0, 0 }, {
+			OFFSET_X + 485, OFFSET_Y + 281, 0, 0
+		}, {
+			OFFSET_X + 485, OFFSET_Y + 417, 0, 0
+		}
+	}, { {
+			OFFSET_X + 652, OFFSET_Y + 146, 0,
+			0
+		}, {
+			OFFSET_X + 652, OFFSET_Y + 281, 0, 0
+		}, {
+			OFFSET_X + 652,
+			OFFSET_Y + 417, 0, 0
+		}
+	}, { { OFFSET_X + 818, OFFSET_Y + 146, 0, 0 }, {
+			OFFSET_X + 818, OFFSET_Y + 281, 0, 0
+		}, {
+			OFFSET_X + 818,
+			OFFSET_Y + 417, 0, 0
+		}
+	}, { { OFFSET_X + 984, OFFSET_Y + 146, 0, 0 }, {
+			OFFSET_X + 984, OFFSET_Y + 281, 0, 0
+		}, {
+			OFFSET_X + 984,
+			OFFSET_Y + 417, 0, 0
+		}
+	},
+};
 
 static void drawText(int x, int y, const char *text) {
 	for (int i = 0; i < strlen(text); i++) {
 		SDL_Rect coord = { OFFSET_X + x + i * core::FontImages::OVERLAP,
-				OFFSET_Y + y, 0, 0 };
+						   OFFSET_Y + y, 0, 0
+						 };
 		SDL_BlitSurface((SDL_Surface*) core::FontImages::SYMBOLS[(int) text[i]],
-				NULL, core::canvas, &coord);
+						NULL, core::canvas, &coord);
 	}
 }
 
@@ -316,7 +375,7 @@ static void drawText(int x, int y, int number) {
 
 static void drawBingoNumbers() {
 	static TTF_Font *font = TTF_OpenFont(
-			"./bingotropicalhot/fonts/Prototype.ttf", 16);
+								"./bingotropicalhot/fonts/Prototype.ttf", 16);
 
 	char number[100] = "";
 	SDL_Color color = { 0, 0, 0 };
@@ -336,9 +395,10 @@ static void drawBingoNumbers() {
 					color = NUMBERS_SHADOW_COLOR;
 
 					SDL_Surface *text = TTF_RenderText_Solid(font, number,
-							color);
+										color);
 					SDL_Rect coord = { OFFSET_X + csx + 115 + i * 44 + 1,
-					OFFSET_Y + csy + 633 + z * 20, 0, 0 };
+									   OFFSET_Y + csy + 633 + z * 20, 0, 0
+									 };
 					SDL_BlitSurface(text, NULL, core::canvas, &coord);
 					SDL_FreeSurface(text);
 				}
@@ -376,7 +436,8 @@ static void drawBingoNumbers() {
 
 				SDL_Surface *text = TTF_RenderText_Solid(font, number, color);
 				SDL_Rect coord = { OFFSET_X + csx + 115 + i * 44 + 1, OFFSET_Y
-						+ csy + 633 + z * 20 + 1, 0, 0 };
+								   + csy + 633 + z * 20 + 1, 0, 0
+								 };
 				SDL_BlitSurface(text, NULL, core::canvas, &coord);
 				SDL_FreeSurface(text);
 			}
@@ -406,8 +467,8 @@ void initMainGame() {
 						continue;
 					}
 					SDL_BlitSurface(
-							(SDL_Surface*) symbolsSurface[core::CommonState::view[i][j]],
-							NULL, core::canvas, &symbolsCoordinates[i][j]);
+						(SDL_Surface*) symbolsSurface[core::CommonState::view[i][j]],
+						NULL, core::canvas, &symbolsCoordinates[i][j]);
 				}
 			}
 
@@ -435,7 +496,7 @@ void drawMainGame() {
 	 * Draw backgroud image.
 	 */{
 		SDL_BlitSurface((SDL_Surface*) backgroundSurface, NULL, core::canvas,
-				&backgroundCoordinates);
+						&backgroundCoordinates);
 	}
 
 //	/*
@@ -529,7 +590,7 @@ void drawMainGame() {
 				continue;
 			}
 			SDL_BlitSurface((SDL_Surface*) symbolsSurface[core::CommonState::view[i][j]],
-					NULL, core::canvas, &symbolsCoordinates[i][j]);
+							NULL, core::canvas, &symbolsCoordinates[i][j]);
 		}
 	}
 
@@ -537,14 +598,14 @@ void drawMainGame() {
 	 * Draw logo image.
 	 */{
 		SDL_BlitSurface((SDL_Surface*) logoSurface, NULL, core::canvas,
-				&logoCoordinates);
+						&logoCoordinates);
 	}
 
 	/*
 	 * Draw mesage bar image.
 	 */{
 		SDL_BlitSurface((SDL_Surface*) messageBarSurface, NULL, core::canvas,
-				&messageBarCoordinates);
+						&messageBarCoordinates);
 	}
 
 	/*
@@ -552,7 +613,7 @@ void drawMainGame() {
 	 */
 	for (int i = 0; i < core::BingoBonus::BINGO_CARDS_TALONS; i++) {
 		SDL_BlitSurface((SDL_Surface*) talonsSurface[i], NULL, core::canvas,
-				&bingoCardsCoordinates[i]);
+						&bingoCardsCoordinates[i]);
 	}
 
 	drawBingoNumbers();
@@ -562,7 +623,7 @@ void drawMainGame() {
 	 */
 	for (int i = 0; i < gameWins.size(); i++) {
 		SDL_BlitSurface((SDL_Surface*) linesSurface[gameWins[i].lineIndex],
-				NULL, core::canvas, &linesCoordinates[gameWins[i].lineIndex]);
+						NULL, core::canvas, &linesCoordinates[gameWins[i].lineIndex]);
 	}
 
 	/*
@@ -570,7 +631,7 @@ void drawMainGame() {
 	 */
 	for (int i = 0; i < 2; i++) {
 		SDL_BlitSurface((SDL_Surface*) linesMarksBarsSurface[i], NULL,
-				core::canvas, &linesMarksBarsCoordinates[i]);
+						core::canvas, &linesMarksBarsCoordinates[i]);
 	}
 
 	/*
@@ -578,7 +639,7 @@ void drawMainGame() {
 	 */
 	for (int i = 0; i < BUTTONS_LENGTH; i++) {
 		SDL_BlitSurface((SDL_Surface*) buttonsSurface[i], NULL, core::canvas,
-				&buttonsCoordinates[i]);
+						&buttonsCoordinates[i]);
 	}
 
 	/*
@@ -586,21 +647,21 @@ void drawMainGame() {
 	 */
 	for (int i = 0; i < MARKS_LENGTH; i++) {
 		SDL_BlitSurface((SDL_Surface*) marksSurface[i], NULL, core::canvas,
-				&marksCoordinates[i]);
+						&marksCoordinates[i]);
 	}
 
 	/*
 	 * Draw foreground  image.
 	 */{
 		SDL_BlitSurface((SDL_Surface*) foregroundSurface, NULL, core::canvas,
-				&foregroundCoordinates);
+						&foregroundCoordinates);
 	}
 
 	/*
 	 * Draw ball bar images.
 	 */{
 		SDL_BlitSurface((SDL_Surface*) ballBarSurface, NULL, core::canvas,
-				&ballBarCoordinates);
+						&ballBarCoordinates);
 	}
 
 	/*
@@ -608,8 +669,8 @@ void drawMainGame() {
 	 */
 	if (1 <= core::CommonState::bingoBallNumber && core::CommonState::bingoBallNumber <= 90) {
 		SDL_BlitSurface(
-				(SDL_Surface*) bingoBallsSurface[core::CommonState::bingoBallNumber - 1],
-				NULL, core::canvas, &bingoBallsCoordinates);
+			(SDL_Surface*) bingoBallsSurface[core::CommonState::bingoBallNumber - 1],
+			NULL, core::canvas, &bingoBallsCoordinates);
 	}
 
 	drawText(100, 795, core::CommonState::credit);

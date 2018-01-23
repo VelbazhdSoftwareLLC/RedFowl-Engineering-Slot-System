@@ -32,7 +32,7 @@ private:
 public:
 
 	Win(int value, int credit, WinType type, time_t timestamp,
-			const Game* game) {
+		const Game* game) {
 		this->value = value;
 		this->credit = credit;
 		this->type = type;
