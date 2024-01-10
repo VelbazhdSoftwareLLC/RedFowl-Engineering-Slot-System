@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include <cdk.h>
+#include <cdk/cdk.h>
 
 #include "MenuLabels.h"
 #include "TuiPointers.h"

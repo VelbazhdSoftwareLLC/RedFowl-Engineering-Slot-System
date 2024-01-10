@@ -1,7 +1,7 @@
 #ifndef MANAGEMENT_TUIPOINTERS_H_
 #define MANAGEMENT_TUIPOINTERS_H_
 
-#include <cdk.h>
+#include <cdk/cdk.h>
 
 namespace management {
 

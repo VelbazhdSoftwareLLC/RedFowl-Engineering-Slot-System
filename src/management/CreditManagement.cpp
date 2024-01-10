@@ -5,7 +5,7 @@
 #include <odb/pgsql/database.hxx>
 
 #include <ncurses.h>
-#include <cdk.h>
+#include <cdk/cdk.h>
 
 #include "../persistence/Session.h"
 #include "../persistence/Session-odb.hxx"
