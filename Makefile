@@ -3,10 +3,7 @@ DEFAULT_DIR := ./Default/
 
 ODB := odb --output-dir $(SRC_DIR)
 
-#ODB_FILES := $(shell find $(SRC_DIR) -name '*.h')
-
-SCHEMA_FILES=$(addprefix $(SRC_DIR), Game.h Bet.h Win.h GameConfiguration.h PlayHistory.h Session.h MachineConfiguration.h Account.h DoorState.h BillStackerAccess.h PowerState.h Event.h)
-DB_FILES=$(SCHEMA_FILES) $(addprefix $(SRC_DIR), GameHistoryInfo.h)
+SCHEMA_FILES=$(addprefix $(SRC_DIR), Game.h Bet.h Win.h GameConfiguration.h PlayHistory.h Session.h MachineConfiguration.h Account.h DoorState.h BillStackerAccess.h PowerState.h Event.h GameHistoryInfo.h)
 
 odb: clean_files _odb1 _odb2
 .PHONY: odb
@@ -14,7 +11,7 @@ odb: clean_files _odb1 _odb2
 _odb1: $(SCHEMA_FILES)
 	$(ODB) --generate-schema-only --database pgsql --at-once --input-name database  $^
 
-_odb2: $(DB_FILES)
+_odb2: $(SCHEMA_FILES)
 	$(foreach file, $^, $(ODB) --database pgsql --generate-query $(file);)
 
 pictures:
