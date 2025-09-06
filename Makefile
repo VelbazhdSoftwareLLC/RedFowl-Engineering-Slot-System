@@ -1,42 +1,43 @@
-SRC_DIR := ./src/persistence/
-DEFAULT_DIR := ./Default/
+# Makefile to replace pictures.sh, format.sh, odb.sh, and clean.sh
 
-ODB := odb --output-dir $(SRC_DIR)
+# Directories
+SRC_DIR := ./src/persistence
+RES_DIR := ./res
+OUT_DIR := ./Default
 
-SCHEMA_FILES=$(addprefix $(SRC_DIR), Game.h Bet.h Win.h GameConfiguration.h PlayHistory.h Session.h MachineConfiguration.h Account.h DoorState.h BillStackerAccess.h PowerState.h Event.h GameHistoryInfo.h)
+# Files for odb
+ODB_HEADERS := Game.h Bet.h Win.h GameConfiguration.h PlayHistory.h Session.h \
+               MachineConfiguration.h Account.h DoorState.h BillStackerAccess.h \
+               PowerState.h Event.h GameHistoryInfo.h
 
-odb: clean_files _odb1 _odb2
-.PHONY: odb
+# Default target
+all: clean format odb pictures
 
-_odb1: $(SCHEMA_FILES)
-	$(ODB) --generate-schema-only --database pgsql --at-once --input-name database  $^
-
-_odb2: $(SCHEMA_FILES)
-	$(foreach file, $^, $(ODB) --database pgsql --generate-query $(file);)
-
+# Equivalent to pictures.sh
 pictures:
-	@mkdir -p $(DEFAULT_DIR)
-	cp -rf ./res/* $(DEFAULT_DIR)
+	rm -f $(SRC_DIR)/*.ixx
+	rm -f $(SRC_DIR)/*.cxx
+	rm -f $(SRC_DIR)/*.hxx
+	rm -f $(SRC_DIR)/*.sql
+	rm -rf $(OUT_DIR)
 
+# Equivalent to format.sh
 format:
-	astyle *.cpp *.h --indent=force-tab --style=java / -A2 --recursive
+	astyle *.cpp *.h --indent=force-tab --style=java -A2 --recursive
 
-clean: clean_files _clean_default_dir
-.PHONY: clean
+# Equivalent to odb.sh
+odb:
+	cd $(SRC_DIR) && rm -f *.ixx *.cxx *.hxx *.sql
+	cd $(SRC_DIR) && \
+	odb --generate-schema-only --database pgsql --at-once --input-name database $(ODB_HEADERS)
+	cd $(SRC_DIR) && \
+	for hdr in $(ODB_HEADERS); do \
+		odb --database pgsql --generate-query $$hdr; \
+	done
 
-clean_files:
-	$(RM) $(SRC_DIR)/*.ixx
-	$(RM) $(SRC_DIR)/*.cxx
-	$(RM) $(SRC_DIR)/*.hxx
-	$(RM) $(SRC_DIR)/*.sql
+# Equivalent to clean.sh
+clean:
+	mkdir -p $(OUT_DIR)
+	cp -rf $(RES_DIR)/* $(OUT_DIR)/
 
-_clean_default_dir:
-	$(RM) -rf $(DEFAULT_DIR)
-
-.PHONY: help
-help:
-	@echo  'Targets:'
-	@echo  'odb'
-	@echo  'format'
-	@echo  'pictures'
-	@echo  'clean'
+.PHONY: all pictures format odb clean
