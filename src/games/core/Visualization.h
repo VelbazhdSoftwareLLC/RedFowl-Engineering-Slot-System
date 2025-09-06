@@ -7,10 +7,8 @@
 
 namespace core {
 
-//#define CANVAS_WIDTH 1366
-//#define CANVAS_HEIGHT 768
-#define CANVAS_WIDTH 1280
-#define CANVAS_HEIGHT 1024
+#define CANVAS_WIDTH 1440
+#define CANVAS_HEIGHT 900
 
 extern SDL_Window *window;
 extern SDL_Surface *canvas;
