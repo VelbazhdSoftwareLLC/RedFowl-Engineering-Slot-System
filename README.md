@@ -1,2 +1,3 @@
-# RedfowlEngineeringSlotSystem
-Redfowl Engineering Ltd. Slot Mahiens System
+# RedFowl Engineering Slot System
+Redfowl Engineering Ltd.
+Slot Machines System
